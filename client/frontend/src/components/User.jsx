@@ -36,7 +36,12 @@ function User() {
 
                      <div className="input-box">
                          <span className='details'>Host</span>
-                         <input type="text" placeholder='Enter your first name'/>
+                        <select className='details' id="slect">
+                            <option>Name 1</option>
+                            <option>Name 2</option>
+                            <option>Name 3</option>
+                            <option>Name 4</option>
+                        </select>
                      </div>
 
 
