@@ -74,3 +74,15 @@ form .user-details .input-box {
     border-bottom-width: 2px;
 }
 
+.user-details .input-box input:focus,
+.user-details .input-box .input-valid{
+    border-color: rgb(207, 159, 159);
+}
+
+form .button {
+    height: 45px;
+    margin: 45px 0;
+}
+form .button input {
+    
+}
