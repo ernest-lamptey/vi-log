@@ -11,27 +11,27 @@ function User() {
 
                      <div className="input-box">
                          <span className='details'>First Name</span>
-                         <input type="text" placeholder='Enter your first name'/>
+                         <input type="text" placeholder='Enter first name'/>
                      </div>
 
                      <div className="input-box">
                          <span className='details'>Last Name</span>
-                         <input type="text" placeholder='Enter your last name'/>
+                         <input type="text" placeholder='Enter last name'/>
                      </div>
 
                      <div className="input-box">
                          <span className='details'>Email</span>
-                         <input type="text" placeholder='Enter your email' required/>
+                         <input type="text" placeholder='Enter email' required/>
                      </div>
 
                      <div className="input-box">
                          <span className='details'>Phone</span>
-                         <input type="text" placeholder='Enter your phone number'/>
+                         <input type="text" placeholder='Enter phone number'/>
                      </div>
 
                      <div className="input-box">
                          <span className='details'>Company</span>
-                         <input type="text" placeholder='Enter your Company name'/>
+                         <input type="text" placeholder='Enter Company name'/>
                      </div>
 
                      <div className="input-box">

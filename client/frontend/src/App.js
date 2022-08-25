@@ -1,7 +1,10 @@
-import './App.css';
+import "./App.css";
+import User from "./components/User";
 
 function App() {
-  return <h1>hello</h1>
+  return <div>
+    <User />
+  </div>;
 }
 
 export default App;
