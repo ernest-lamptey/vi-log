@@ -7,7 +7,7 @@
   padding: 0;
 }
 
-body {
+.body {
   background-image: url("../assets/office-entrance.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -64,25 +64,48 @@ form .user-details .input-box {
 }
 
 .user-details .input-box input {
-    height: 45px;
-    width: 100%;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding-left: 15px;
-    font-size: 16px;
-    border-bottom-width: 2px;
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
 }
 
 .user-details .input-box input:focus,
-.user-details .input-box .input-valid{
-    border-color: rgb(207, 159, 159);
+.user-details .input-box .input-valid {
+  border-color: rgb(207, 159, 159);
 }
 
 form .button {
-    height: 45px;
-    margin: 45px 0;
+  height: 45px;
+  margin: 45px 0;
 }
 form .button input {
-    
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: $font-roboto;
+  color: $main-color;
+  letter-spacing: 1px;
+  background: $orange-color;
+}
+form .button input:hover {
+  background: $main-color;
+  color: $black-color;
+  font-weight: 500;
+  cursor: pointer;
+  transition-duration: 1s;
+  transition-timing-function: linear ease-out;
+}
+
+select {
+    outline: none;
+    font-family: $font-roboto;
+    border: none;
+    border-radius: 5px solid;
 }
