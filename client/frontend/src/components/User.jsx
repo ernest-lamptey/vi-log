@@ -1,61 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/User.scss";
 
 function User() {
-  const [ text, setText ] = useState({
-      fName: "",
-      lName: "",
-      email: "",
-      company: ""
-  });
-  const [ input, setInput ] = useState("")
 
- function handleChange (event) {
-
-      setText(event.target.value);
-        event.preventDefault();
-   
- }
-
-function handleClick(event) {
-  
-    setInput(text)
-}
 
   return (
     <div className="body">
       <div className="container">
         <div className="title">Fill Form</div>
-        <form onSubmit={handleClick}>
+        <form>
           <div className="user-details">
             <div className="input-box">
               <span className="details">First Name</span>
-              <input
-                onChange={handleChange}
-                type="text"
-                placeholder="Enter first name"
-                value={text.fName}
-              />
+              <input type="text" placeholder="Enter first name" />
             </div>
 
             <div className="input-box">
               <span className="details">Last Name</span>
-              <input
-                onChange={handleChange}
-                type="text"
-                placeholder="Enter last name"
-                value={text.lName}
-              />
+              <input type="text" placeholder="Enter last name" />
             </div>
 
             <div className="input-box">
               <span className="details">Email</span>
-              <input
-                onChange={handleChange}
-                type="text"
-                placeholder="Enter email"
-                value={text.email}
-              />
+              <input type="text" placeholder="Enter email" />
             </div>
 
             <div className="input-box">
@@ -65,22 +32,12 @@ function handleClick(event) {
 
             <div className="input-box">
               <span className="details">Company</span>
-              <input
-                onChange={handleChange}
-                type="text"
-                placeholder="Enter Company name"
-                value={text.company}
-              />
+              <input type="text" placeholder="Enter Company name" />
             </div>
 
             <div className="input-box">
               <span className="details">Host</span>
-              <select
-                className="details"
-                id="slect"
-                //   onChange={handleChange}
-                //   value={text}
-              >
+              <select className="details" id="slect">
                 <option>Name 1</option>
                 <option>Name 2</option>
                 <option>Name 3</option>
