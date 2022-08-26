@@ -3,12 +3,17 @@ import "../styles/User.scss";
 
 function User() {
 
+  function handleSubmit(event) {
+    
+
+    event.preventDefault()
+  }
 
   return (
     <div className="body">
       <div className="container">
         <div className="title">Fill Form</div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="user-details">
             <div className="input-box">
               <span className="details">First Name</span>
