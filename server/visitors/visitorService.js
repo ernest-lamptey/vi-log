@@ -2,6 +2,12 @@ const pool = require('../db');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
+
+//move email functionality to host module and imported into the visitor service module
+// the addVisitor will also query the database for complete visit details and return an object
+// with all the necessary information which will be passed into the email and
+// sms functionality
+
 // setup for email
 let transporter = nodemailer.createTransport({
     service: "gmail",
@@ -24,7 +30,6 @@ let mailOptions = {
 const addVisitor = (body) => {
     // add visitor details to visits table in db
     // check if visitor is already signed in
-    //problem with handling errors
     pool.query(
         `INSERT INTO visits (name, phone, email, company, purpose, host_id, photo_url)
         VALUES ($1, $2, $3, $4, $5, $6, $7)`, 
