@@ -10,13 +10,13 @@ li {
 }
 a {
     text-decoration: none;
-    color: darkgrey;
+    color: $main-color;
 }
 
 .nav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: right;
     height: 8vh;
     background: $orange-color;
 }
@@ -24,5 +24,40 @@ a {
 .nav_brand {
     text-transform: uppercase;
     font-weight: bold;
-    
+
+}
+
+.nav_menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav_toggler div {
+    width: 2.0rem;
+    height: 0.2rem;
+    margin: 0.4rem;
+    background: $main-color;
+}
+
+.nav_toggler {
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .nav_toggler {
+        display: block;
+    }
+    .nav_menu {
+        position: fixed;
+        top: 7vh;
+        right: 0;
+        width: 50%;
+        height: 93vh;
+        background: $orange-color;
+        flex-direction: column;
+        transform: translateX(100%);
+
+    }
 }
