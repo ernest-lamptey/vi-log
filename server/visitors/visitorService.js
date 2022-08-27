@@ -15,10 +15,10 @@ let transporter = nodemailer.createTransport({
 })
 // email sending options and message
 let mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: "1ernestlamptey@gmail.com",
-    subject: "Testing",
-    text: "First email sent with nodemailer"
+    from: "Vilog",
+    to: "",
+    subject: "Meeting Details",
+    text: ""
 }
 
 const addVisitor = (body) => {
@@ -33,6 +33,15 @@ const addVisitor = (body) => {
     .then((res) => {
         console.log("Login details added to database");
         // sending the email
+        mailOptions.to = body.email;
+        mailOptions.text = `
+        Dear ${body.name},
+
+        Your meeting has been successfully scheduled.
+        
+        Best regards,
+        Vilog Team.
+        `;
         transporter.sendMail(mailOptions, function(err, success) {
             if (err) {
                 console.error(err)
