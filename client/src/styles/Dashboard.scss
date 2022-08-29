@@ -1,0 +1,24 @@
+@import "../styles//fonts";
+@import "../styles/colors";
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: $font-roboto;
+}
+
+.body {
+  background: $gray-background;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+}
+
+.logo img {
+    width: 45px;
+}
