@@ -10,11 +10,11 @@ function App() {
         <Navbar />
         
         <Switch>
-          <Route path="/" exact>
+          <Route path="/" component={User} exact>
             <User />
           </Route>
           
-          <Route path="/dashboard">
+          <Route component={Dashboard} path="/dashboard">
             <Dashboard />
           </Route>
           
