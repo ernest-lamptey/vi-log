@@ -40,8 +40,8 @@ section {
 }
 
 .logo img{
-  width: 50px;
-  height: 15px;
+  width: 10rem;
+  height: 60;
 }
 
 .logo span {
@@ -49,4 +49,21 @@ section {
   padding-left: 15px;
   font-size: 18px;
   text-transform: uppercase;
+}
+
+a {
+  position: relative;
+  // width: 280px;
+  font-size: 14px;
+  color: rgb(85, 83, 83);
+  display: table;
+  line-height: 1em;
+  margin-left: 2rem;
+  padding: 15px;
+
+}
+
+.header .fas {
+  position: relative;
+  width: 60px;
 }
