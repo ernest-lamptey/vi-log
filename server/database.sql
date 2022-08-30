@@ -10,6 +10,7 @@ CREATE TABLE employees (
 
 CREATE TABLE visits (
 	id SERIAL PRIMARY KEY NOT NULL,
+	--rename "name"
 	name VARCHAR(255) NOT NULL, 
 	company VARCHAR(50),
 	email VARCHAR(255),
@@ -22,20 +23,17 @@ CREATE TABLE visits (
 	photo_url VARCHAR(255)
 );
 
+
+--LAST ITEM IN TABLE
+select *from getLastRecord ORDER BY id DESC LIMIT 1;
+
+--WHO IS VISITNG WHICH EMPLOYEE
+SELECT employees.f_name AS host_name, employees.email AS host_email, employees.phone AS host_phone, visits.name AS visitor_name, visits.email AS visitor_email, visits.phone AS visitor_phone FROM employees
+JOIN visits
+ON employees.id = visits.host_id
+WHERE visits.id = 2;
+
 --INSERT INTO VISITS TABLE FROM FORM DATA
 INSERT INTO visitors (name, phone, email, company, purpose, host_id, photo_url)
 VALUES ($1, $2, $3, $4, $5, $6, $7);
 
-    (async () => {
-        try {
-            await pool.query(
-                `INSERT INTO visits (name, phone, email, company, purpose, host_id, photo_url)
-                VALUES ($1, $2, $3, $4, $5, $6, $7)`, 
-                [body.name, body.phone, body.email, body.company, body.purpose, body.host_id, body.photo_url]
-            )
-            return "Created successfully"
-        } catch (error) {
-            throw { status: error?.status || 500, message: error?.message || error }
-        }
-    })().catch(error => { return error.message })
-}

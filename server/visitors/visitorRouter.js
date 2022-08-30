@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { addVisitor } = require('./visitorService')
+const { addVisitorToDB } = require('./visitorService');
+const { sendNotifications } = require('../host');
 
 router.get('/', (req, res) => {
     //get all employee id, names, department and photo_url
@@ -8,8 +9,9 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     //post visitor details to visit database
     try {
-        await addVisitor(req.body);
-        res.status(200).send("Created successfully")
+        const visitorId = await addVisitorToDB(req.body);
+        await sendNotifications(visitorId)
+        res.status(200).send("Successful")
     } catch (error) {
         console.error(error)
         res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
