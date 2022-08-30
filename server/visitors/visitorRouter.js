@@ -19,7 +19,6 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/', (req, res) => {
-    //update the sign out time
 })
 
 module.exports = router;
