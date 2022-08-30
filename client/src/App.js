@@ -8,7 +8,6 @@ function App() {
   return (
     <Router>
         <Navbar />
-        
         <Switch>
           <Route path="/" component={User} exact>
             <User />
