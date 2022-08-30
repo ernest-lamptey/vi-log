@@ -5,6 +5,7 @@ import { MdDashboard } from "react-icons/md";
 import { TbReportSearch } from "react-icons/tb";
 import { IoMdContact } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
+import { BsFillPersonLinesFill } from "react-icons/bs";
 function Dashboard() {
   return (
     <section>
@@ -37,7 +38,7 @@ function Dashboard() {
                 <span className="nav-item">Report</span>
               </a>
             </li>
-            <li>
+            <li className="logout">
               <a href="#">
                 <MdLogout className="fas" />
                 <span className="nav-item">Logout</span>
@@ -46,7 +47,20 @@ function Dashboard() {
           </ul>
         </nav>
       </div>
+
+      <section className="main">
+        <div className="main-top">
+          <h1>Total Visitors</h1>
+          <BsFillPersonLinesFill />
+        </div>
+
+      </section>
+
+
+
+
     </section>
+
   );
 }
 
