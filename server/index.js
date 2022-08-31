@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const visitorRouter = require('./visitors/visitorRouter')
+const visitorRouter = require('./visitors/visitorRouter');
+const adminRouter = require('./admin/adminRouter');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -14,6 +15,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use('/visitors', visitorRouter);
+app.use('/admin', adminRouter);
 
 app.get("*", (req, res) => {
     res.sendFile('../client/build/index.html');

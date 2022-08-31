@@ -3,11 +3,10 @@ const router = express.Router();
 const { addVisitorToDB } = require('./visitorService');
 const { sendNotifications } = require('../host');
 
-router.get('/', (req, res) => {
-    //get all employee id, names, department and photo_url
-})
 router.post('/', async (req, res) => {
-    //post visitor details to visit database
+    if (!req.body){
+        res.sendFile('../../client/build/index.html');
+    }
     try {
         const visitorId = await addVisitorToDB(req.body);
         await sendNotifications(visitorId)
@@ -19,6 +18,10 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/', (req, res) => {
+})
+
+router.get('*', (req, res) => {
+    res.sendFile('../../client/build/index.html');
 })
 
 module.exports = router;

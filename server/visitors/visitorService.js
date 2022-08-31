@@ -1,7 +1,4 @@
 const pool = require('../db');
-require('dotenv').config();
-
-
 //move email functionality to host module and imported into the visitor service module
 // the addVisitor will also query the database for complete visit details and return an object
 // with all the necessary information which will be passed into the email and
@@ -24,6 +21,8 @@ const addVisitorToDB = (body) => {
         return data.rows[0].id
     })
     .catch(err => {
+        console.log(pool.options)
+        console.error(err);
         throw {status: err?.status || 500, message: err.message}
     })
 }
