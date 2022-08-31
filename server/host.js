@@ -18,7 +18,7 @@ const getReceiverDetails = (id) => {
                 return data.rows[0]
             })
             .catch(err => {
-                throw {status: status?.status || 500, message: err.message }
+                throw {status: err?.status || 500, message: err.message }
             })
 }
 
@@ -38,7 +38,8 @@ let mailOptions = {
     from: "Vilog",
     to: "",
     subject: "Meeting Details",
-    text: ""
+    text: "",
+    attachments: ""
 }
 
 const visitorNotificationMessage = (receiver_name) => {
@@ -71,6 +72,12 @@ const sendMail = () => {
             console.error(err)
         } else {
             console.log("Email sent successfully")
+            fs.unlink('qr.png', (err) => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+            })
         }
     })
 };
@@ -108,6 +115,7 @@ const sendNotifications =  async (id) => {
         console.log(receiverDetails);
 
         mailOptions.to = receiverDetails.visitor_email;
+        mailOptions.attachments = [{ filename: 'qr.png', path: './qr.png'}]
         mailOptions.text = visitorNotificationMessage(receiverDetails.visitor_name);
         sendMail();
     

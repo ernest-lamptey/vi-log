@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     }
     try {
         const visitorId = await addVisitorToDB(req.body);
-        // await sendNotifications(visitorId)
+        await sendNotifications(visitorId)
         res.status(200).send("Successful")
     } catch (error) {
         console.error(error)
