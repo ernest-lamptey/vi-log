@@ -54,7 +54,6 @@ section {
 
 a {
   position: relative;
-  // width: 280px;
   font-size: 14px;
   color: rgb(85, 83, 83);
   display: table;
@@ -152,7 +151,7 @@ a:hover .fas {
 .main .users {
   display: flex;
   position: absolute;
-  width: 95%;
+  width: 96%;
 }
 
 .users .card {
@@ -214,8 +213,11 @@ a:hover .fas {
 
 /* Attendance List Section */
 .attendance {
-  margin-top: 20px;
+  // margin-top: 20px;
   text-transform: capitalize;
+  margin-top: 24%;
+  
+  
 }  
 .attendance-list {
   width: 100%;
@@ -249,10 +251,10 @@ table thead tr{
 }
 
 .table tbody tr {
-  border-bottom: 1px solid $main-color;
+  border-bottom: 1px solid #ddd;
 }
-.table tbody tr:nth-of-child(even) {
-   background: $main-color;
+.table tbody tr:nth-of-child(odd) {
+   background: #f3f3f3;
 }
 
 .table tbody tr.active {
@@ -262,4 +264,19 @@ table thead tr{
 
 .table tbody tr:last-of-type {
   border-bottom: 2px solid #4AD489;
+}
+
+.table button {
+  padding: 6px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid $orange-color;
+  
+}
+
+.table button:hover {
+  background: $orange-color;
+  color: #fff;
+  transition: 0.5rem;
 }
