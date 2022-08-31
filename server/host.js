@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const pool = require('./db');
 require("dotenv").config();
 const axios = require('axios');
+const fs = require('fs');
 
 
 const getReceiverDetails = (id) => {
