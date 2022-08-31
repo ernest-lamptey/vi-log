@@ -1,0 +1,59 @@
+@import './colors';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+    background-color: $orange-color;
+    color: white;
+    
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    width: 75%;
+}
+
+.dashboard{
+  text-decoration: none;
+  color: $main-color;
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+} 
+
+.dashboard {
+    // border: 1px solid $main-color;
+    // border-radius: 5px;
+}
+.mobile-menu-icon {
+    display: none;
+}
+
+@media screen and (max-width) {
+    .log {
+        display: flex;
+        position: absolute;
+        top: 15px;
+        left: 35px;
+    }
+    
+    .nav-links-mobile {
+        position: absolute;
+        display: block;
+        list-style: none;
+        background-color: $orange-color;
+        left: 0;
+        top: 75px;
+        transition: all 0.5s ease-out;
+    }
+}
