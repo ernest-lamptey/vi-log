@@ -8,7 +8,8 @@ import { MdLogout } from "react-icons/md";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 function Dashboard() {
   return (
-    // <section>
+    <section>
+      {/* <div> */}
       <div className="wrapper">
         <nav className="header">
           <ul>
@@ -46,15 +47,40 @@ function Dashboard() {
             </li>
           </ul>
         </nav>
-        
+
         <section className="main">
           <div className="main-top">
             <h1>Total Visitors</h1>
-            <BsFillPersonLinesFill />
+            <BsFillPersonLinesFill className="person" />
           </div>
         </section>
       </div>
-    // </section>
+      <div className="users">
+        <div className="card">
+          <img src="" alt="" />
+          <h4>Prince Quarshie</h4>
+          <p>Company</p>
+          <p></p>
+          <div className="per">
+            <table>
+              <tr>
+                <td>
+                  <span>Phone</span>
+                </td>
+                <td>
+                  <span>Email</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Time in</td>
+                <td>Time out</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      {/* </div> */}
+    </section>
   );
 }
 

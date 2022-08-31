@@ -48,6 +48,7 @@ section {
   font-weight: bold;
   padding-left: 15px;
   font-size: 18px;
+
   text-transform: uppercase;
 }
 
@@ -95,7 +96,33 @@ a:hover .fas {
 }
 
 /* Main Section */
-main {
+
+.header .fas {
+  position: relative;
+  width: 70px;
+  height: 40px;
+  top: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.person {
+  //  position: relative;
+  width: 60px;
+  height: 30px;
+  top: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-item {
+  position: relative;
+  top: 12px;
+  margin-left: 10px;
+  line-height: 2rem;
+}
+
+.main {
   position: relative;
   padding: 20px;
   width: 100%;
@@ -105,11 +132,51 @@ main {
   display: flex;
   width: 100%;
 }
+
 .main-top .fas {
   position: absolute;
   right: 0;
-  margin: 10px;
-  color: rgb(118, 109, 109);
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
   cursor: pointer;
+}
+
+.person {
+  position: absolute;
+  right: 0;
+  margin: 10px 30px;
+  color: rgb(110, 109, 109);
+  cursor: pointer;
+}
+
+.main .users {
+  display: flex;
+  position: absolute;
+  width: 100%;
+}
+
+.users .card{
+  width: 25%;
+  margin: 10px;
+  background: $main-color;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+
+.users .card img{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+
+.users .card h4{
+  text-transform: uppercase;
+}
+
+.users .card p{ 
+ font-size: ;
 
 }
