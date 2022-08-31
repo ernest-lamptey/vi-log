@@ -6,7 +6,7 @@
   "engines": {
     "node": "16.17.0",
     "npm": "8.15.0"
-  }
+  },
   "scripts": {
     "start": "cd server && node index.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
