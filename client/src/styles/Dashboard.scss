@@ -27,9 +27,9 @@ section {
   transition: 1s;
 }
 
-.header:hover{
+.header:hover {
   width: 280px;
-  transition: 1s; 
+  transition: 1s;
 }
 
 .logo {
@@ -39,10 +39,9 @@ section {
   padding-bottom: 3rem;
 }
 
-.logo img{
+.logo img {
   width: 10rem;
   height: 60;
-
 }
 
 .logo span {
@@ -61,7 +60,6 @@ a {
   line-height: 1em;
   margin-left: 2rem;
   padding: 15px;
-
 }
 
 .header .fas {
@@ -86,13 +84,32 @@ a:hover {
 a:hover .fas {
   color: $orange-color;
   transition: 0.5s;
- 
 }
 .logout {
   position: absolute;
   bottom: 0;
 }
 
-.container {
-  
+.wrapper {
+  display: flex;
+}
+
+/* Main Section */
+main {
+  position: relative;
+  padding: 20px;
+  width: 100%;
+}
+
+.main-top {
+  display: flex;
+  width: 100%;
+}
+.main-top .fas {
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  color: rgb(118, 109, 109);
+  cursor: pointer;
+
 }
