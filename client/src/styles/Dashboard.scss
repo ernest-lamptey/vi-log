@@ -234,3 +234,32 @@ a:hover .fas {
   overflow: hidden;
   border-radius: 5px 5px 0 0;
 }
+
+table thead tr{
+  color: $main-color;
+  background: $orange-color;
+  text-align: left;
+  font-weight: bold;  
+
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid $main-color;
+}
+.table tbody tr:nth-of-child(even) {
+   background: $main-color;
+}
+
+.table tbody tr.active {
+  font-weight: bold;
+  color: #4AD489;
+}
+
+.table tbody tr:last-of-type {
+  border-bottom: 2px solid #4AD489;
+}

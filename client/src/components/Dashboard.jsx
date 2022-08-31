@@ -74,6 +74,35 @@ function Dashboard() {
                     <th>Details</th>
                   </tr>
                 </thead>
+                <tbody>
+                  <tr>
+                    <th>01</th>
+                    <th>Prince Quarshie</th>
+                    <th>Design</th>
+                    <th>03-24-22</th>
+                    <th>08:00AM</th>
+                    <th>3:00PM</th>
+                    <td><button>View</button></td>
+                  </tr>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Date</th>
+                    <th>Arrive Time</th>
+                    <th>Depart Time</th>
+                    <th>Details</th>
+                  </tr>
+                  <tr>
+                    <td>01</td>
+                    <td>Prince Quarshie</td>
+                    <td>Design</td>
+                    <td>03-31-22</td>
+                    <td>8:00AM</td>
+                    <td>3:00PM</td>
+                    <td><button>View</button></td>
+                  </tr>
+                </tbody>
               </table>
             </div>
          </section>
