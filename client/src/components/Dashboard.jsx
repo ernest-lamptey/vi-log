@@ -6,6 +6,7 @@ import { TbReportSearch } from "react-icons/tb";
 import { IoMdContact } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
 import { BsFillPersonLinesFill } from "react-icons/bs";
+import Cards from "./Cards";
 function Dashboard() {
   return (
     <section>
@@ -53,31 +54,31 @@ function Dashboard() {
             <h1>Total Visitors</h1>
             <BsFillPersonLinesFill className="person" />
           </div>
+
+         <Cards />
+
+
+
+         <section className="attendance">
+            <div className="attendance-list">
+              <h1>Visitors List</h1>
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Date</th>
+                    <th>Arrive Time</th>
+                    <th>Depart Time</th>
+                    <th>Details</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+         </section>
+      
         </section>
-      </div>
-      <div className="users">
-        <div className="card">
-          <img src="" alt="" />
-          <h4>Prince Quarshie</h4>
-          <p>Company</p>
-          <p></p>
-          <div className="per">
-            <table>
-              <tr>
-                <td>
-                  <span>Phone</span>
-                </td>
-                <td>
-                  <span>Email</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Time in</td>
-                <td>Time out</td>
-              </tr>
-            </table>
-          </div>
-        </div>
       </div>
       {/* </div> */}
     </section>

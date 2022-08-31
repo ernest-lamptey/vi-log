@@ -152,31 +152,85 @@ a:hover .fas {
 .main .users {
   display: flex;
   position: absolute;
-  width: 100%;
+  width: 95%;
 }
 
-.users .card{
+.users .card {
   width: 25%;
   margin: 10px;
   background: $main-color;
   text-align: center;
   border-radius: 10px;
   padding: 10px;
-  box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
 
-.users .card img{
+.users .card img {
   width: 70px;
   height: 70px;
   border-radius: 50%;
 }
 
+.users .card h4 {
+  text-transform: uppercase;
+  font-size: 12px;
+}
 
-.users .card h4{
+.users .card p {
+  font-size: 11px;
+  margin-bottom: 15px;
   text-transform: uppercase;
 }
 
-.users .card p{ 
- font-size: ;
+.users table {
+  margin: auto;
+}
+.users .per span {
+  padding: 5px;
+  border-radius: 10px;
+  background: $main-color;
+}
 
+.users td {
+  font-size: 12px;
+  padding-right: 15px;
+}
+
+.users .card button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid $orange-color;
+}
+
+.users .card button:hover {
+  background: $orange-color;
+  color: $main-color;
+  transition: 0.5s;
+}
+
+/* Attendance List Section */
+.attendance {
+  margin-top: 20px;
+  text-transform: capitalize;
+}  
+.attendance-list {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: $main-color;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+
+}
+.table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 15px;
+  min-width: 100%;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
 }
