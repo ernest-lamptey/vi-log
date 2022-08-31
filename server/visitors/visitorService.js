@@ -27,6 +27,8 @@ const addVisitorToDB = (body) => {
     })
 }
 
+// const addSignOutTime
+
 module.exports = {
     addVisitorToDB,
 }

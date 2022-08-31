@@ -9,6 +9,11 @@ const getAllEmployees = () => {
     })
 }
 
+const getAllVisitDetails = () => {
+    return pool.query(
+    
+    )
+}
 module.exports = {
     getAllEmployees,
 }
