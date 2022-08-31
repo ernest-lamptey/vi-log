@@ -115,7 +115,7 @@ const sendNotifications =  async (id) => {
         console.log(receiverDetails);
 
         mailOptions.to = receiverDetails.visitor_email;
-        mailOptions.attachments = [{ filename: 'qr.png', path: './qr.png'}]
+        mailOptions.attachments = [{ filename: 'qr.png', path: './qr.png'}];
         mailOptions.text = visitorNotificationMessage(receiverDetails.visitor_name);
         sendMail();
     
@@ -123,7 +123,7 @@ const sendNotifications =  async (id) => {
         sms_data.message = `Your meeting has been set and your host has been notified.`;
         sendSMS()
         
-        
+        mailOptions.attachments = [];
         mailOptions.to = receiverDetails.host_email;
         mailOptions.text = hostNotificationMessage(receiverDetails.host_name, receiverDetails.visitor_name);
         sendMail();
