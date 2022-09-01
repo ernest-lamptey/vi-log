@@ -1,7 +1,7 @@
 // Email and SMS functionality
 const nodemailer = require('nodemailer');
 const pool = require('./db');
-require("dotenv").config();
+require('dotenv').config({ path: '../.env'});
 const axios = require('axios');
 const fs = require('fs');
 
@@ -93,7 +93,7 @@ const sms_data = {
 
 const config = {
     method: 'post',
-    url: `https://api.mnotify.com/api/sms/quick?key=F4qlW9cO6FEiStNYtyd4XMbFcJOtE0kj4KF1TRQ0wuipY`,
+    url: process.env.SMS_URL,
     headers : {
     'Accept': 'application/json'
     },
