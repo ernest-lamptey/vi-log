@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const visitorRouter = require('./visitors/visitorRouter');
 const adminRouter = require('./admin/adminRouter');
@@ -18,9 +19,10 @@ if (process.env.NODE_ENV === "production") {
 app.use('/visitors', visitorRouter);
 app.use('/admin', adminRouter);
 
-app.get("*", (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
+
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`)
 })
