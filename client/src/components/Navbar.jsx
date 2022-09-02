@@ -12,6 +12,11 @@ function Navbar() {
   return (
     <nav className="navbar">
       <ul className="nav-links">
+         {/* <Link to="/"  className="nav__brand">
+          <li>
+            Vi-Log
+          </li>
+         </Link> */}
         <Link to="/dashboard" className="dashboard">
           <li>
             <MdDashboard />
