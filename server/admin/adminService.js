@@ -30,7 +30,7 @@ const getAdminPassword = (email) => {
 }
 const getAllEmployees = () => {
     return pool.query(
-        `SELECT * FROM employees`
+        `SELECT id, f_name, l_name, department, photo_url FROM employees`
     )
     .then(res => {
         return res.rows
