@@ -212,11 +212,27 @@ a:hover .fas {
 }
 
 /* Attendance List Section */
+
+
+$tablet: 840px;
+
+@mixin  tablet{
+   @media (min-width: #{$tablet}) {
+     @content;
+   }
+}
+
+
+
+
 .attendance {
   // margin-top: 20px;
   text-transform: capitalize;
   margin-top: 24%;
   
+  @include tablet {
+     margin-top: 40%;
+  }
   
 }  
 .attendance-list {
@@ -273,10 +289,13 @@ table thead tr{
   background: transparent;
   border: 1px solid $orange-color;
   
-}
+} 
 
 .table button:hover {
   background: $orange-color;
   color: #fff;
   transition: 0.5rem;
 }
+
+
+
