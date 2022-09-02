@@ -1,0 +1,47 @@
+@import "../styles/colors";
+@import "../styles/fonts";
+
+.main-wrap {
+   margin: 0;
+   padding: 0;
+   font-family: $font-roboto;
+//    background-image: url("../assets/office-entrance.jpg");
+//   background-position: center;
+//    height: 100vh;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+   
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 400px;
+    height: 420px;
+    color: $black-color;
+    top: 50%;
+    left: 50%;
+    padding: 60px 30px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px $black-color;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 22px;
+    color: $black-color;
+    text-align: center;
+    margin-bottom: 8%;
+    font-family: $font-roboto;
+}
+
+.wrapper input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.wrapper input[type=text], .wrapper input[type=password] {
+    border: none;
+}
