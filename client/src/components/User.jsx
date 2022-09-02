@@ -41,10 +41,14 @@ function User() {
   }
 
   function handleSubmit(event) {
-    const data = {name, email, phone, company, purpose, host_id}
-    console.log(data)
-
     event.preventDefault()
+    const data = {name, email, phone, company, purpose, host_id}
+    // const formData = new FormData(data)
+    Axios.post("/visitors", data)
+      .then(res => console.log("request sent"))
+      .catch(err => console.error(err))
+
+
   }
 
   return (
