@@ -1,8 +1,9 @@
 // Email and SMS functionality
 const nodemailer = require('nodemailer');
 const pool = require('./db');
-require("dotenv").config();
+require('dotenv').config({ path: '../.env'});
 const axios = require('axios');
+const fs = require('fs');
 
 
 const getReceiverDetails = (id) => {
@@ -17,7 +18,7 @@ const getReceiverDetails = (id) => {
                 return data.rows[0]
             })
             .catch(err => {
-                throw {status: status?.status || 500, message: err.message }
+                throw {status: err?.status || 500, message: err.message }
             })
 }
 
@@ -37,7 +38,8 @@ let mailOptions = {
     from: "Vilog",
     to: "",
     subject: "Meeting Details",
-    text: ""
+    text: "",
+    attachments: ""
 }
 
 const visitorNotificationMessage = (receiver_name) => {
@@ -70,6 +72,12 @@ const sendMail = () => {
             console.error(err)
         } else {
             console.log("Email sent successfully")
+            fs.unlink('qr.png', (err) => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+            })
         }
     })
 };
@@ -85,7 +93,7 @@ const sms_data = {
 
 const config = {
     method: 'post',
-    url: `https://api.mnotify.com/api/sms/quick?key=F4qlW9cO6FEiStNYtyd4XMbFcJOtE0kj4KF1TRQ0wuipY`,
+    url: process.env.SMS_URL,
     headers : {
     'Accept': 'application/json'
     },
@@ -107,6 +115,7 @@ const sendNotifications =  async (id) => {
         console.log(receiverDetails);
 
         mailOptions.to = receiverDetails.visitor_email;
+        mailOptions.attachments = [{ filename: 'qr.png', path: './qr.png'}];
         mailOptions.text = visitorNotificationMessage(receiverDetails.visitor_name);
         sendMail();
     
@@ -114,7 +123,7 @@ const sendNotifications =  async (id) => {
         sms_data.message = `Your meeting has been set and your host has been notified.`;
         sendSMS()
         
-        
+        mailOptions.attachments = [];
         mailOptions.to = receiverDetails.host_email;
         mailOptions.text = hostNotificationMessage(receiverDetails.host_name, receiverDetails.visitor_name);
         sendMail();
