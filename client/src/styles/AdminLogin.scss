@@ -5,11 +5,10 @@
    margin: 0;
    padding: 0;
    font-family: $font-roboto;
-//    background-image: url("../assets/office-entrance.jpg");
-//   background-position: center;
-//    height: 100vh;
 //   background-repeat: no-repeat;
-//   background-size: cover;
+//   background-size: co//    background-image: url("../assets/office-entrance.jpg");
+//   background-position: center;
+//    height: 100vhver;
    
 }
 .wrapper {
@@ -44,4 +43,5 @@ h1 {
 }
 .wrapper input[type=text], .wrapper input[type=password] {
     border: none;
+    border-bottom: 1px solid $gray-background;
 }
