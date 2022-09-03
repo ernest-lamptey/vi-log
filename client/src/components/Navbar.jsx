@@ -17,7 +17,7 @@ function Navbar() {
             Vi-Log
           </li>
          </Link> */}
-        <Link to="/dashboard" className="dashboard">
+        <Link to="/adminlogin" className="adminlogin">
           <li>
             <MdDashboard />
           </li>
