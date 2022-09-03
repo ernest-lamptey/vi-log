@@ -1,4 +1,5 @@
-@import './colors';
+@import "./colors";
+@import "./fonts";
 
 * {
     margin: 0;
@@ -11,17 +12,27 @@
     justify-content: center;
     align-items: center;
     height: 8vh;
-    background-color: $orange-color;
-    color: white;
-    
+    background-color: $dark-orange;
+    color: white;   
+}
+
+.vi-logo {
+    display: flex;
+    font-family: $clicker;
+    font-size: 28px;
+    // font-weight: 400;
+    color: $main-color;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
 }
 
 .nav-links {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     list-style: none;
     width: 95%;
-    // background-color: blue;
 }
 
 .dashboard{
@@ -33,23 +44,4 @@
 
 .mobile-menu-icon {
     display: none;
-}
-
-@media screen and (max-width) {
-    .log {
-        display: flex;
-        position: absolute;
-        top: 15px;
-        left: 35px;
-    }
-    
-    .nav-links-mobile {
-        position: absolute;
-        display: block;
-        list-style: none;
-        background-color: $orange-color;
-        left: 0;
-        top: 75px;
-        transition: all 0.5s ease-out;
-    }
 }
