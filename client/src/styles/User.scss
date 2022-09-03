@@ -12,12 +12,12 @@
 .body {
   color: #ccc;
   min-height: 92vh;
-  // background: rgb(72,13,0);
   background: radial-gradient(circle, rgba(72,13,0,1) 24%, rgba(41,0,0,1) 90%);
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: $roboto;
+  // background: white;
 
   .container {
     font-family: $montserrat;
@@ -37,6 +37,7 @@
 .container .title {
   font-size: 25px;
   position: relative;
+  margin-bottom: 15px;
 
 
   // margin: 0 auto;
@@ -111,4 +112,5 @@ form #submit-button {
 
 .scan {
   width: 5rem;
+
 }
