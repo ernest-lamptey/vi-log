@@ -22,23 +22,27 @@ export class ScanQrCode extends Component {
   }
   render() {
     const previewStyle = {
-      height: 240,
-      width: 320,
-      marginLeft: 500,
-      marginRight: 500,
-      marginTop: 100,
-
+      height: '480px',
+      width: '480px',
     };
 
+    const container = {
+      // background: 'white',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '92vh',
+    }
+
     return (
-      <div>
+      <div style={container}>
         <QrReader
           delay={this.state.delay}
           style={previewStyle}
           onError={this.handleError}
           onScan={this.handleScan}
         />
-        <p>{this.state.result}</p>
+        {/* <p>{this.state.result}</p> */}
       </div>
     );
   }
