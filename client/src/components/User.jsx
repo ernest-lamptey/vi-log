@@ -54,37 +54,37 @@ function User() {
   return (
     <div className="body">
       <div className="container">
-        <div className="title">Enter your details</div>
+        <div className="title">Tell us about yourself</div>
         <form onSubmit={handleSubmit}>
 
           <div className="user-details">
             <div className="input-box">
-              <span className="details">Your full name</span>
-              <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Enter first name" />
+              <span className="details">Name</span>
+              <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="eg. John Smith" />
             </div>
 
             <div className="input-box">
-              <span className="details">Your Email</span>
-              <input value={email} onChange={(e) => setEmail(e.target.value)}type="text" placeholder="Enter email" />
+              <span className="details">Email</span>
+              <input value={email} onChange={(e) => setEmail(e.target.value)}type="text" placeholder="eg. johnsmith@gmail.com" />
             </div>
 
             <div className="input-box">
-              <span className="details">Your phone number</span>
-              <input value={phone} onChange={(e) => setPhone(e.target.value)} type="text" placeholder="Enter phone number" />
+              <span className="details">Phone</span>
+              <input value={phone} onChange={(e) => setPhone(e.target.value)} type="text" placeholder="eg. 0244672301" />
             </div>
 
             <div className="input-box">
-              <span className="details">Your company</span>
-              <input value={company} onChange={(e) => setCompany(e.target.value)} type="text" placeholder="Enter Company name" />
+              <span className="details">Company</span>
+              <input value={company} onChange={(e) => setCompany(e.target.value)} type="text" placeholder="Where do you work?" />
             </div>
 
             <div className="input-box">
-              <span className="details">Your purpose for visiting</span>
-              <input value={purpose} onChange={(e) => setPurpose(e.target.value)}type="text" placeholder="Enter Company name" />
+              <span className="details">Purpose</span>
+              <input value={purpose} onChange={(e) => setPurpose(e.target.value)}type="text" placeholder="eg. Contractor" />
             </div>
 
             <div className="input-box">
-              <span className="details">Your Host</span>
+              <span className="details">Host</span>
               <input 
                 value={hostName} type="text" placeholder="Enter your host name" 
                 onChange={(e) => 

@@ -5,11 +5,12 @@ const body = {
     position: "fixed",
     width: "25%",
     height: "50px",
-    fontSize: "18px",
+    fontSize: "14px",
     display: "flex",
     backgrounColor: "rgba(41,0,0,1)",
     alignItems: "center",
     gap: "15px",
+    cursor: "pointer",
 }
 
 

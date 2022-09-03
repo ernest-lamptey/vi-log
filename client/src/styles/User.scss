@@ -10,28 +10,24 @@
 
 
 .body {
-  color: hsla(0, 0%, 96%, 0.5);
+  color: #ccc;
   min-height: 92vh;
   // background: rgb(72,13,0);
   background: radial-gradient(circle, rgba(72,13,0,1) 24%, rgba(41,0,0,1) 90%);
-  // background-image: url("../assets/office-entrance.jpg");
-  // background-position: center;
-  // background-color: antiquewhite;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  font-family: $font-roboto;
   display: flex;
-  // height: 95vh;
-  // display: flex;
   justify-content: center;
   align-items: center;
-  // padding: 10px;
+  font-family: $roboto;
 
   .container {
+    font-family: $montserrat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     margin: 10vh 4vw;
     max-width: 700px;
     width: 100%;
-    // background: $main-color;
     background: hsla(10, 100%, 6%, 0.8);
     padding: 25px 30px;
     border-radius: 10px;
@@ -40,19 +36,10 @@
 
 .container .title {
   font-size: 25px;
-  font-weight: 500;
   position: relative;
-  // margin: 0 auto;
-}
 
-.container .title::before {
-  // content: "";
-  // position: absolute;
-  // left: 0;
-  // bottom: 0;
-  // height: 3px;
-  // width: 30px;
-  // background: linear-gradient(135deg, #e79315, #f38d07);
+
+  // margin: 0 auto;
 }
 
 .container form .user-details {
@@ -69,18 +56,19 @@ form .user-details .input-box {
 
 .user-details .input-box .details {
   display: block;
-  font-weight: 500;
+  // font-weight: 500;
   margin-bottom: 5px;
 }
 
 .user-details .input-box input {
+  font-family: $montserrat;
   height: 45px;
   width: 100%;
   outline: none;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding-left: 15px;
-  font-size: 16px;
+  font-size: 14px;
   border-bottom-width: 2px;
 }
 
@@ -99,9 +87,7 @@ form input {
   height: 100%;
   width: 100%;
   outline: none;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: $font-roboto;
+  font-size: 16px;
   color: $main-color;
   letter-spacing: 1px;
   background: hsla(10, 100%, 6%, 0.8);
@@ -110,7 +96,6 @@ form input {
 form .button input:hover {
   background: $main-color;
   color: $black-color;
-  font-weight: 500;
   cursor: pointer;
   transition-duration: 1s;
   transition-timing-function: linear ease-out;
@@ -119,17 +104,11 @@ form .button input:hover {
 form #submit-button {
   background-color: $orange-color;
   border-radius: 10px;
-}
-
-select {
-    width: 100%;
-    outline: none;
-    font-family: $font-roboto;
-    border: none;
-    border-radius: 5px solid;
+  font-family: $montserrat;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .scan {
   width: 5rem;
-
 }
