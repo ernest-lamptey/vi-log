@@ -36,10 +36,10 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.get('/employees', authenticateToken, async (req, res) => {
+router.get('/employees', async (req, res) => {
     try {
         const allEmployees = await getAllEmployees();
-        res.status(200).send({ status: "Successful", data: allEmployees })
+        res.status(200).send(allEmployees)
     } catch (error) {
         res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
     }

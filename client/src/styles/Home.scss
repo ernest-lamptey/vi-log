@@ -1,0 +1,40 @@
+@import "./colors";
+@import "./fonts";
+
+.homepage {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    height: 92vh;
+    align-items: center;
+    justify-content: center;
+    font-family: $montserrat;
+    color: white;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.caption {
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.logo-img {
+    max-width: 700px;
+    width: 60vw;
+}
+
+.cta h1 {
+    color: white;
+    font-weight: 300;
+    border: solid;
+    // margin-top: 5rem;
+    padding: 1.4rem;
+    border-radius: 50px;
+}
+

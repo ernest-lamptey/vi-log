@@ -1,4 +1,6 @@
-@import './colors';
+@import "./colors";
+@import "./fonts";
+
 * {
     margin: 0;
     padding: 0;
@@ -7,50 +9,39 @@
 
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    height: 70px;
-    background-color: $orange-color;
-    color: white;
-    
+    height: 8vh;
+    background-color: $dark-orange;
+    color: white;   
+}
+
+.vi-logo {
+    display: flex;
+    font-family: $clicker;
+    font-size: 30px;
+    // font-weight: 400;
+    color: $main-color;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
 }
 
 .nav-links {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
-    width: 75%;
+    width: 95%;
 }
 
 .adminlogin{
   text-decoration: none;
   color: $main-color;
-  font-size: 20px;
-  padding: 10px 20px;
-  margin: 0 10px;
+  font-size: 30px;
   cursor: pointer;
-  left: 15%;
 } 
 
 .mobile-menu-icon {
     display: none;
-}
-
-@media screen and (max-width) {
-    .log {
-        display: flex;
-        position: absolute;
-        top: 15px;
-        left: 35px;
-    }
-    
-    .nav-links-mobile {
-        position: absolute;
-        display: block;
-        list-style: none;
-        background-color: $orange-color;
-        left: 0;
-        top: 75px;
-        transition: all 0.5s ease-out;
-    }
 }
