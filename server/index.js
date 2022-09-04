@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const jwt = require('jsonwebtoken');
+// const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const visitorRouter = require('./visitors/visitorRouter');
 const adminRouter = require('./admin/adminRouter');
