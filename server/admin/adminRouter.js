@@ -27,7 +27,8 @@ router.post('/login', async (req, res) => {
         if (await bcrypt.compare(req.body.password, password)){
             const user = { name: req.body.email}
             const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-            res.json({accessToken: accessToken}) 
+            console.log("login success")
+            res.json({accessToken: accessToken})
         } else {
             res.send("Invalid credentials")
         }

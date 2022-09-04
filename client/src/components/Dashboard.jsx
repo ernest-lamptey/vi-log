@@ -15,33 +15,33 @@ function Dashboard() {
         <nav className="header">
           <ul>
             <li>
-              <a href="#" className="logo">
+              <a href="/" className="logo">
                 <img src={logo} alt="/" />
               </a>
             </li>
 
             <li>
-              <a href="#">
+              <a href="/">
                 <MdDashboard className="fas" />
                 <span className="nav-item">Dashboard</span>
               </a>
             </li>
 
             <li>
-              <a href="#">
+              <a href="/">
                 <IoMdContact className="fas" />
                 <span className="nav-item">Contact</span>
               </a>
             </li>
 
             <li>
-              <a href="#">
+              <a href="/">
                 <TbReportSearch className="fas" />
                 <span className="nav-item">Report</span>
               </a>
             </li>
             <li className="logout">
-              <a href="#">
+              <a href="/">
                 <MdLogout className="fas" />
                 <span className="nav-item">Logout</span>
               </a>
