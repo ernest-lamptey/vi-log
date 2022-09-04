@@ -28,6 +28,10 @@ function App() {
           <AdminLogin />
         </Route>
 
+        <Route path="/dashboard" component={Dashboard}>
+          <Dashboard />
+        </Route>
+
         <Route path="/scanqrcode" component={ScanQrCode}>
           <ScanQrCode />
         </Route>

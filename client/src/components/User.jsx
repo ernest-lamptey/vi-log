@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-// import { useForm } from "react-hook-form";
 import "../styles/User.scss";
 import Axios from 'axios';
 import SearchResult from "./SearchResult";

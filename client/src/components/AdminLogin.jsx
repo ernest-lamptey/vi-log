@@ -17,7 +17,7 @@ function handleSubmit(event) {
 
         <form>
           <div className="txt_field">
-            <input type="text" required placeholder="username" />
+            <input type="text" required placeholder="email address" />
             <label>
               <FaUser className="icon" />
             </label>
