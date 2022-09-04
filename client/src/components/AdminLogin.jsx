@@ -1,6 +1,6 @@
 import React from 'react';
 import "../styles/AdminLogin.scss";
-import {FaUser} from 'react-icons/fa';
+import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 function AdminLogin() {
@@ -17,9 +17,9 @@ function handleSubmit(event) {
 
         <form>
           <div className="txt_field">
-            <input type="text" required placeholder="username" />
+            <input type="email" required placeholder="email" />
             <label>
-              <FaUser className="icon" />
+              <MdEmail className="icon" />
             </label>
           </div>
           <div className="txt_field">
@@ -29,7 +29,7 @@ function handleSubmit(event) {
             </label>
           </div>
           <div className="pass">Forgot Password?</div>
-          <input  onClick={handleSubmit} type="submit" value="Login" />
+          <input onClick={handleSubmit} type="submit" value="Login" />
         </form>
       </div>
     </div>

@@ -1,28 +1,65 @@
 import React from "react";
 import "../styles/Dashboard.scss";
-import logo from "../assets/Amalitech-Ghana.png";
-import { MdDashboard } from "react-icons/md";
-import { TbReportSearch } from "react-icons/tb";
-import { IoMdContact } from "react-icons/io";
-import { MdLogout } from "react-icons/md";
-import { BsFillPersonLinesFill } from "react-icons/bs";
+// import logo from "../assets/Amalitech-Ghana.png";
+// import { MdDashboard } from "react-icons/md";
+// import { TbReportSearch } from "react-icons/tb";
+// import { IoMdContact } from "react-icons/io";
 // import Cards from "./Cards";
 // import Table from "./Table";
-import { AiOutlineHome } from "react-icons/ai";
+import { MdLogout } from "react-icons/md";
+import { AiOutlineHome, AiOutlineMail, AiOutlinePieChart } from "react-icons/ai";
+import { RiAdminLine } from "react-icons/ri";
 function Dashboard() {
   return (
     <div className="wrap">
       <div className="sidebar">
         <ul>
-          <li><AiOutlineHome /></li>
+          <li className="active">
+            <AiOutlineHome className="fas" />
+          </li>
+          <li>
+            <AiOutlinePieChart className="fas" />
+          </li>
+          <li>
+            <AiOutlineMail className="fas" />
+          </li>
+          <li>
+            <MdLogout className="fas" />
+          </li>
         </ul>
       </div>
+
+      <div className="main"> 
+      <div className="head">
+        <div className="head-title">
+            <h2>Dashboard</h2>
+            <span><RiAdminLine className="admin"/></span>
+        </div>
+        <div className="head-search">
+          <input type="search" placeholder="Search"/>
+        </div>
+      
+      
+      
+      
+      </div>
+      <div className="main-board">
+        <div className="card-board">
+          <div className="card">
+            <div className="card-icon">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      </div> 
+
+
     </div>
   );
 }
 
 export default Dashboard;
-
 
 
 

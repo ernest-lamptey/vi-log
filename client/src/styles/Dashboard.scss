@@ -17,27 +17,54 @@
 .sidebar {
   width: 100px;
   height: 100vh;
+  background: #fff;
 }
+
 
 .sidebar ul {
   margin-top: 50px;
+ 
 }
-
 .sidebar ul li {
   list-style: none;
   text-align: center;
+} 
+
+.sidebar ul li .fas {
+  margin: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  color: rgb(83, 82, 82);
 }
 
+.sidebar li:hover, li.active {
+    border-right: 3px solid rgb(83, 82, 82);
+}
 
+/* Main Body */
 
+.head {
+  display: flex;
+  padding: 20px 30px;
+  color: $main-color;
+}
 
+.head-title span{
+  font-size: 20px;
+  color: $main-color;
+}
 
+.head-search {
+  width: 400px;
+  margin-left: 70%;
+}
 
-
-
-
-
-
+input {
+  border: none;
+  outline: none;
+  padding: 7px 13px;
+  border-radius: 15px;
+}
 
 
 
