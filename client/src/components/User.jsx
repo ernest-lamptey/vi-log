@@ -1,30 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
+// import { useForm } from "react-hook-form";
 import "../styles/User.scss";
 import Axios from 'axios';
 import SearchResult from "./SearchResult";
 
 
-
 function User() {
-  const [employees, setEmployee] = useState();
+  const location = useLocation().state;
+  const item = location ? JSON.parse(location) : ""
+
+  const [employees, setEmployee] = useState([]);
   const [employeeMatch, setEmployeeMatch] = useState([])
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [company, setCompany] = useState('');
-  const [purpose, setPurpose] = useState('');
-  const [hostName, setHostName] = useState('');
-  const [host_id, setHost_id] = useState('');
+  const [name, setName] = useState(() => item.name ? item.name : "");
+  const [email, setEmail] = useState(() => item.email ? item.email : "");
+  const [phone, setPhone] = useState(() => item.phone ? item.phone : "");
+  const [company, setCompany] = useState(() => item.company ? item.company : "");
+  const [purpose, setPurpose] = useState(() => { return ""});
+  const [hostName, setHostName] = useState(() => { return ""});
+  const [host_id, setHost_id] = useState(() => { return ""});
 
   const getEmployees = async () => {
     const response = await Axios.get("http://localhost:5000/admin/employees").then((res) => res.data);
-    console.log(response)
     setEmployee(response)
   };
 
   useEffect(() => {
     getEmployees();
-  }, []);
+  }, [])
 
   const searchEmployees = (text) => {
     let matches;
@@ -43,12 +46,9 @@ function User() {
   function handleSubmit(event) {
     event.preventDefault()
     const data = {name, email, phone, company, purpose, host_id}
-    // const formData = new FormData(data)
     Axios.post("/visitors", data)
       .then(res => console.log("request sent"))
       .catch(err => console.error(err))
-
-
   }
 
   return (
