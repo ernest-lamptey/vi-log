@@ -20,7 +20,7 @@ function User() {
   const [host_id, setHost_id] = useState(() => { return ""});
 
   const getEmployees = async () => {
-    const response = await Axios.get("http://localhost:5000/admin/employees").then((res) => res.data);
+    const response = await Axios.get("/admin/employees").then((res) => res.data);
     setEmployee(response)
   };
 
