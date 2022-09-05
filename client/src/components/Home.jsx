@@ -11,7 +11,7 @@ const Home = () => {
                 <h1 className='caption'>IT SERVICE COMPANY</h1>
             </div>
             <Link to="/visitors" className='cta'> 
-                <h1>Click to begin</h1>
+                <button>Click to begin</button>
             </Link>
 
         </div>

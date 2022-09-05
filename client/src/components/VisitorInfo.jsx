@@ -1,70 +1,73 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
+import { COLUMNS } from './columns';
+import { useTable } from 'react-table';
+import '../styles/table.scss'
 
 function VisitorInfo() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState([1, 2, 3]);
+
+  useEffect(() => {
+    Axios.get('http://localhost:5000/admin/visits').then((res) => {
+    setData(res.data);
+    setIsLoading(false);
+    })
+  }, [])
+
+  // const columns = useMemo(() => COLUMNS, [])
+  // const info = useMemo(() => data, [data])
+
+  const tableInstance = useTable({
+    columns: COLUMNS,
+    data: [...data]
+  })
+
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow
+  } = tableInstance
+
+  if (isLoading) {
+    return <div> Loading ...</div>
+  }
   return (
-    <div className="info">
-      <div className="info-details">
-        <ul className="details">
-          <li className="topic">Date</li>
-          <li>
-            <a href="#"></a>07 - 09 - 2022
-          </li>
-          <li>
-            <a href="#">05 - 10 - 2022</a>
-          </li>
-          <li>
-            <a href="#">01 - 01 - 2022</a>
-          </li>
-          <li>
-            <a href="#">27 - 08 - 2022</a>
-          </li>
-        </ul>
-        <ul className="details">
-          <li className="topic">Name</li>
-          <li>
-            <a href="#">Prince Quarshie</a>
-          </li>
-          <li>
-            <a href="#">Michael Andoh</a>
-          </li>
-          <li>
-            <a href="#">Ernest Lamptey</a>
-          </li>
-          <li>
-            <a href="#">Denis Wrights</a>
-          </li>
-        </ul>
-        <ul className="details">
-          <li className="topic">Status</li>
-          <li>
-            <a href="#">Done</a>
-          </li>
-          <li>
-            <a href="#">Pending</a>
-          </li>
-          <li>
-            <a href="#">Done</a>
-          </li>
-          <li>
-            <a href="#">Pending</a>
-          </li>
-        </ul>
-        <ul className="details">
-          <li className="topic">Company</li>
-          <li>
-            <a href="#">Apple Inc</a>
-          </li>
-          <li>
-            <a href="#">Microsoft Corp</a>
-          </li>
-          <li>
-            <a href="#">Amazon.com Inc</a>
-          </li>
-          <li>
-            <a href="#">Saudi Aramco</a>
-          </li>
-        </ul>
-      </div>
+    <div className='table-container'>
+      <table {...getTableProps()}>
+              <thead>
+                {
+                  headerGroups.map((headerGroup) => (
+                    <tr {...headerGroup.getHeaderGroupProps()}>
+                      {
+                        headerGroup.headers.map(column => (
+                          <th {...column.getHeaderProps}>{column.render('Header')}</th>
+                        ))
+                      }
+                    </tr>
+                  ))
+                }
+
+              </thead>
+              <tbody {...getTableBodyProps()}>
+                {
+                  rows.map((row) => {
+                    prepareRow(row)
+                    return (
+                      <tr {...row.getRowProps()}>
+                        {
+                          row.cells.map(cell => {
+                          return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                          })
+                        }
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+            </table>
     </div>
   );
 }
