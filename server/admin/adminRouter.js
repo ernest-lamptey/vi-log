@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 require('dotenv').config({ path: '../../.env'});
 const jwt = require('jsonwebtoken');
-const { getAllEmployees, addAdmin, getAdminPassword } = require('./adminService')
+const { getAllEmployees, addAdmin, getAdminPassword, getVisits } = require('./adminService')
 
 
 router.post('/newAdmin', async (req, res) => {
@@ -41,6 +41,15 @@ router.get('/employees', async (req, res) => {
     try {
         const allEmployees = await getAllEmployees();
         res.status(200).send(allEmployees)
+    } catch (error) {
+        res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
+    }
+})
+
+router.get('/visits', async (req, res) => {
+    try {
+        const allVisits = await getVisits();
+        res.status(200).json(allVisits)
     } catch (error) {
         res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
     }

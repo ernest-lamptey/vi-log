@@ -4,9 +4,6 @@ import { MdLogout } from "react-icons/md";
 import { AiOutlineHome, AiOutlineMail, AiOutlinePieChart } from "react-icons/ai";
 import { RiAdminLine } from "react-icons/ri";
 import { BiExport } from "react-icons/bi";
-import { BsPeople, BsPersonPlus, BsPersonCheck } from "react-icons/bs";
-import { FaEllipsisV } from "react-icons/fa";
-import { IoIosPeople } from "react-icons/io";
 import VisitorInfo from "./VisitorInfo";
 
 import Table from "./Table";
@@ -51,7 +48,7 @@ function Dashboard() {
 
           <div className="head">
             <div className="head-title">
-              <h2>Visistor Info</h2>
+              <h2>Visitor Info</h2>
             </div>
           </div>
         </div>
