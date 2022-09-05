@@ -96,3 +96,18 @@ input {
   font-size: 13px;
   color: rgb(151, 151, 151);
 }
+
+// Visistor Info 
+
+.card h5 {
+  margin-top: 5px;
+}
+
+
+.info {
+  width: 87%;
+  margin: 0 40px;
+  background: $main-color;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
