@@ -1,66 +1,83 @@
 @import "../styles/colors";
 @import "../styles/fonts";
 
-.main-wrap {
+* {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: $montserrat;
- 
+  box-sizing: border-box;
 }
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 350px;
 
+.main-wrap {
+  min-height: 90vh;
+  font-family: $montserrat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  max-width: 400px;
+  height: fit-content;
+  padding: 1.4rem 3rem;
+  display: flex;
+  flex-direction: column;
   background: $gray-background;
   box-shadow: rgba(0, 0, 0, 0.904) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.911) 0px -3px 0px inset;
   border-radius: 10px;
 }
 .center h1 {
   text-align: center;
-  padding: 15px;
+  padding-bottom: 0.8rem;
   border-bottom: 1px solid silver;
+  margin-bottom: 0.6rem;
 }
 .center form {
-  padding: 0 40px;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 form .txt_field {
-  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
   border-bottom: 2px solid #a6b4a6;
-  margin: 30px 0;
+  margin: 1.2rem 3rem;
 }
 
 .txt_field input {
   font-family: $montserrat;
   width: 100%;
-  padding: 0 5px;
-  height: 40px;
   font-size: 16px;
   border: none;
   background: none;
   outline: none;
+  color: black;
 }
-.txt_field label {
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  color: $black-color;
-  transform: translateY(-50%);
-  font-size: 16px;
-  pointer-events: none;
-  transition: 0.5s;
+
+.pass {
+  padding-bottom: 0.8rem;
+}
+
+.buttons {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.buttons input {
+  min-width: 60%;
+}
+
+#sign_up {
+  background: blue;
 }
 
 .txt_field span::before {
   content: "";
   position: absolute;
-  top: 40px;
   width: 100%;
   height: 2px;
   background: $orange-color;
@@ -79,11 +96,6 @@ form .txt_field {
   width: 100%;
 }
 
-.pass {
-  margin: -5px 0 20px 5px;
-  color: $black-color;
-}
-
 .pass:hover {
   color: $orange-color;
 }
@@ -96,10 +108,11 @@ input[type="submit"] {
   background: $orange-color;
   border-radius: 15px;
   font-size: 18px;
-  color: #e9f4fb;
+  color: white;
   outline: none;
   outline: none;
 }
+
 input[type="submit"]:hover {
   border-color: $black-color;
   transition: 0.5s;
