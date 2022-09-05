@@ -18,10 +18,21 @@ function AdminLogin() {
     autoClose: 3000,})
   }
 
-  function handleSubmit(event) {
+  function handleLogin(event) {
     event.preventDefault()
     const data = {email, password};
     Axios.post("/admin/login", data)
+      .then(res => history.push('/dashboard'))
+      .catch(err => {
+        notify(err.response.data)
+        console.log(err.response.data)
+      })
+  }
+
+  function handleSignUp(event) {
+    event.preventDefault()
+    const data = {email, password};
+    Axios.post("/admin/newAdmin", data)
       .then(res => history.push('/dashboard'))
       .catch(err => {
         notify(err.response.data)
@@ -35,7 +46,7 @@ function AdminLogin() {
         theme='dark'
       />
       <div className="center">
-        <h1>Sign in</h1>
+        <h1>Welcome Admin!</h1>
 
         <form>
           <div className="txt_field">
@@ -51,7 +62,10 @@ function AdminLogin() {
             </label>
           </div>
           <div className="pass">Forgot Password?</div>
-          <input onClick={handleSubmit} type="submit" value="Login" />
+          <div className='buttons'>
+            <input onClick={handleLogin} type="submit" value="Login" />
+            <input onClick={handleSignUp} type="submit" value="Sign Up" />
+          </div>
         </form>
       </div>
     </div>
