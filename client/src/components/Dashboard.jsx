@@ -35,10 +35,10 @@ function Dashboard() {
       <div className="main">
         <div className="head">
           <div className="head-title">
-            <h2>Dashboard</h2>
             <span>
               <RiAdminLine className="admin" />
             </span>
+            <h2>Dashboard</h2>
           </div>
           <div className="head-search">
             <input type="search" placeholder="Search" />
@@ -48,7 +48,7 @@ function Dashboard() {
           <div className="card-board">
             <div className="card">
               <div className="card-icon">
-                <BsPeople />
+                <BsPeople className="fa" />
                 <FaEllipsisV />
               </div>
               <span>Total number of visitors</span>
@@ -56,7 +56,7 @@ function Dashboard() {
             </div>
             <div className="card">
               <div className="card-icon">
-                <IoIosPeople />
+                <IoIosPeople className="fa" />
                 <FaEllipsisV />
               </div>
               <span>Visitors on Premises</span>
@@ -64,7 +64,7 @@ function Dashboard() {
             </div>
             <div className="card">
               <div className="card-icon">
-                <BsPersonPlus />
+                <BsPersonPlus className="fa" />
                 <FaEllipsisV />
               </div>
               <span>All visitors for the day</span>
@@ -72,14 +72,46 @@ function Dashboard() {
             </div>
             <div className="card">
               <div className="card-icon">
-                <BsPersonCheck />
+                <BsPersonCheck className="fa" />
                 <FaEllipsisV />
               </div>
               <span>Visitors checkedout</span>
               <p>25</p>
             </div>
           </div>
+          <div className="head">
+            <div className="head-title">
+              <h2>Visistor Info</h2>
+            </div>
+          </div>
         </div>
+         
+       <div className="name">
+         <div className="name-details">
+           <ul className="details">
+             <li className="topic">Date</li>
+             <li><a href="@">01 - 05 2022</a></li>
+             <li><a href="@">05 - 10 2022</a></li>
+             <li><a href="@">01 - 01 2022</a></li>
+             <li><a href="@">27 - 08 2022</a></li>
+           </ul>
+           <ul className="details">
+             <li className="topic">Date</li>
+             <li><a href="@">01 - 05 2022</a></li>
+             <li><a href="@">05 - 10 2022</a></li>
+             <li><a href="@">01 - 01 2022</a></li>
+             <li><a href="@">27 - 08 2022</a></li>
+           </ul>
+           <ul className="details">
+             <li className="topic">Date</li>
+             <li><a href="@">01 - 05 2022</a></li>
+             <li><a href="@">05 - 10 2022</a></li>
+             <li><a href="@">01 - 01 2022</a></li>
+             <li><a href="@">27 - 08 2022</a></li>
+           </ul>
+         </div>
+         </div>  
+
       </div>
     </div>
   );
