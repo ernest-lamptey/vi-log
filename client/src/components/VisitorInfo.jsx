@@ -24,6 +24,8 @@ function VisitorInfo() {
     })
     setVisitData(res.data);
     setIsLoading(false);
+    }).catch(err => {
+      console.error(err)
     })
   }, [employeeData])
 
