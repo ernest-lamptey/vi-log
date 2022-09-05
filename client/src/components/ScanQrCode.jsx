@@ -1,11 +1,13 @@
 // import React, { Component } from "react";
 // // import QrReader from "react-qr-scanner";
+import adapter from 'webrtc-adapter';
 import "../styles/ScanQrCode.scss";
 import React, { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
 import { useHistory } from 'react-router-dom';
 
 const ScanQrCode = (props) => {
+
   const [data, setData] = useState('No result');
 
   const history = useHistory()

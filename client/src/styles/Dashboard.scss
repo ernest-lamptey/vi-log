@@ -4,297 +4,133 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  text-decoration: none;
+  // box-sizing: border-box;
+  // outline: none;
+  // text-decoration: none;
 }
 
-section {
-  background: $gray-background;
-}
-
-.header {
-  position: sticky;
-  top: 0;
-  bottom: 0;
-  height: 100vh;
-  left: 0;
-  // width: 90px;
-  width: 280px;
-  background: $main-color;
-  overflow: hidden;
-  transition: 1s;
-}
-
-.header:hover {
-  width: 280px;
-  transition: 1s;
-}
-
-.logo {
-  text-align: center;
-  display: flex;
-  margin: 10px 0 0 10px;
-  padding-bottom: 3rem;
-}
-
-.logo img {
-  width: 10rem;
-  height: 60;
-}
-
-.logo span {
-  font-weight: bold;
-  padding-left: 15px;
-  font-size: 18px;
-
-  text-transform: uppercase;
-}
-
-a {
-  position: relative;
-  font-size: 14px;
-  color: rgb(85, 83, 83);
-  display: table;
-  line-height: 1em;
-  margin-left: 2rem;
-  padding: 15px;
-}
-
-.header .fas {
-  position: relative;
-  width: 50px;
-  height: 30px;
-  top: 20px;
-  font-size: 20px;
-  text-align: center;
-}
-
-.nav-item {
-  position: relative;
-  top: 12px;
-  margin-left: 10px;
-}
-
-a:hover {
-  // background: $main-color;
-}
-
-a:hover .fas {
-  color: $orange-color;
-  transition: 0.5s;
-}
-.logout {
-  position: absolute;
-  bottom: 0;
-}
-
-.wrapper {
-  display: flex;
-}
-
-/* Main Section */
-
-.header .fas {
-  position: relative;
-  width: 70px;
-  height: 40px;
-  top: 20px;
-  font-size: 20px;
-  text-align: center;
-}
-
-.person {
-  //  position: relative;
-  width: 60px;
-  height: 30px;
-  top: 10px;
-  font-size: 20px;
-  text-align: center;
-}
-
-.nav-item {
-  position: relative;
-  top: 12px;
-  margin-left: 10px;
-  line-height: 2rem;
-}
-
-.main {
-  position: relative;
-  padding: 20px;
-  width: 100%;
-}
-
-.main-top {
-  display: flex;
-  width: 100%;
-}
-
-.main-top .fas {
-  position: absolute;
-  right: 0;
-  margin: 10px 30px;
-  color: rgb(110, 109, 109);
-  cursor: pointer;
-}
-
-.person {
-  position: absolute;
-  right: 0;
-  margin: 10px 30px;
-  color: rgb(110, 109, 109);
-  cursor: pointer;
-}
-
-.main .users {
-  display: flex;
-  position: absolute;
-  width: 96%;
-}
-
-.users .card {
-  width: 25%;
-  margin: 10px;
-  background: $main-color;
-  text-align: center;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-}
-
-.users .card img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-}
-
-.users .card h4 {
-  text-transform: uppercase;
-  font-size: 12px;
-}
-
-.users .card p {
-  font-size: 11px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-.users table {
+.wrap {
   margin: auto;
-}
-.users .per span {
-  padding: 5px;
-  border-radius: 10px;
-  background: $main-color;
+  display: flex;
 }
 
-.users td {
-  font-size: 12px;
-  padding-right: 15px;
-}
-
-.users .card button {
-  width: 100%;
-  margin-top: 8px;
-  padding: 7px;
-  cursor: pointer;
-  border-radius: 10px;
-  background: transparent;
-  border: 1px solid $orange-color;
-}
-
-.users .card button:hover {
-  background: $orange-color;
-  color: $main-color;
-  transition: 0.5s;
-}
-
-/* Attendance List Section */
-
-
-$tablet: 840px;
-
-@mixin  tablet{
-   @media (min-width: #{$tablet}) {
-     @content;
-   }
+.sidebar {
+  width: 100px;
+  height: 100vh;
+  background: #fff;
 }
 
 
-
-
-.attendance {
-  // margin-top: 20px;
-  text-transform: capitalize;
-  margin-top: 24%;
-  
-  @include tablet {
-     margin-top: 40%;
-  }
-  
-}  
-.attendance-list {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background: $main-color;
-  border-radius: 10px;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-
+.sidebar ul {
+  margin-top: 50px;
+ 
 }
-.table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 15px;
-  min-width: 100%;
-  overflow: hidden;
-  border-radius: 5px 5px 0 0;
-}
-
-table thead tr{
-  color: $main-color;
-  background: $orange-color;
-  text-align: left;
-  font-weight: bold;  
-
-}
-
-.table th,
-.table td {
-  padding: 12px 15px;
-}
-
-.table tbody tr {
-  border-bottom: 1px solid #ddd;
-}
-.table tbody tr:nth-of-child(odd) {
-   background: #f3f3f3;
-}
-
-.table tbody tr.active {
-  font-weight: bold;
-  color: #4AD489;
-}
-
-.table tbody tr:last-of-type {
-  border-bottom: 2px solid #4AD489;
-}
-
-.table button {
-  padding: 6px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid $orange-color;
-  
+.sidebar ul li {
+  list-style: none;
+  text-align: center;
 } 
 
-.table button:hover {
-  background: $orange-color;
-  color: #fff;
-  transition: 0.5rem;
+.sidebar ul li .fas {
+  margin: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  color: rgb(83, 82, 82);
+}
+
+.sidebar li:hover, li.active {
+    border-right: 3px solid rgb(83, 82, 82);
+}
+
+/* Main Body */
+
+.head {
+  display: flex;
+  padding: 20px 30px;
+  color: $main-color;
+}
+
+.head-title span{
+  font-size: 20px;
+  color: $main-color;
+}
+
+.head-search {
+  width: 400px;
+  margin-left: 70%;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding: 7px 13px;
+  border-radius: 15px;
+}
+
+// Card Board 
+.card-board {
+  display: flex;
+  padding: 15px 40px;
+}
+
+.card {
+  width: 230px;
+  height: 100px;
+  padding: 20px;
+  background: $main-color;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.card-icon {
+  display: flex;
+}
+.card-icon .fas {
+  margin: 15px 0;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 12.5rem;
+  color: rgb(83, 82, 82);
+}
+
+.card span {
+  font-size: 13px;
+  color: rgb(151, 151, 151);
+}
+
+// Visistor Info 
+
+.card h5 {
+  margin-top: 5px;
 }
 
 
+.info {
+  width: 87%;
+  margin: 0 40px;
+  background: $main-color;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
 
+.info-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topic {
+  font-size: 20px;
+  font-weight: 500px;
+}
+
+.info-details li{
+  list-style: none;
+  margin: 8px 0;
+}
+
+.info-details li a {
+  font-size: 18px;
+  color: #333;
+  font-size: 400;
+  text-decoration: none;
+}

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-// import { useForm } from "react-hook-form";
 import "../styles/User.scss";
 import Axios from 'axios';
 import SearchResult from "./SearchResult";
@@ -21,7 +20,7 @@ function User() {
   const [host_id, setHost_id] = useState(() => { return ""});
 
   const getEmployees = async () => {
-    const response = await Axios.get("http://localhost:5000/admin/employees").then((res) => res.data);
+    const response = await Axios.get("/admin/employees").then((res) => res.data);
     setEmployee(response)
   };
 

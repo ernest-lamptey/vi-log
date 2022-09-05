@@ -3,7 +3,6 @@ import "../styles/Navbar.scss";
 import { Link } from "react-router-dom";
 import Logo from "./Logo"
 import { MdDashboard, MdOutlineQrCodeScanner } from "react-icons/md";
-// import { BsFillCameraFill } from "react-icons/bs";
 
 
 function Navbar() {
@@ -23,7 +22,8 @@ function Navbar() {
             <MdOutlineQrCodeScanner />
           </li>
         </Link>
-        <Link to="/dashboard" className="dashboard">
+
+        <Link to="/adminlogin" className="adminlogin">
           <li>
             <MdDashboard />
           </li>
