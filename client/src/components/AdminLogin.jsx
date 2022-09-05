@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "../styles/AdminLogin.scss";
-import {FaUser} from 'react-icons/fa';
+import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
@@ -41,7 +41,7 @@ function AdminLogin() {
           <div className="txt_field">
             <input value={email} onChange={(e) => {setEmail(e.target.value)}} type="text" required placeholder="email address" />
             <label>
-              <FaUser className="icon" />
+              <MdEmail className="icon" />
             </label>
           </div>
           <div className="txt_field">
@@ -51,7 +51,7 @@ function AdminLogin() {
             </label>
           </div>
           <div className="pass">Forgot Password?</div>
-          <input  onClick={handleSubmit} type="submit" value="Login" />
+          <input onClick={handleSubmit} type="submit" value="Login" />
         </form>
       </div>
     </div>

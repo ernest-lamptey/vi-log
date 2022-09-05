@@ -1,7 +1,9 @@
-import React from 'react';
-import Axios from 'axios';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react'
+import { BsPeople, BsPersonPlus, BsPersonCheck } from "react-icons/bs";
+import { FaEllipsisV } from "react-icons/fa";
+import { IoIosPeople } from "react-icons/io";
+import { useEffect } from "react";
+
 
 function Table() {
   // const [visitsData, setVisitsData] = useState();
@@ -15,27 +17,43 @@ function Table() {
   }, [])
 
   return (
-    <section className="attendance">
-      <div className="attendance-list">
-        <h1>Visitors List</h1>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Company</th>
-              <th>Date</th>
-              <th>Arrive Time</th>
-              <th>Depart Time</th>
-              <th>Details</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
+    <div>
+      <div className="card-board">
+        <div className="card">
+          <div className="card-icon">
+            <BsPeople className="fa" />
+            <FaEllipsisV />
+          </div>
+          <span>Total number of visitors</span>
+          <p>50</p>
+        </div>
+        <div className="card">
+          <div className="card-icon">
+            <IoIosPeople className="fa" />
+            <FaEllipsisV />
+          </div>
+          <span>Visitors on Premises</span>
+          <p>20</p>
+        </div>
+        <div className="card">
+          <div className="card-icon">
+            <BsPersonPlus className="fa" />
+            <FaEllipsisV />
+          </div>
+          <span>All visitors for the day</span>
+          <p>30</p>
+        </div>
+        <div className="card">
+          <div className="card-icon">
+            <BsPersonCheck className="fa" />
+            <FaEllipsisV />
+          </div>
+          <span>Visitors checkedout</span>
+          <p>25</p>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
 
-export default Table
+export default Table;
