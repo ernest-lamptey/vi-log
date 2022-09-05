@@ -111,3 +111,26 @@ input {
   padding: 20px 30px;
   border-radius: 10px;
 }
+
+.info-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topic {
+  font-size: 20px;
+  font-weight: 500px;
+}
+
+.info-details li{
+  list-style: none;
+  margin: 8px 0;
+}
+
+.info-details li a {
+  font-size: 18px;
+  color: #333;
+  font-size: 400;
+  text-decoration: none;
+}

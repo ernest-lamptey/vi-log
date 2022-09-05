@@ -7,6 +7,7 @@ import { BiExport } from "react-icons/bi";
 import { BsPeople, BsPersonPlus, BsPersonCheck } from "react-icons/bs";
 import { FaEllipsisV } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
+import VisitorInfo from "./VisitorInfo";
 
 import Table from "./Table";
 function Dashboard() {
@@ -45,40 +46,9 @@ function Dashboard() {
           </div>
         </div>
         <div className="main-board">
-          <div className="card-board">
-            <div className="card">
-              <div className="card-icon">
-                <BsPeople className="fa" />
-                <FaEllipsisV />
-              </div>
-              <span>Total number of visitors</span>
-              <p>50</p>
-            </div>
-            <div className="card">
-              <div className="card-icon">
-                <IoIosPeople className="fa" />
-                <FaEllipsisV />
-              </div>
-              <span>Visitors on Premises</span>
-              <p>20</p>
-            </div>
-            <div className="card">
-              <div className="card-icon">
-                <BsPersonPlus className="fa" />
-                <FaEllipsisV />
-              </div>
-              <span>All visitors for the day</span>
-              <p>30</p>
-            </div>
-            <div className="card">
-              <div className="card-icon">
-                <BsPersonCheck className="fa" />
-                <FaEllipsisV />
-              </div>
-              <span>Visitors checkedout</span>
-              <p>25</p>
-            </div>
-          </div>
+
+        <Table />
+
           <div className="head">
             <div className="head-title">
               <h2>Visistor Info</h2>
@@ -86,38 +56,7 @@ function Dashboard() {
           </div>
         </div>
          
-       <div className="info">
-         <div className="info-details">
-           <ul className="details">
-             <li className="topic">Date</li>
-             <li><a href="#"></a></li>
-             <li><a href="#">05 - 10 - 2022</a></li>
-             <li><a href="#">01 - 01 - 2022</a></li>
-             <li><a href="#">27 - 08 - 2022</a></li>
-           </ul>
-           <ul className="details">
-             <li className="topic">Name</li>
-             <li><a href="#">Prince Quarshie</a></li>
-             <li><a href="#">Michael Andoh</a></li>
-             <li><a href="#">Ernest Lamptey</a></li>
-             <li><a href="#">Denis Wrights</a></li>
-           </ul>
-           <ul className="details">
-             <li className="topic">Status</li>
-             <li><a href="#">Done</a></li>
-             <li><a href="#">Pending</a></li>
-             <li><a href="#">Done</a></li>
-             <li><a href="#">Pending</a></li>
-           </ul>
-           <ul className="details">
-             <li className="topic">Company</li>
-             <li><a href="#">Apple Inc</a></li>
-             <li><a href="#">Microsoft Corp</a></li>
-             <li><a href="#">Amazon.com Inc</a></li>
-             <li><a href="#">Saudi Aramco</a></li>
-           </ul>
-         </div>
-         </div>  
+      <VisitorInfo />
 
       </div>
     </div>
