@@ -6,21 +6,30 @@ import '../styles/table.scss'
 
 function VisitorInfo() {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState([1, 2, 3]);
+  const [visitData, setVisitData] = useState([1, 2, 3]);
+  const [employeeData, setEmployeeData] = useState([]);
 
   useEffect(() => {
+    Axios.get("/admin/employees").then((res) => { setEmployeeData(res.data)});
     Axios.get('http://localhost:5000/admin/visits').then((res) => {
-    setData(res.data);
+    res.data.forEach((item) => {
+      employeeData.forEach((employee) => {
+        if (item.host_id === employee.id){
+          item.host_id = `${employee.f_name} ${employee.l_name}`
+        }
+      })
+      if (item.sign_out === null){
+        item.sign_out = '-';
+      }
+    })
+    setVisitData(res.data);
     setIsLoading(false);
     })
-  }, [])
-
-  // const columns = useMemo(() => COLUMNS, [])
-  // const info = useMemo(() => data, [data])
+  }, [employeeData])
 
   const tableInstance = useTable({
     columns: COLUMNS,
-    data: [...data]
+    data: [...visitData]
   })
 
   const {
