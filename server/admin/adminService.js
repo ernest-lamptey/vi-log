@@ -40,10 +40,16 @@ const getAllEmployees = () => {
     })
 }
 
-const getAllVisitDetails = () => {
+const getVisits = () => {
     return pool.query(
-    
+        `SELECT * FROM visits LIMIT 10`
     )
+    .then(res => {
+        return res.rows
+    })
+    .catch(err => {
+        throw {status: err?.status || 500, message: err.message}
+    })
 }
 
 
@@ -51,4 +57,5 @@ module.exports = {
     getAllEmployees,
     addAdmin,
     getAdminPassword,
+    getVisits,
 }

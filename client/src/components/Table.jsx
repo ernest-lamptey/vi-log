@@ -1,6 +1,19 @@
-import React from 'react'
+import React from 'react';
+import Axios from 'axios';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 function Table() {
+  // const [visitsData, setVisitsData] = useState();
+  const getvisitsData = async () => {
+    const response = await Axios.get('http://localhost:5000/admin/visits').then((res) => res.data);
+    console.log(response)
+  }
+
+  useEffect(() => {
+    getvisitsData()
+  }, [])
+
   return (
     <section className="attendance">
       <div className="attendance-list">
@@ -18,50 +31,6 @@ function Table() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th>01</th>
-              <th>Prince Quarshie</th>
-              <th>APPLE INC</th>
-              <th>03-24-22</th>
-              <th>08:00AM</th>
-              <th>3:00PM</th>
-              <td>
-                <button>View</button>
-              </td>
-            </tr>
-            <tr>
-              <th>02</th>
-              <th>Ernest Lamptey</th>
-              <th>MICROSOFT CORP</th>
-              <th>03-31-22</th>
-              <th>07:00AM</th>
-              <th>4:00PM</th>
-              <td>
-                <button>View</button>
-              </td>
-            </tr>
-            <tr>
-              <th>03</th>
-              <th>Michael Wiafe Andoh</th>
-              <th>AMAZON.COM INC</th>
-              <th>03-14-22</th>
-              <th>09:00AM</th>
-              <th>12:00PM</th>
-              <td>
-                <button>View</button>
-              </td>
-            </tr>
-            <tr>
-              <th>04</th>
-              <th>Kingsford Wrights</th>
-              <th>SAUDI ARAMCO</th>
-              <th>03-24-22</th>
-              <th>10:30AM</th>
-              <th>3:50PM</th>
-              <td>
-                <button>View</button>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
