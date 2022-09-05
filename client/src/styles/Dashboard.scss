@@ -66,17 +66,31 @@ input {
   border-radius: 15px;
 }
 
+// Card Board 
+.card-board {
+  display: flex;
+  padding: 15px 40px;
+}
 
+.card {
+  width: 230px;
+  height: 100px;
+  padding: 20px;
+  background: $main-color;
+  margin-right: 20px;
+  border-radius: 10px;
+}
 
-
-
-
-
-
-
-
-
-
+.card-icon {
+  display: flex;
+}
+.card-icon .fas {
+  margin: 15px 0;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 12.5rem;
+  color: rgb(83, 82, 82);
+}
 
 
 
