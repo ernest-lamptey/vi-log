@@ -21,7 +21,7 @@ router.post('/newAdmin', async (req, res) => {
 router.post('/login', async (req, res) => {
     const password = await getAdminPassword(req.body.email)
     if (!password){
-        res.status(404).send("User not found")
+        res.status(404).send("Invalid credentials")
     }
     try {
         if (await bcrypt.compare(req.body.password, password)){
@@ -30,7 +30,7 @@ router.post('/login', async (req, res) => {
             console.log("login success")
             res.json({accessToken: accessToken})
         } else {
-            res.send("Invalid credentials")
+            res.status(401).send("Invalid credentials")
         }
     } catch (err) {
         res.status(500).send()
