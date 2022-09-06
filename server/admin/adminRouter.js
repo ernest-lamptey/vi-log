@@ -46,7 +46,7 @@ router.get('/employees', async (req, res) => {
     }
 })
 
-router.get('/visits', authenticateToken, async (req, res) => {
+router.get('/visits', async (req, res) => {
     try {
         const allVisits = await getVisits();
         res.status(200).json(allVisits)
