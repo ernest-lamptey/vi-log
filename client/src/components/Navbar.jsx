@@ -29,11 +29,11 @@ function Navbar() {
           </li>
         </Link>
 
-        <Link to="/dashboard" className="adminlogin">
+        {/* <Link to="/dashboard" className="adminlogin">
           <li>
             <MdDashboard />
           </li>
-        </Link>
+        </Link> */}
       </ul>
     </nav>
   );

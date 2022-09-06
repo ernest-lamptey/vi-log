@@ -1,5 +1,6 @@
 @import "./colors";
 @import "./fonts";
+@import "./mixins";
 
 .homepage {
     display: flex;
@@ -45,6 +46,9 @@
     border-radius: 50px;
 }
 
+.sign-in:hover {
+   @include sign-in;
+}
 .cta .sign-out {
     color: white;
     background: #37a9e1;
@@ -54,4 +58,10 @@
     border: solid;
     padding: 1rem 2rem;
     border-radius: 50px;
+
+}
+
+
+.sign-out:hover {
+   @include sign-in;
 }
