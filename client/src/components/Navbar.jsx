@@ -23,7 +23,7 @@ function Navbar() {
           </li>
         </Link>
 
-        <Link to="/adminlogin" className="adminlogin">
+        <Link to="/admin/adminlogin" className="adminlogin">
           <li>
             <MdDashboard />
           </li>

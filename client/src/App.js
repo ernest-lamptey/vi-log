@@ -5,9 +5,9 @@ import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
-
 import ScanQrCode from "./components/ScanQrCode";
 import AdminLogin from "./components/AdminLogin";
+import SignOut from "./components/SignOut";
 
 
 function App() {
@@ -24,16 +24,20 @@ function App() {
           <User />
         </Route>
 
-        <Route path="/adminlogin" component={AdminLogin}>
+        <Route path="/admin/adminlogin" component={AdminLogin}>
           <AdminLogin />
         </Route>
 
-        <Route path="/dashboard" component={Dashboard}>
+        <Route path="/admin/dashboard" component={Dashboard}>
           <Dashboard />
         </Route>
 
         <Route path="/scanqrcode" component={ScanQrCode}>
           <ScanQrCode />
+        </Route>
+
+        <Route path="/signout" component={SignOut}>
+          <SignOut />
         </Route>
       </Switch>
     </Router>

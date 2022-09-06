@@ -2,20 +2,8 @@ import React from 'react'
 import { BsPeople, BsPersonPlus, BsPersonCheck } from "react-icons/bs";
 import { FaEllipsisV } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
-// import Axios from "axios";
-// import { useEffect } from "react";
-
 
 function Table() {
-  // const [visitsData, setVisitsData] = useState();
-  // const getvisitsData = async () => {
-  //   const response = await Axios.get('http://localhost:5000/admin/visits').then((res) => res.data);
-  //   console.log(response)
-  // }
-
-  // useEffect(() => {
-  //   getvisitsData()
-  // }, [])
 
   return (
     <div>
