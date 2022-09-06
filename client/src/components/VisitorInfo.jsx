@@ -11,7 +11,7 @@ function VisitorInfo() {
 
   useEffect(() => {
     Axios.get("/admin/employees").then((res) => { setEmployeeData(res.data)});
-    Axios.get('http://localhost:5000/admin/visits').then((res) => {
+    Axios.get('/admin/visits').then((res) => {
     res.data.forEach((item) => {
       employeeData.forEach((employee) => {
         if (item.host_id === employee.id){
