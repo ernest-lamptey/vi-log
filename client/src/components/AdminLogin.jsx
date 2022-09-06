@@ -27,7 +27,7 @@ function AdminLogin() {
       if (response) {
         await window.localStorage.setItem("token", JSON.stringify(response.data.accessToken)) 
       }
-      history.push('/dashboard')
+      history.push('/admin/dashboard')
     } catch (error) {
       notify(error.response.data)
       console.log(error.response.data)
@@ -38,7 +38,7 @@ function AdminLogin() {
     event.preventDefault()
     const data = {email, password};
     Axios.post("/admin/newAdmin", data)
-      .then(res => history.push('/dashboard'))
+      .then(res => history.push('admin/dashboard'))
       .catch(err => {
         notify(err.response.data)
         console.log(err.response.data)
@@ -68,8 +68,8 @@ function AdminLogin() {
           </div>
           <div className="pass">Forgot Password?</div>
           <div className='buttons'>
-            <input onClick={handleLogin} type="submit" value="Login" />
-            <input onClick={handleSignUp} type="submit" value="Sign Up" />
+            <input className='login' onClick={handleLogin} type="submit" value="Login" />
+            <input className='sign-up' onClick={handleSignUp} type="submit" value="Sign Up" />
           </div>
         </form>
       </div>
