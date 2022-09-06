@@ -9,6 +9,7 @@ import Axios from 'axios';
 
 function AdminLogin() {
   const history = useHistory();
+  // const { globalState, setGlobalState } = React.useContext(GlobalContext)
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   // const [notification, setNotification] = useState();
@@ -18,15 +19,19 @@ function AdminLogin() {
     autoClose: 3000,})
   }
 
-  function handleLogin(event) {
+  async function handleLogin(event) {
     event.preventDefault()
-    const data = {email, password};
-    Axios.post("/admin/login", data)
-      .then(res => history.push('/dashboard'))
-      .catch(err => {
-        notify(err.response.data)
-        console.log(err.response.data)
-      })
+    try {
+      const data = {email, password};
+      const response = await Axios.post('/admin/login', data)
+      if (response) {
+        await window.localStorage.setItem("token", JSON.stringify(response.data.accessToken)) 
+      }
+      history.push('/dashboard')
+    } catch (error) {
+      notify(error.response.data)
+      console.log(error.response.data)
+    }
   }
 
   function handleSignUp(event) {
