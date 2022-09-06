@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Dashboard.scss";
 import { MdLogout } from "react-icons/md";
 import { AiOutlineHome, AiOutlineMail, AiOutlinePieChart } from "react-icons/ai";
 import { RiAdminLine } from "react-icons/ri";
 import { BiExport } from "react-icons/bi";
 import VisitorInfo from "./VisitorInfo";
+import { UserData } from "./Data";
+
 
 import Table from "./Table";
+import PieChart from "./PieChart";
 function Dashboard() {
+  
+  const [ userData, setUserData ] = useState({
+    labls: UserData.map((data) => data.totalVisitors),
+    datasets: [
+    {
+      label: "Users Lost",
+      data: UserData.map((data) => data.Host),
+      backgroundColor: [
+        "rgba(75,192,1921)",
+        "#ecf0f1",
+        "#50AF95",
+        "#f3ba2f",
+        "#2a71d0"
+      ],
+    },
+  
+  ],
+  });
+
+
+
   return (
     <div className="wrap">
       <div className="sidebar">
@@ -54,7 +78,7 @@ function Dashboard() {
         </div>
          
       <VisitorInfo />
-
+      <PieChart chartData={userData} />
       </div>
     </div>
   );

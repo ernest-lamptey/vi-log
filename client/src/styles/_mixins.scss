@@ -1,0 +1,7 @@
+@mixin sign-in {
+ cursor: pointer;
+  background: $main-color;
+  color: $black-color;
+  transition: .6s;
+  font-weight: bold;
+}
