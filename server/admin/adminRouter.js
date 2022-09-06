@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 require('dotenv').config({ path: '../../.env'});
 const jwt = require('jsonwebtoken');
-const { getAllEmployees, addAdmin, getAdminPassword } = require('./adminService')
+const { getAllEmployees, addAdmin, getAdminPassword, getVisits } = require('./adminService')
 
 
 router.post('/newAdmin', async (req, res) => {
@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
             res.status(401).send("Invalid credentials")
         }
     } catch (err) {
-        res.status(500).send()
+        res.status(500).send(err?.message || "Internal Server")
     }
 })
 
@@ -46,7 +46,17 @@ router.get('/employees', async (req, res) => {
     }
 })
 
+router.get('/visits', async (req, res) => {
+    try {
+        const allVisits = await getVisits();
+        res.status(200).json(allVisits)
+    } catch (error) {
+        res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
+    }
+})
+
 router.get('*', authenticateToken, (req, res) => {
+    console.log("auth route")
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 

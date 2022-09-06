@@ -9,6 +9,7 @@ import Axios from 'axios';
 
 function AdminLogin() {
   const history = useHistory();
+  // const { globalState, setGlobalState } = React.useContext(GlobalContext)
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   // const [notification, setNotification] = useState();
@@ -18,11 +19,26 @@ function AdminLogin() {
     autoClose: 3000,})
   }
 
-  function handleSubmit(event) {
+  async function handleLogin(event) {
+    event.preventDefault()
+    try {
+      const data = {email, password};
+      const response = await Axios.post('/admin/login', data)
+      if (response) {
+        await window.localStorage.setItem("token", JSON.stringify(response.data.accessToken)) 
+      }
+      history.push('/admin/dashboard')
+    } catch (error) {
+      notify(error.response.data)
+      console.log(error.response.data)
+    }
+  }
+
+  function handleSignUp(event) {
     event.preventDefault()
     const data = {email, password};
-    Axios.post("/admin/login", data)
-      .then(res => history.push('/dashboard'))
+    Axios.post("/admin/newAdmin", data)
+      .then(res => history.push('admin/dashboard'))
       .catch(err => {
         notify(err.response.data)
         console.log(err.response.data)
@@ -35,7 +51,7 @@ function AdminLogin() {
         theme='dark'
       />
       <div className="center">
-        <h1>Sign in</h1>
+        <h1>Welcome Admin!</h1>
 
         <form>
           <div className="txt_field">
@@ -51,7 +67,10 @@ function AdminLogin() {
             </label>
           </div>
           <div className="pass">Forgot Password?</div>
-          <input onClick={handleSubmit} type="submit" value="Login" />
+          <div className='buttons'>
+            <input className='login' onClick={handleLogin} type="submit" value="Login" />
+            <input className='sign-up' onClick={handleSignUp} type="submit" value="Sign Up" />
+          </div>
         </form>
       </div>
     </div>

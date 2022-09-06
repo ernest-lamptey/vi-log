@@ -29,12 +29,29 @@
     width: 60vw;
 }
 
-.cta h1 {
+.button-group {
+    display: flex;
+    gap: 1.8rem;
+}
+
+.cta .sign-in {
     color: white;
-    font-weight: 300;
+    background: $orange-color;
+    font-weight: 400;
+    font-family: $montserrat;
+    font-size: 1.4rem;
     border: solid;
-    // margin-top: 5rem;
-    padding: 1.4rem;
+    padding: 1rem 2rem;
     border-radius: 50px;
 }
 
+.cta .sign-out {
+    color: white;
+    background: #37a9e1;
+    font-weight: 400;
+    font-family: $montserrat;
+    font-size: 1.4rem;
+    border: solid;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+}

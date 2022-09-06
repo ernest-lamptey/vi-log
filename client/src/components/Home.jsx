@@ -10,10 +10,14 @@ const Home = () => {
                 <img className="logo-img" src={logo} alt="" />
                 <h1 className='caption'>IT SERVICE COMPANY</h1>
             </div>
-            <Link to="/visitors" className='cta'> 
-                <h1>Click to begin</h1>
-            </Link>
-
+            <div className='button-group'>
+                <Link to="/visitors" className='cta'> 
+                    <button className='sign-in'>Click to Sign In</button>
+                </Link>
+                <Link to='./signout'className='cta'>
+                    <button className='sign-out'>Click to Sign Out</button>
+                </Link>
+            </div>
         </div>
     );
 };

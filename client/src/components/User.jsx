@@ -19,13 +19,11 @@ function User() {
   const [hostName, setHostName] = useState(() => { return ""});
   const [host_id, setHost_id] = useState(() => { return ""});
 
-  const getEmployees = async () => {
-    const response = await Axios.get("/admin/employees").then((res) => res.data);
-    setEmployee(response)
-  };
-
   useEffect(() => {
-    getEmployees();
+    Axios.get("/admin/employees").then((res) => {
+      setEmployee(res.data)
+      console.log(res.data)
+    });
   }, [])
 
   const searchEmployees = (text) => {

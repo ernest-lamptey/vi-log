@@ -72,7 +72,7 @@ function Dashboard() {
 
           <div className="head">
             <div className="head-title">
-              <h2>Visistor Info</h2>
+              <h2>Visitor Info</h2>
             </div>
           </div>
         </div>

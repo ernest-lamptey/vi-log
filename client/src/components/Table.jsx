@@ -3,8 +3,8 @@ import { BsPeople, BsPersonPlus, BsPersonCheck } from "react-icons/bs";
 import { FaEllipsisV } from "react-icons/fa";
 import { IoIosPeople } from "react-icons/io";
 
-
 function Table() {
+
   return (
     <div>
       <div className="card-board">
