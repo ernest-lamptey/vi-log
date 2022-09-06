@@ -28,6 +28,12 @@ function Navbar() {
             <MdDashboard />
           </li>
         </Link>
+
+        <Link to="/dashboard" className="adminlogin">
+          <li>
+            <MdDashboard />
+          </li>
+        </Link>
       </ul>
     </nav>
   );
