@@ -23,7 +23,7 @@ function AdminLogin() {
       const data = {email, password};
       await AuthService.login(data)
       .then(() => {
-        history.push('/dashboard')
+        history.push('admin/dashboard')
       }, (error) => {
         console.log(error)
       })
@@ -38,7 +38,7 @@ function AdminLogin() {
     try {
       const data = {email, password};
       await AuthService.signup(data).then(() => {
-        history.push('/dashboard')
+        history.push('admin/dashboard')
       }, (error) => {
         console.log(error)
       })
