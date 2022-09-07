@@ -6,18 +6,18 @@ import { RiAdminLine } from "react-icons/ri";
 import { BiExport } from "react-icons/bi";
 import VisitorInfo from "./VisitorInfo";
 import { UserData } from "./Data";
-
-
 import Table from "./Table";
 import PieChart from "./PieChart";
+
+
 function Dashboard() {
   
   const [ userData, setUserData ] = useState({
     labls: UserData.map((data) => data.totalVisitors),
     datasets: [
     {
-      label: "Users Lost",
-      data: UserData.map((data) => data.Host),
+      label: "Total Visitors",
+      data: UserData.map((data) => data.hostId),
       backgroundColor: [
         "rgba(75,192,1921)",
         "#ecf0f1",
