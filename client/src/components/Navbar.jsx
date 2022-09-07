@@ -1,39 +1,38 @@
 import React from "react";
 import "../styles/Navbar.scss";
-import { Link } from "react-router-dom";
-import Logo from "./Logo"
+import { NavLink } from "react-router-dom";
+import Logo from "./Logo";
 import { MdDashboard, MdOutlineQrCodeScanner } from "react-icons/md";
 
 
 function Navbar() {
-
-  
- 
   return (
     <nav className="navbar">
       <ul className="nav-links">
-        <Link to="/" className="vi-logo">
+        <NavLink to="/" className="vi-logo">
           <li>
             <Logo />
           </li>
-        </Link>
-        <Link to="/scanqrcode" className="scanqrcode">
+        </NavLink>
+        <NavLink
+          to="/scanqrcode"
+          className="scanqrcode"
+          activeStyle={{ color: "orange" }}
+        >
           <li>
             <MdOutlineQrCodeScanner />
           </li>
-        </Link>
+        </NavLink>
 
-        <Link to="/admin/adminlogin" className="adminlogin">
+        <NavLink
+          to="/admin/adminlogin"
+          className="adminlogin"
+          activeStyle={{ color: "orange" }}
+        >
           <li>
             <MdDashboard />
           </li>
-        </Link>
-
-        {/* <Link to="/dashboard" className="adminlogin">
-          <li>
-            <MdDashboard />
-          </li>
-        </Link> */}
+        </NavLink>
       </ul>
     </nav>
   );

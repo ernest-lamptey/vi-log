@@ -6,18 +6,19 @@ import { RiAdminLine } from "react-icons/ri";
 import { BiExport } from "react-icons/bi";
 import VisitorInfo from "./VisitorInfo";
 import { UserData } from "./Data";
-
-
 import Table from "./Table";
 import PieChart from "./PieChart";
+import { Link } from "react-router-dom";
+
+
 function Dashboard() {
   
   const [ userData, setUserData ] = useState({
     labls: UserData.map((data) => data.totalVisitors),
     datasets: [
     {
-      label: "Users Lost",
-      data: UserData.map((data) => data.Host),
+      label: "Total Visitors",
+      data: UserData.map((data) => data.hostId),
       backgroundColor: [
         "rgba(75,192,1921)",
         "#ecf0f1",
@@ -30,8 +31,6 @@ function Dashboard() {
   ],
   });
 
-
-
   return (
     <div className="wrap">
       <div className="sidebar">
@@ -39,12 +38,15 @@ function Dashboard() {
           <li className="active">
             <AiOutlineHome className="fas" />
           </li>
-          <li>
-            <AiOutlinePieChart className="fas" />
+       <Link to="/chart">
+          <li> 
+          <AiOutlinePieChart className="fas" />
           </li>
+         </Link> 
           <li>
             <AiOutlineMail className="fas" />
           </li>
+  
           <li>
             <BiExport className="fas" />
           </li>
