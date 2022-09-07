@@ -33,7 +33,7 @@ router.post('/login', async (req, res) => {
             res.status(401).send("Invalid credentials")
         }
     } catch (err) {
-        res.status(500).send(err?.message || "Internal Server Error")
+        res.status(500).send(err?.message || "Internal Server")
     }
 })
 
@@ -55,7 +55,8 @@ router.get('/visits', async (req, res) => {
     }
 })
 
-router.get('/dashboard', authenticateToken, (req, res) => {
+router.get('*', authenticateToken, (req, res) => {
+    console.log("auth route")
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 

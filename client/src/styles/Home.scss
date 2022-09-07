@@ -1,5 +1,6 @@
 @import "./colors";
 @import "./fonts";
+@import "./mixins";
 
 .homepage {
     display: flex;
@@ -29,7 +30,12 @@
     width: 60vw;
 }
 
-.cta button {
+.button-group {
+    display: flex;
+    gap: 1.8rem;
+}
+
+.cta .sign-in {
     color: white;
     background: $orange-color;
     font-weight: 400;
@@ -40,3 +46,22 @@
     border-radius: 50px;
 }
 
+.sign-in:hover {
+   @include sign-in;
+}
+.cta .sign-out {
+    color: white;
+    background: #37a9e1;
+    font-weight: 400;
+    font-family: $montserrat;
+    font-size: 1.4rem;
+    border: solid;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+
+}
+
+
+.sign-out:hover {
+   @include sign-in;
+}

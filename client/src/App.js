@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import ScanQrCode from "./components/ScanQrCode";
 import AdminLogin from "./components/AdminLogin";
 import ProtectedRoute from "./components/ProtectedRoute";
+import SignOut from "./components/SignOut";
+
 
 function App() {
 
@@ -24,15 +26,19 @@ function App() {
           <User />
         </Route>
 
-        <Route path="/adminlogin" component={AdminLogin}>
+        <Route path="/admin/adminlogin" component={AdminLogin}>
           <AdminLogin />
         </Route>
 
-        <ProtectedRoute path="/dashboard" component={Dashboard} auth={false}/>
+        <ProtectedRoute path="/admin/dashboard" component={Dashboard} auth={false}/>
 
 
         <Route path="/scanqrcode" component={ScanQrCode}>
           <ScanQrCode />
+        </Route>
+
+        <Route path="/signout" component={SignOut}>
+          <SignOut />
         </Route>
       </Switch>
     </Router>

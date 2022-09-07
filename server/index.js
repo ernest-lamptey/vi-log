@@ -20,6 +20,7 @@ app.use('/visitors', visitorRouter);
 app.use('/admin', adminRouter);
 
 app.get('*', (req, res) => {
+    console.log('outer route')
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 

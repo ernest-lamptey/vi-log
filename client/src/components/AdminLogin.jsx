@@ -71,8 +71,8 @@ function AdminLogin() {
           </div>
           <div className="pass">Forgot Password?</div>
           <div className='buttons'>
-            <input onClick={handleLogin} type="submit" value="Login" />
-            <input onClick={handleSignUp} type="submit" value="Sign Up" />
+            <input className='login' onClick={handleLogin} type="submit" value="Login" />
+            <input className='sign-up' onClick={handleSignUp} type="submit" value="Sign Up" />
           </div>
         </form>
       </div>
