@@ -8,6 +8,7 @@ import VisitorInfo from "./VisitorInfo";
 import { UserData } from "./Data";
 import Table from "./Table";
 import PieChart from "./PieChart";
+import { Link } from "react-router-dom";
 
 
 function Dashboard() {
@@ -30,8 +31,6 @@ function Dashboard() {
   ],
   });
 
-
-
   return (
     <div className="wrap">
       <div className="sidebar">
@@ -39,12 +38,15 @@ function Dashboard() {
           <li className="active">
             <AiOutlineHome className="fas" />
           </li>
-          <li>
-            <AiOutlinePieChart className="fas" />
+       <Link to="/chart">
+          <li> 
+          <AiOutlinePieChart className="fas" />
           </li>
+         </Link> 
           <li>
             <AiOutlineMail className="fas" />
           </li>
+  
           <li>
             <BiExport className="fas" />
           </li>

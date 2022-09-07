@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import ScanQrCode from "./components/ScanQrCode";
 import AdminLogin from "./components/AdminLogin";
 import SignOut from "./components/SignOut";
+import PieChart from "./components/PieChart";
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
 
         <Route path="/admin/dashboard" component={Dashboard}>
           <Dashboard />
+        </Route>
+        <Route path="/admin/dashboard/:chart" component={PieChart}>
+          <PieChart />
         </Route>
 
         <Route path="/scanqrcode" component={ScanQrCode}>
