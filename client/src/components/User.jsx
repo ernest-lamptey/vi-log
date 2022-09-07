@@ -80,7 +80,7 @@ function User() {
               <input value={purpose} onChange={(e) => setPurpose(e.target.value)}type="text" placeholder="eg. Contractor" />
             </div>
 
-            <div className="input-box">
+            <div id="host-area" className="input-box">
               <span className="details">Host</span>
               <input 
                 value={hostName} type="text" placeholder="Enter your host name" 
