@@ -7,11 +7,13 @@ import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
 import ScanQrCode from "./components/ScanQrCode";
 import AdminLogin from "./components/AdminLogin";
+import ProtectedRoute from "./components/ProtectedRoute";
 import SignOut from "./components/SignOut";
-import PieChart from "./components/PieChart";
+// import PieChart from "./components/PieChart";
 
 
 function App() {
+
   return (
     <Router>
       <Navbar />
@@ -29,12 +31,8 @@ function App() {
           <AdminLogin />
         </Route>
 
-        <Route path="/admin/dashboard" component={Dashboard}>
-          <Dashboard />
-        </Route>
-        <Route path="/admin/dashboard/:chart" component={PieChart}>
-          <PieChart />
-        </Route>
+        <ProtectedRoute path="/admin/dashboard" component={Dashboard} auth={false}/>
+
 
         <Route path="/scanqrcode" component={ScanQrCode}>
           <ScanQrCode />
