@@ -5,12 +5,12 @@ import Home from "./components/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Navbar from "./components/Navbar";
-
 import ScanQrCode from "./components/ScanQrCode";
 import AdminLogin from "./components/AdminLogin";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
+
   return (
     <Router>
       <Navbar />
@@ -28,9 +28,8 @@ function App() {
           <AdminLogin />
         </Route>
 
-        <Route path="/dashboard" component={Dashboard}>
-          <Dashboard />
-        </Route>
+        <ProtectedRoute path="/dashboard" component={Dashboard} auth={false}/>
+
 
         <Route path="/scanqrcode" component={ScanQrCode}>
           <ScanQrCode />

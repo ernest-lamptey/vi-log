@@ -5,44 +5,47 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { useHistory } from 'react-router-dom';
-import Axios from 'axios';
+import AuthService from './auth-service'
 
 function AdminLogin() {
   const history = useHistory();
-  // const { globalState, setGlobalState } = React.useContext(GlobalContext)
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  // const [notification, setNotification] = useState();
 
   const notify = (notification) => {
     toast(notification, {position: "top-center",
-    autoClose: 3000,})
+    autoClose: 3000})
   }
 
   async function handleLogin(event) {
     event.preventDefault()
     try {
       const data = {email, password};
-      const response = await Axios.post('/admin/login', data)
-      if (response) {
-        await window.localStorage.setItem("token", JSON.stringify(response.data.accessToken)) 
-      }
-      history.push('/dashboard')
+      await AuthService.login(data)
+      .then(() => {
+        history.push('/dashboard')
+      }, (error) => {
+        console.log(error)
+      })
     } catch (error) {
       notify(error.response.data)
       console.log(error.response.data)
     }
   }
 
-  function handleSignUp(event) {
+  async function handleSignUp(event) {
     event.preventDefault()
-    const data = {email, password};
-    Axios.post("/admin/newAdmin", data)
-      .then(res => history.push('/dashboard'))
-      .catch(err => {
-        notify(err.response.data)
-        console.log(err.response.data)
+    try {
+      const data = {email, password};
+      await AuthService.signup(data).then(() => {
+        history.push('/dashboard')
+      }, (error) => {
+        console.log(error)
       })
+    } catch (error) {
+      notify(error.response.data)
+      console.log(error.response.data)
+    }
   }
 
   return (
