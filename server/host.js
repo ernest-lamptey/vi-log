@@ -3,12 +3,13 @@ const nodemailer = require('nodemailer');
 const pool = require('./db');
 require('dotenv').config({ path: '../.env'});
 const axios = require('axios');
+const path = require('path')
 const fs = require('fs');
 
 
 const getReceiverDetails = (id) => {
     return pool.query(`
-        SELECT employees.f_name AS host_name, employees.email AS host_email, employees.phone AS host_phone, visits.name AS visitor_name, visits.email AS visitor_email, visits.phone AS visitor_phone 
+        SELECT employees.f_name AS host_name, employees.email AS host_email, employees.phone AS host_phone, visits.visitor_name AS visitor_name, visits.email AS visitor_email, visits.phone AS visitor_phone 
         FROM employees
         JOIN visits
         ON employees.id = visits.host_id
@@ -72,12 +73,12 @@ const sendMail = () => {
             console.error(err)
         } else {
             console.log("Email sent successfully")
-            fs.unlink('qr.png', (err) => {
-                if (err) {
-                    console.error(err)
-                    return
-                }
-            })
+        //     fs.unlink('qr.png', (err) => {
+        //         if (err) {
+        //             console.error(err)
+        //             return
+        //         }
+        //     })
         }
     })
 };

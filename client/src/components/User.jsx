@@ -11,7 +11,7 @@ function User() {
 
   const [employees, setEmployee] = useState([]);
   const [employeeMatch, setEmployeeMatch] = useState([])
-  const [name, setName] = useState(() => item.name ? item.name : "");
+  const [visitor_name, setVisitorName] = useState(() => item.name ? item.name : "");
   const [email, setEmail] = useState(() => item.email ? item.email : "");
   const [phone, setPhone] = useState(() => item.phone ? item.phone : "");
   const [company, setCompany] = useState(() => item.company ? item.company : "");
@@ -42,7 +42,7 @@ function User() {
 
   function handleSubmit(event) {
     event.preventDefault()
-    const data = {name, email, phone, company, purpose, host_id}
+    const data = {visitor_name, email, phone, company, purpose, host_id}
     Axios.post("/visitors", data)
       .then(res => console.log("request sent"))
       .catch(err => console.error(err))
@@ -57,8 +57,8 @@ function User() {
             <div className="input-box">
               <span className="details">Name</span>
               <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={visitor_name}
+                onChange={(e) => setVisitorName(e.target.value)}
                 type="text"
                 placeholder="eg. John Smith"
                 required

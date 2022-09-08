@@ -4,6 +4,7 @@ const { addVisitorToDB } = require('./visitorService');
 const { sendNotifications } = require('../host');
 
 router.post('/', async (req, res) => {
+    console.log(req.body)
     if (!req.body){
         res.sendFile('../../client/build/index.html');
     }
