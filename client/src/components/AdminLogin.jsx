@@ -25,6 +25,7 @@ function AdminLogin() {
       await AuthService.login(data).then((res) => {
         history.push('/dashboard')
       })
+      // axios.get('/dashboard').then((res) => console.log(res)).catch((err) => console.log(err))
     } catch (error) {
       notify(error.response.data)
       console.log(error.response.data)
@@ -36,7 +37,7 @@ function AdminLogin() {
     try {
       const data = {email, password};
       await AuthService.signup(data).then(() => {
-        history.push('/dashboard')
+        axios.get('/dashboard')
       }, (error) => {
         console.log(error)
       })
