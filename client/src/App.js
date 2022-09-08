@@ -26,11 +26,11 @@ function App() {
           <User />
         </Route>
 
-        <Route path="/admin/adminlogin" component={AdminLogin}>
+        <Route path="/adminlogin" component={AdminLogin}>
           <AdminLogin />
         </Route>
 
-        <ProtectedRoute path="/admin/dashboard" component={Dashboard} auth={false}/>
+        <ProtectedRoute path="/dashboard" component={Dashboard} auth={false}/>
 
 
         <Route path="/scanqrcode" component={ScanQrCode}>
