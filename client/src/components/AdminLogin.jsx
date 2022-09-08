@@ -5,6 +5,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import AuthService from './auth-service'
 
 function AdminLogin() {
@@ -21,12 +22,10 @@ function AdminLogin() {
     event.preventDefault()
     try {
       const data = {email, password};
-      await AuthService.login(data)
-      .then(() => {
-        history.push('/dashboard')
-      }, (error) => {
-        console.log(error)
+      await AuthService.login(data).then((res) => {
+        axios.get('/dashboard')
       })
+      // axios.get('/dashboard').then((res) => console.log(res)).catch((err) => console.log(err))
     } catch (error) {
       notify(error.response.data)
       console.log(error.response.data)
@@ -38,7 +37,7 @@ function AdminLogin() {
     try {
       const data = {email, password};
       await AuthService.signup(data).then(() => {
-        history.push('/dashboard')
+        axios.get('/dashboard')
       }, (error) => {
         console.log(error)
       })
@@ -64,8 +63,8 @@ function AdminLogin() {
               type="text"
               placeholder="email address"
               required
-              pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-              title="Invalid email address"
+              // pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+              // title="Invalid email address"
             />
 
             <label>
@@ -81,7 +80,7 @@ function AdminLogin() {
               type="password"
               placeholder="password"
               required
-              pattern="*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+              // pattern="*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
             />
             <label>
               <RiLockPasswordFill />
