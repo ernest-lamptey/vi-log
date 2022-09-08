@@ -9,6 +9,7 @@ import ScanQrCode from "./components/ScanQrCode";
 import AdminLogin from "./components/AdminLogin";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SignOut from "./components/SignOut";
+// import PieChart from "./components/PieChart";
 
 
 function App() {

@@ -53,62 +53,104 @@ function User() {
       <div className="container">
         <div className="title">Tell us about yourself</div>
         <form onSubmit={handleSubmit}>
-
           <div className="user-details">
             <div className="input-box">
               <span className="details">Name</span>
-              <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="eg. John Smith" />
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                placeholder="eg. John Smith"
+                required
+                minLength="8"
+                maxLength="20"
+                data-error="sorry username taken"
+              />
             </div>
 
             <div className="input-box">
               <span className="details">Email</span>
-              <input value={email} onChange={(e) => setEmail(e.target.value)}type="text" placeholder="eg. johnsmith@gmail.com" />
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="eg. johnsmith@gmail.com"
+                required
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                title="Invalid email address"
+              />
             </div>
 
             <div className="input-box">
               <span className="details">Phone</span>
-              <input value={phone} onChange={(e) => setPhone(e.target.value)} type="text" placeholder="eg. 0244672301" />
+              <input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                type="text"
+                placeholder="eg. 0244672301"
+                required
+                minLength="10"
+                maxLength="10"
+              />
             </div>
 
             <div className="input-box">
               <span className="details">Company</span>
-              <input value={company} onChange={(e) => setCompany(e.target.value)} type="text" placeholder="Where do you work?" />
+              <input
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                type="text"
+                placeholder="Where do you work?"
+                required
+              />
             </div>
 
             <div className="input-box">
               <span className="details">Purpose</span>
-              <input value={purpose} onChange={(e) => setPurpose(e.target.value)}type="text" placeholder="eg. Contractor" />
+              <input
+                value={purpose}
+                onChange={(e) => setPurpose(e.target.value)}
+                type="text"
+                placeholder="eg. Contractor"
+                required
+              />
             </div>
 
             <div id="host-area" className="input-box">
               <span className="details">Host</span>
-              <input 
-                value={hostName} type="text" placeholder="Enter your host name" 
-                onChange={(e) => 
-                  {
-                    setHostName(e.target.value)
-                    searchEmployees(e.target.value)
-                  }}
+              <input
+                value={hostName}
+                type="text"
+                placeholder="Enter your host name"
+                onChange={(e) => {
+                  setHostName(e.target.value);
+                  searchEmployees(e.target.value);
+                }}
+                required
               />
-              {employeeMatch && employeeMatch.map((item, index) => (
-                <div key={index} onClick={(e) => {
-                  console.log("list clicked")
-                  setHostName(`${item.f_name} ${item.l_name}`)
-                  setHost_id(`${item.id}`)
-                  searchEmployees('')
-                }} >
-                  <SearchResult 
-                  f_name={item.f_name} l_name={item.l_name} department={item.department}/>
-                </div>
-
-              ))} 
-              
+              {employeeMatch &&
+                employeeMatch.map((item, index) => (
+                  <div
+                    key={index}
+                    onClick={(e) => {
+                      console.log("list clicked");
+                      setHostName(`${item.f_name} ${item.l_name}`);
+                      setHost_id(`${item.id}`);
+                      searchEmployees("");
+                    }}
+                  >
+                    <SearchResult
+                      f_name={item.f_name}
+                      l_name={item.l_name}
+                      department={item.department}
+                    />
+                  </div>
+                ))}
             </div>
 
             <div className="button">
               <input id="submit-button" type="submit" />
             </div>
-
           </div>
         </form>
       </div>
