@@ -25,7 +25,7 @@ function Navbar() {
         </NavLink>
 
         <NavLink
-          to="/admin/adminlogin"
+          to="/adminlogin"
           className="adminlogin"
           activeStyle={{ color: "orange" }}
         >
