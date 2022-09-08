@@ -11,7 +11,7 @@ function User() {
 
   const [employees, setEmployee] = useState([]);
   const [employeeMatch, setEmployeeMatch] = useState([])
-  const [visitor_name, setVisitorName] = useState(() => item.name ? item.name : "");
+  const [visitor_name, setVisitorName] = useState(() => item.visitor_name ? item.visitor_name : "");
   const [email, setEmail] = useState(() => item.email ? item.email : "");
   const [phone, setPhone] = useState(() => item.phone ? item.phone : "");
   const [company, setCompany] = useState(() => item.company ? item.company : "");
