@@ -53,6 +53,7 @@ function User() {
       <div className="container">
         <div className="title">Tell us about yourself</div>
         <form onSubmit={handleSubmit}>
+
           <div className="user-details">
             <div className="input-box">
               <span className="details">Name</span>
@@ -68,15 +69,7 @@ function User() {
 
             <div className="input-box">
               <span className="details">Email</span>
-              <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type="text"
-                placeholder="eg. johnsmith@gmail.com"
-                required
-                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                title="Invalid email address"
-              />
+              <input value={email} onChange={(e) => setEmail(e.target.value)}type="text" placeholder="eg. johnsmith@gmail.com" />
             </div>
 
             <div className="input-box">
@@ -95,61 +88,43 @@ function User() {
 
             <div className="input-box">
               <span className="details">Company</span>
-              <input
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                type="text"
-                placeholder="Where do you work?"
-                required
-              />
+              <input value={company} onChange={(e) => setCompany(e.target.value)} type="text" placeholder="Where do you work?" />
             </div>
 
             <div className="input-box">
               <span className="details">Purpose</span>
-              <input
-                value={purpose}
-                onChange={(e) => setPurpose(e.target.value)}
-                type="text"
-                placeholder="eg. Contractor"
-                required
-              />
+              <input value={purpose} onChange={(e) => setPurpose(e.target.value)}type="text" placeholder="eg. Contractor" />
             </div>
 
-            <div id="host-area" className="input-box">
+            <div className="input-box">
               <span className="details">Host</span>
-              <input
-                value={hostName}
-                type="text"
-                placeholder="Enter your host name"
-                onChange={(e) => {
-                  setHostName(e.target.value);
-                  searchEmployees(e.target.value);
-                }}
-                required
+              <input 
+                value={hostName} type="text" placeholder="Enter your host name" 
+                onChange={(e) => 
+                  {
+                    setHostName(e.target.value)
+                    searchEmployees(e.target.value)
+                  }}
               />
-              {employeeMatch &&
-                employeeMatch.map((item, index) => (
-                  <div
-                    key={index}
-                    onClick={(e) => {
-                      console.log("list clicked");
-                      setHostName(`${item.f_name} ${item.l_name}`);
-                      setHost_id(`${item.id}`);
-                      searchEmployees("");
-                    }}
-                  >
-                    <SearchResult
-                      f_name={item.f_name}
-                      l_name={item.l_name}
-                      department={item.department}
-                    />
-                  </div>
-                ))}
+              {employeeMatch && employeeMatch.map((item, index) => (
+                <div key={index} onClick={(e) => {
+                  console.log("list clicked")
+                  setHostName(`${item.f_name} ${item.l_name}`)
+                  setHost_id(`${item.id}`)
+                  searchEmployees('')
+                }} >
+                  <SearchResult 
+                  f_name={item.f_name} l_name={item.l_name} department={item.department}/>
+                </div>
+
+              ))} 
+              
             </div>
 
             <div className="button">
               <input id="submit-button" type="submit" />
             </div>
+
           </div>
         </form>
       </div>

@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const getReceiverDetails = (id) => {
     return pool.query(`
-        SELECT employees.f_name AS host_name, employees.email AS host_email, employees.phone AS host_phone, visits.name AS visitor_name, visits.email AS visitor_email, visits.phone AS visitor_phone 
+        SELECT employees.f_name AS host_name, employees.email AS host_email, employees.phone AS host_phone, visits.visitor_name AS visitor_name, visits.email AS visitor_email, visits.phone AS visitor_phone 
         FROM employees
         JOIN visits
         ON employees.id = visits.host_id
