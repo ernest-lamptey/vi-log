@@ -3,7 +3,13 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 require('dotenv').config({ path: '../../.env'});
 const jwt = require('jsonwebtoken');
-const { getAllEmployees, addAdmin, getAdminPassword, getVisits } = require('./adminService')
+const { getAllEmployees, 
+        addAdmin, 
+        getAdminPassword, 
+        getVisits, 
+        getDailyVisits,
+        getBusiestHosts
+        } = require('./adminService')
 
 
 router.post('/newAdmin', async (req, res) => {
@@ -50,6 +56,24 @@ router.get('/visits', async (req, res) => {
     try {
         const allVisits = await getVisits();
         res.status(200).json(allVisits)
+    } catch (error) {
+        res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
+    }
+})
+
+router.get('/dailyVisits', async (req, res) => {
+    try {
+        const dailyVisits = await getDailyVisits();
+        res.status(200).json(dailyVisits)
+    } catch (error) {
+        res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
+    }
+})
+
+router.get('/busiestHosts', async (req, res) => {
+    try {
+        const busiestHosts = await getBusiestHosts();
+        res.status(200).json(busiestHosts)
     } catch (error) {
         res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
     }

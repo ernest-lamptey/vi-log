@@ -42,7 +42,7 @@ const getAllEmployees = () => {
 
 const getVisits = () => {
     return pool.query(
-        `SELECT * FROM visits LIMIT 10`
+        `SELECT * FROM visits`
     )
     .then(res => {
         return res.rows
@@ -52,10 +52,40 @@ const getVisits = () => {
     })
 }
 
+const getDailyVisits = () => {
+    return pool.query(
+        `SELECT date, count(*) FROM visits
+        WHERE date > current_date - interval '30' day
+        GROUP BY date
+        ORDER BY date asc`
+    )
+    .then(res => {
+        return res.rows
+    })
+    .catch(err => {
+        throw {status: err?.status || 500, message: err.message}
+    })
+}
+
+const getBusiestHosts = () => {
+    return pool.query(
+        `SELECT host_id, count(*) FROM visits
+        WHERE date > current_date - interval '90' day
+        GROUP BY host_id`
+    )
+    .then(res => {
+        return res.rows
+    })
+    .catch(err => {
+        throw {status: err?.status || 500, message: err.message}
+    })
+}
 
 module.exports = {
     getAllEmployees,
     addAdmin,
     getAdminPassword,
     getVisits,
+    getDailyVisits,
+    getBusiestHosts
 }
