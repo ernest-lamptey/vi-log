@@ -62,9 +62,7 @@ function User() {
                 type="text"
                 placeholder="eg. John Smith"
                 required
-                minLength="8"
-                maxLength="20"
-                data-error="sorry username taken"
+                pattern="^[a-zA-Z\s]*$"
               />
             </div>
 
@@ -91,6 +89,7 @@ function User() {
                 required
                 minLength="10"
                 maxLength="10"
+                // pattern=
               />
             </div>
 
