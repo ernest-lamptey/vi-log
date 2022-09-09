@@ -9,7 +9,7 @@ const SignedInVisitors = () => {
     const getVisits = async () => {
         const response = await axios.get('/admin/visits')
             .then((res) => res.data)
-            .then((data) => data.filter((item) => item.sign_out !== null))
+            .then((data) => data.filter((item) => item.sign_out === null))
         setVisitData(response)
     }
     
