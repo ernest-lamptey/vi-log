@@ -2,12 +2,11 @@ import React from 'react'
 
 const body = {
     padding: "10px",
-    position: "fixed",
-    width: "25%",
+    width: "100%",
     height: "50px",
     fontSize: "14px",
     display: "flex",
-    backgrounColor: "rgba(41,0,0,1)",
+    backgroundColor: "black" /*"rgba(41,0,0,1)"*/,
     alignItems: "center",
     gap: "15px",
     cursor: "pointer",

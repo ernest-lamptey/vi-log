@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import User from "./components/User";
 import Home from "./components/Home";
@@ -9,6 +9,7 @@ import ScanQrCode from "./components/ScanQrCode";
 import AdminLogin from "./components/AdminLogin";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SignOut from "./components/SignOut";
+import authService from "./components/auth-service"
 // import PieChart from "./components/PieChart";
 
 
@@ -27,11 +28,11 @@ function App() {
           <User />
         </Route>
 
-        <Route path="/admin/adminlogin" component={AdminLogin}>
+        <Route path="/adminlogin" component={AdminLogin}>
           <AdminLogin />
         </Route>
 
-        <ProtectedRoute path="/admin/dashboard" component={Dashboard} auth={false}/>
+        <ProtectedRoute path="/dashboard" component={Dashboard} auth={authService.getCurrentUser()}/>
 
 
         <Route path="/scanqrcode" component={ScanQrCode}>

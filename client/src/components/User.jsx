@@ -115,7 +115,7 @@ function User() {
               />
             </div>
 
-            <div className="input-box">
+            <div id="host-area" className="input-box">
               <span className="details">Host</span>
               <input
                 value={hostName}

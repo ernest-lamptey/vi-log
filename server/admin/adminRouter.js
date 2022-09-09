@@ -26,7 +26,7 @@ router.post('/login', async (req, res) => {
     try {
         if (await bcrypt.compare(req.body.password, password)){
             const user = { name: req.body.email}
-            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
+            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "15m"})
             console.log("login success")
             res.json({accessToken: accessToken})
         } else {
@@ -55,21 +55,9 @@ router.get('/visits', async (req, res) => {
     }
 })
 
-router.get('*', authenticateToken, (req, res) => {
-    console.log("auth route")
+router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
 })
 
-function authenticateToken(req, res, next){
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
-    if (token == null) return res.sendStatus(401)
-
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-        if(err) return res.sendStatus(403)
-        req.user = user
-        next()
-    })
-}
 
 module.exports = router;

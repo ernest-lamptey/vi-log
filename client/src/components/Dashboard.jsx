@@ -8,10 +8,12 @@ import VisitorInfo from "./VisitorInfo";
 import { UserData } from "./Data";
 import Table from "./Table";
 import PieChart from "./PieChart";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import authService from "./auth-service";
 
 
 function Dashboard() {
+  const history = useHistory();
   
   const [ userData, setUserData ] = useState({
     labls: UserData.map((data) => data.totalVisitors),
@@ -51,7 +53,10 @@ function Dashboard() {
             <BiExport className="fas" />
           </li>
           <li>
-            <MdLogout className="fas" />
+            <MdLogout onClick={(e) => {
+              authService.logout()
+              history.push('/adminlogin')
+            }} className="fas" />
           </li>
         </ul>
       </div>
@@ -60,7 +65,7 @@ function Dashboard() {
         <div className="head">
           <div className="head-title">
             <span>
-              <RiAdminLine className="admin" />
+              <RiAdminLine className="admin"/>
             </span>
             <h2>Dashboard</h2>
           </div>
@@ -80,6 +85,7 @@ function Dashboard() {
         </div>
          
       <VisitorInfo />
+
       <PieChart chartData={userData} />
       </div>
     </div>
