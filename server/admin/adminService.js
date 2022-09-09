@@ -10,6 +10,17 @@ const addAdmin = (body) => {
     })
 }
 
+const addEmployee = (body) => {
+    return pool.query(
+        `INSERT INTO employees (f_name, l_name, department, email, phone)
+        VALUES ($1, $2, $3, $4, $5)`, [body.f_name, body.l_name, body.department, body.email, body.phone]
+    )
+    .then(res => console.log("Added new employee"))
+    .catch(err => {
+        throw {status: err?.status || 500, message: err.message}
+    })
+}
+
 const getAdminPassword = (email) => {
     return pool.query(
         "SELECT password FROM admins WHERE email = $1", [email]
@@ -87,5 +98,6 @@ module.exports = {
     getAdminPassword,
     getVisits,
     getDailyVisits,
-    getBusiestHosts
+    getBusiestHosts,
+    addEmployee
 }

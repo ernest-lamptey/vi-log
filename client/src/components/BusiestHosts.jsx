@@ -17,18 +17,6 @@ const BusiestHosts = () => {
         await axios.get('/admin/busiestHosts').then((res) => {
             setBusiest(res.data)
         })
-
-        // await busiest.forEach(element => {
-        //     employees.forEach(item => {
-        //         console.log(item)
-        //         if (element.host_id === item.id){
-        //             console.log(`${element.f_name} ${element.l_name}`)
-        //             names.current.push(`${element.f_name} ${element.l_name}`)
-        //             count.current.push(item.count)
-        //         }
-        //     })
-        // })
-        // console.log(names.current)
     }
 
 

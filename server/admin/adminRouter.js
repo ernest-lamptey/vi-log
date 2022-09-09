@@ -8,7 +8,8 @@ const { getAllEmployees,
         getAdminPassword, 
         getVisits, 
         getDailyVisits,
-        getBusiestHosts
+        getBusiestHosts,
+        addEmployee
         } = require('./adminService')
 
 
@@ -52,6 +53,15 @@ router.get('/employees', async (req, res) => {
     }
 })
 
+router.post('/newEmployee', async (req, res) => {
+    try {
+        await addEmployee(req.body)
+        res.status(201).send("Successful")
+    } catch (err) {
+        res.status(err?.status || 500).send({ status: "FAILED", data: {error: err?.message || err}}) 
+    }
+})
+
 router.get('/visits', async (req, res) => {
     try {
         const allVisits = await getVisits();
@@ -60,6 +70,7 @@ router.get('/visits', async (req, res) => {
         res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
     }
 })
+
 
 router.get('/dailyVisits', async (req, res) => {
     try {
