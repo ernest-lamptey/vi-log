@@ -1,5 +1,3 @@
-// import React, { Component } from "react";
-// // import QrReader from "react-qr-scanner";
 import "../styles/ScanQrCode.scss";
 import React, { useState } from 'react';
 import { QrReader } from 'react-qr-reader';

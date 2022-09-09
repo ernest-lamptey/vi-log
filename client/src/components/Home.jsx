@@ -1,7 +1,7 @@
 import React from 'react';
 import "../styles/Home.scss";
 import logo from  "../assets/Amalitech_logo.png"
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -11,12 +11,12 @@ const Home = () => {
                 <h1 className='caption'>IT SERVICE COMPANY</h1>
             </div>
             <div className='button-group'>
-                <Link to="/visitors" className='cta'> 
+                <NavLink to="/visitors" className='cta'> 
                     <button className='sign-in'>Click to Sign In</button>
-                </Link>
-                <Link to='./signout'className='cta'>
+                </NavLink>
+                <NavLink to='./signout'className='cta'>
                     <button className='sign-out'>Click to Sign Out</button>
-                </Link>
+                </NavLink>
             </div>
         </div>
     );

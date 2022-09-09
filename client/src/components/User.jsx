@@ -57,7 +57,18 @@ function User() {
           <div className="user-details">
             <div className="input-box">
               <span className="details">Name</span>
+<<<<<<< HEAD
               <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="eg. John Smith" />
+=======
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                placeholder="eg. John Smith"
+                required
+                pattern="^[a-zA-Z\s]*$"
+              />
+>>>>>>> c51f6633dd39ae35b2fd8a0b6b6ba3388c2cb798
             </div>
 
             <div className="input-box">
@@ -67,7 +78,20 @@ function User() {
 
             <div className="input-box">
               <span className="details">Phone</span>
+<<<<<<< HEAD
               <input value={phone} onChange={(e) => setPhone(e.target.value)} type="text" placeholder="eg. 0244672301" />
+=======
+              <input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                type="text"
+                placeholder="eg. 0244672301"
+                required
+                minLength="10"
+                maxLength="10"
+                // pattern=
+              />
+>>>>>>> c51f6633dd39ae35b2fd8a0b6b6ba3388c2cb798
             </div>
 
             <div className="input-box">

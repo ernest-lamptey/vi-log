@@ -1,7 +1,21 @@
 @mixin sign-in {
- cursor: pointer;
-  background: $main-color;
-  color: $black-color;
-  transition: .6s;
-  font-weight: bold;
+  padding: 5px;
+  font-family: $montserrat;
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid $main-color;
+  background-color: transparent;
+  color: $main-color;
+  font-size: 1.3em;
+  // box-shadow: 0 6px 6px rgba(207, 204, 204, 0.6);
 }
+
+.cta .sign-in:hover {
+    color: $main-color;
+    background-color: $orange-color;
+    transition: 0.40s;
+    
+}
+
