@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const pool = require('./db');
 require('dotenv').config({ path: '../.env'});
 const axios = require('axios');
+const path = require('path')
 const fs = require('fs');
 
 
@@ -72,12 +73,12 @@ const sendMail = () => {
             console.error(err)
         } else {
             console.log("Email sent successfully")
-            fs.unlink('qr.png', (err) => {
-                if (err) {
-                    console.error(err)
-                    return
-                }
-            })
+        //     fs.unlink('qr.png', (err) => {
+        //         if (err) {
+        //             console.error(err)
+        //             return
+        //         }
+        //     })
         }
     })
 };
