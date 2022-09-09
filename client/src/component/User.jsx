@@ -25,8 +25,6 @@ function User() {
   const [host_id, setHost_id] = useState(() => {
     return "";
   });
-/* multi page useState Hook */
-  const [formStep, setFormStep] = useState(1);
 
   useEffect(() => {
     Axios.get("/admin/employees").then((res) => {
@@ -66,59 +64,57 @@ function User() {
         <div className="title">Tell us about yourself</div>
         <form onSubmit={handleSubmit}>
           <div className="user-details">
-            {formStep === 0 && (
-              <section>
-                <div className="card-box">
-                  <span className="details">Name</span>
-                  <input
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    type="text"
-                    placeholder="eg. John Smith"
-                    required
-                    pattern="^[a-zA-Z\s]*$"
-                  />
-                </div>
-                <div className="card-box">
-                  <span className="details">Company</span>
-                  <input
-                    value={company}
-                    onChange={(e) => setCompany(e.target.value)}
-                    type="text"
-                    placeholder="Where do you work?"
-                    required
-                  />
-                </div>
-                <div className="card-box">
-                  <span className="details">Phone</span>
-                  <input
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    type="text"
-                    placeholder="eg. 0244672301"
-                    required
-                    minLength="10"
-                    maxLength="10"
-                    // pattern=
-                  />
-                </div>
-                <div className="card-box">
-                  <span className="details">Email</span>
-                  <input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    type="text"
-                    placeholder="eg. johnsmith@gmail.com"
-                    required
-                    pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-                    title="Invalid email address"
-                  />
-                </div>
-              </section>
-            )}
-             {formStep === 1 && (
-         <section className="cards">
-            <div className="card-box">
+            <div className="input-box">
+              <span className="details">Name</span>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                placeholder="eg. John Smith"
+                required
+                pattern="^[a-zA-Z\s]*$"
+              />
+            </div>
+
+            <div className="input-box">
+              <span className="details">Email</span>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="eg. johnsmith@gmail.com"
+                required
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+                title="Invalid email address"
+              />
+            </div>
+
+            <div className="input-box">
+              <span className="details">Phone</span>
+              <input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                type="text"
+                placeholder="eg. 0244672301"
+                required
+                minLength="10"
+                maxLength="10"
+                // pattern=
+              />
+            </div>
+
+            <div className="input-box">
+              <span className="details">Company</span>
+              <input
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                type="text"
+                placeholder="Where do you work?"
+                required
+              />
+            </div>
+
+            <div className="input-box">
               <span className="details">Purpose</span>
               <input
                 value={purpose}
@@ -129,7 +125,7 @@ function User() {
               />
             </div>
 
-            <div id="host-area" className="card-box">
+            <div id="host-area" className="input-box">
               <span className="details">Host</span>
               <input
                 value={hostName}
@@ -160,17 +156,14 @@ function User() {
                   </div>
                 ))}
             </div>
-          
+
             <div className="button">
               <input id="submit-button" type="submit" />
             </div>
-            </section>
-            )}
           </div>
-
         </form>
-        </div>
-        </div>
+      </div>
+    </div>
   );
 }
 
