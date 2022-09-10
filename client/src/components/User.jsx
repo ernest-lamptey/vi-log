@@ -3,6 +3,11 @@ import { useLocation } from "react-router-dom";
 import "../styles/User.scss";
 import Axios from "axios";
 import SearchResult from "./SearchResult";
+import {
+  IoChevronBackCircleOutline,
+  IoChevronForwardCircleOutline,
+} from "react-icons/io5";
+import { useForm } from "react-hook-form";
 
 function User() {
   const location = useLocation().state;
@@ -25,8 +30,14 @@ function User() {
   const [host_id, setHost_id] = useState(() => {
     return "";
   });
-/* multi page useState Hook */
-  const [formStep, setFormStep] = useState(1);
+
+  /* multi page useState Hook */
+  const [formStep, setFormStep] = useState(0);
+  const {
+    watch,
+    register,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
     Axios.get("/admin/employees").then((res) => {
@@ -60,8 +71,32 @@ function User() {
       .catch((err) => console.error(err));
   }
 
+  /* function for multipage form */
+  function forward() {
+    setFormStep((cur) => cur + 1);
+  }
+  function backward() {
+    setFormStep((cur) => cur - 1);
+  }
+
+  function renderTitle() {
+    if (formStep > 2) {
+      return undefined;
+    } else {
+      return <h1>Contacting your host...</h1>;
+    }
+  }
+
   return (
     <div className="body">
+      <div className="arrows">
+        <div className="arr left" onClick={backward}>
+          <IoChevronBackCircleOutline className="back" />
+        </div>
+        <div className="arr right" onClick={forward}>
+          <IoChevronForwardCircleOutline className="forward" />
+        </div>
+      </div>
       <div className="container">
         <div className="title">Tell us about yourself</div>
         <form onSubmit={handleSubmit}>
@@ -75,8 +110,8 @@ function User() {
                     onChange={(e) => setName(e.target.value)}
                     type="text"
                     placeholder="eg. John Smith"
-                    required
                     pattern="^[a-zA-Z\s]*$"
+                    required
                   />
                 </div>
                 <div className="card-box">
@@ -87,6 +122,8 @@ function User() {
                     type="text"
                     placeholder="Where do you work?"
                     required
+                    pattern="[A-Za-z0-9].{1,}"
+                    title="Please Enter Company Name"
                   />
                 </div>
                 <div className="card-box">
@@ -96,10 +133,11 @@ function User() {
                     onChange={(e) => setPhone(e.target.value)}
                     type="text"
                     placeholder="eg. 0244672301"
-                    required
                     minLength="10"
                     maxLength="10"
-                    // pattern=
+                    required
+                    pattern="[0-9]{8,20}"
+                    title="please enter number only"
                   />
                 </div>
                 <div className="card-box">
@@ -108,69 +146,70 @@ function User() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     type="text"
-                    placeholder="eg. johnsmith@gmail.com"
                     required
+                    placeholder="eg. johnsmith@gmail.com"
                     pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
                     title="Invalid email address"
                   />
                 </div>
               </section>
             )}
-             {formStep === 1 && (
-         <section className="cards">
-            <div className="card-box">
-              <span className="details">Purpose</span>
-              <input
-                value={purpose}
-                onChange={(e) => setPurpose(e.target.value)}
-                type="text"
-                placeholder="eg. Contractor"
-                required
-              />
-            </div>
+            {formStep === 1 && (
+              <section className="cards">
+                <div className="card-box">
+                  <span className="details">Purpose</span>
+                  <input
+                    value={purpose}
+                    onChange={(e) => setPurpose(e.target.value)}
+                    type="text"
+                    placeholder="eg. Contractor"
+                    required
+                  />
+                </div>
 
-            <div id="host-area" className="card-box">
-              <span className="details">Host</span>
-              <input
-                value={hostName}
-                type="text"
-                placeholder="Enter your host name"
-                onChange={(e) => {
-                  setHostName(e.target.value);
-                  searchEmployees(e.target.value);
-                }}
-                required
-              />
-              {employeeMatch &&
-                employeeMatch.map((item, index) => (
-                  <div
-                    key={index}
-                    onClick={(e) => {
-                      console.log("list clicked");
-                      setHostName(`${item.f_name} ${item.l_name}`);
-                      setHost_id(`${item.id}`);
-                      searchEmployees("");
+                <div id="host-area" className="card-box">
+                  <span className="details">Host</span>
+                  <input
+                    value={hostName}
+                    type="text"
+                    placeholder="Enter your host name"
+                    onChange={(e) => {
+                      setHostName(e.target.value);
+                      searchEmployees(e.target.value);
                     }}
-                  >
-                    <SearchResult
-                      f_name={item.f_name}
-                      l_name={item.l_name}
-                      department={item.department}
-                    />
-                  </div>
-                ))}
-            </div>
-          
-            <div className="button">
-              <input id="submit-button" type="submit" />
-            </div>
-            </section>
-            )}
-          </div>
+                    required
+                  />
+                  {employeeMatch &&
+                    employeeMatch.map((item, index) => (
+                      <div
+                        key={index}
+                        onClick={(e) => {
+                          console.log("list clicked");
+                          setHostName(`${item.f_name} ${item.l_name}`);
+                          setHost_id(`${item.id}`);
+                          searchEmployees("");
+                        }}
+                      >
+                        <SearchResult
+                          f_name={item.f_name}
+                          l_name={item.l_name}
+                          department={item.department}
+                        />
+                      </div>
+                    ))}
+                </div>
 
+                <div className="button">
+                  <input id="submit-button" type="submit" />
+                </div>
+              </section>
+            )}
+
+            {formStep === 2 && <section>{renderTitle()}</section>}
+          </div>
         </form>
-        </div>
-        </div>
+      </div>
+    </div>
   );
 }
 
