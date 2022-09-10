@@ -143,6 +143,56 @@ form .button input:hover {
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 10px solid black;
 }
+
+.select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  // width: 100%;
+    outline: none;
+   border: 0!important;
+   background-image: none;
+   background: $main-color;
+    flex: 1;
+  padding: 0 .5em;
+  color: $black-color;
+  cursor: pointer;
+  font-size: 1em;
+ 
+  // display: flex;
+}
+select::-ms-expand {
+   display: none;
+}
+.selected {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: $main-color;
+  overflow: hidden;
+  border-radius: .25em;
+  
+
+}
+
+.selected::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #000;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 25s all ease;
+}
+
+.selected:hover::after {
+  color: $orange-color;
+} 
 /* View port for mobile */
 $breakpoint: 584px;
 
