@@ -58,7 +58,8 @@
 .cta .sign-in:hover {
   color: $main-color;
   background-color: $orange-color;
-  transition: 0.9s;
+  transition: 0.7s;
+  border: 1px solid silver;
 }
 
 .cta .sign-out {
@@ -68,11 +69,11 @@
 .cta .sign-out:hover {
   color: $main-color;
   background-color: $orange-color;
-  transition: 0.9s;
+  transition: 0.7s;
+  border: 1px solid silver;
 }
 
-
- /* View port for mobile */
+/* View port for mobile */
 
 $mobile: 480px;
 
@@ -82,12 +83,11 @@ $mobile: 480px;
   }
 }
 
-
 .logo-img {
- @include mobile {
-  max-width: 800px;
-  width: 85vw;
- }
+  @include mobile {
+    max-width: 800px;
+    width: 85vw;
+  }
 }
 
 .caption {
@@ -100,13 +100,13 @@ $mobile: 480px;
 
 .button-group {
   @include mobile {
-  display: flex;
-  gap: 1.3rem;
-  flex-direction: column;
+    display: flex;
+    gap: 1.3rem;
+    flex-direction: column;
   }
 }
 .cta .sign-in {
-    @include mobile {
-      margin-left: 10px;
-    }  
+  @include mobile {
+    margin-left: 10px;
+  }
 }
