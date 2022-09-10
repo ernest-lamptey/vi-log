@@ -12,13 +12,13 @@ function Dashboard() {
   return (
     <Router>
       <Switch>
-        {/* <Route path="/" component={DailyStats}>
+        <Route path="/" component={DailyStats}>
           <DailyStats />
-        </Route> */}
-
-        <Route path="/" component={Reports}>
-          <Reports />
         </Route>
+
+        {/* <Route path="/" component={Reports}>
+          <Reports />
+        </Route> */}
 
       </Switch>
     </Router>
