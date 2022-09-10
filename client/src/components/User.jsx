@@ -33,11 +33,7 @@ function User() {
 
   /* multi page useState Hook */
   const [formStep, setFormStep] = useState(0);
-  const {
-    watch,
-    register,
-    formState: { errors },
-  } = useForm();
+  const { watch, register, formState: { errors } } = useForm();
 
   useEffect(() => {
     Axios.get("/admin/employees").then((res) => {
@@ -73,6 +69,7 @@ function User() {
 
   /* function for multipage form */
   function forward() {
+    
     setFormStep((cur) => cur + 1);
   }
   function backward() {
