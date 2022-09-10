@@ -4,7 +4,7 @@ import DailyVisits from "./DailyVisits";
 
 const DailyStats = () => {
   return (
-    <div>
+    <div className='dailyStats'>
         <SignedInVisitors />
         <DailyVisits />
     </div>

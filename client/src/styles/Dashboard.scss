@@ -142,3 +142,66 @@ input {
   font-size: 400;
   text-decoration: none;
 }
+
+.table-container {
+  font-family: $montserrat;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.report-container {
+  font-family: $montserrat;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h3 {
+  padding: 0.6rem;
+}
+
+.table-container thead, .report-container thead {
+  background-color: gainsboro;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  height: 35px;
+  border-bottom: 1px solid gainsboro;
+}
+
+.dailyStats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reports {
+  font-family: $montserrat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line-graph {
+  font-family: $montserrat;
+  padding: 10px;
+  margin-top: 20px;
+  max-height: 400px;
+} 
+
+@media only screen and (min-device-width: 768px) {
+    .table-container, .report-container {
+      max-width: 800px;
+    }
+
+    .line-graph {
+      max-width: 800px;
+    }
+}

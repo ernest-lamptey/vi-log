@@ -41,7 +41,7 @@ const DailyVisits = () => {
     }
 
     return (
-        <Line data={data} options={options} />
+        <Line className='line-graph' data={data} options={options} />
     )
 }
 

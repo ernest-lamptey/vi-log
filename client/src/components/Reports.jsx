@@ -22,10 +22,10 @@ const Reports = () => {
         getEmployees()
     }, [])
     return (
-        <div>
-            <h1>Reports</h1>
-            <h3>SignedInVisitors</h3>
-            <table>
+        <div className='reports'>
+            <h3>Reports</h3>
+            <h4>All Visitors</h4>
+            <table className='report-container'>
                 <thead>
                     <tr>
                         <th>Visitor</th>
