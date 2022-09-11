@@ -191,10 +191,26 @@ tr {
 
 .line-graph {
   font-family: $montserrat;
-  padding: 10px;
+  padding: 0.8rem;
   margin-top: 20px;
   max-height: 400px;
 } 
+
+.dashboard-links {
+  display: flex;
+  gap: 2rem;
+  font-weight: 600;
+  padding: 0.8rem;
+  text-transform: uppercase;
+  list-style-type: none;
+  background-color: gainsboro;
+}
+
+.dashboard-links a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
 
 @media only screen and (min-device-width: 768px) {
     .table-container, .report-container {
