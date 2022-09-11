@@ -33,7 +33,11 @@ function User() {
 
   /* multi page useState Hook */
   const [formStep, setFormStep] = useState(0);
-  const { watch, register, formState: { errors } } = useForm();
+  const {
+    watch,
+    register,
+    formState: { errors },
+  } = useForm();
 
   useEffect(() => {
     Axios.get("/admin/employees").then((res) => {
@@ -69,7 +73,6 @@ function User() {
 
   /* function for multipage form */
   function forward() {
-    
     setFormStep((cur) => cur + 1);
   }
   function backward() {
@@ -155,27 +158,69 @@ function User() {
               <section className="cards">
                 <div className="card-box">
                   <span className="details">Purpose</span>
-                  <input
-                    value={purpose}
-                    onChange={(e) => setPurpose(e.target.value)}
-                    type="text"
-                    placeholder="eg. Contractor"
-                    required
-                  />
+                  <select className="selected" required>
+                    <option
+                      value={purpose}
+                      onChange={(e) => setPurpose(e.target.value)}
+                    >
+                      Visit
+                    </option>
+                    <option
+                      value={purpose}
+                      onChange={(e) => setPurpose(e.target.value)}
+                    >
+                      Visit
+                    </option>
+                    <option
+                      value={purpose}
+                      onChange={(e) => setPurpose(e.target.value)}
+                    >
+                      Visit
+                    </option>
+                    <option
+                      value={purpose}
+                      onChange={(e) => setPurpose(e.target.value)}
+                    >
+                      Visit
+                    </option>
+                  </select>
                 </div>
 
                 <div id="host-area" className="card-box">
                   <span className="details">Host</span>
-                  <input
-                    value={hostName}
-                    type="text"
-                    placeholder="Enter your host name"
-                    onChange={(e) => {
-                      setHostName(e.target.value);
-                      searchEmployees(e.target.value);
-                    }}
-                    required
-                  />
+                  <select className="selected" required>
+                    <option value="choose host name" selected disabled>
+                      Choose host name
+                    </option>
+                    <option
+                      value={hostName}
+                      onChange={(e) => {
+                        setHostName(e.target.value);
+                        searchEmployees(e.target.value);
+                      }}
+                    >
+                      Ernest Lamptey
+                    </option>
+                    <option
+                      value={hostName}
+                      onChange={(e) => {
+                        setHostName(e.target.value);
+                        searchEmployees(e.target.value);
+                      }}
+                    >
+                      Prince Quarshie
+                    </option>
+                    <option
+                      value={hostName}
+                      onChange={(e) => {
+                        setHostName(e.target.value);
+                        searchEmployees(e.target.value);
+                      }}
+                    >
+                      Mike
+                    </option>
+                  </select>
+
                   {employeeMatch &&
                     employeeMatch.map((item, index) => (
                       <div
