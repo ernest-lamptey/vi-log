@@ -7,6 +7,7 @@ import {
   IoChevronBackCircleOutline,
   IoChevronForwardCircleOutline,
 } from "react-icons/io5";
+import { FaAngleDoubleRight } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 
 function User() {
@@ -33,12 +34,11 @@ function User() {
 
   /* multi page useState Hook */
   const [formStep, setFormStep] = useState(0);
-  const {
-    watch,
-    register,
-    formState: { errors },
-  } = useForm();
+const { watch, register } = useForm();
+const [ fillForm, setFillForm ] = useState(false);
+  
 
+  
   useEffect(() => {
     Axios.get("/admin/employees").then((res) => {
       setEmployee(res.data);
@@ -87,14 +87,17 @@ function User() {
     }
   }
 
+
   return (
     <div className="body">
       <div className="arrows">
         <div className="arr left" onClick={backward}>
-          <IoChevronBackCircleOutline className="back" />
+          <div></div>
+          {/* <IoChevronBackCircleOutline className="back" /> */}
         </div>
         <div className="arr right" onClick={forward}>
-          <IoChevronForwardCircleOutline className="forward" />
+          <div></div>
+          {/* <IoChevronForwardCircleOutline className="forward" /> */}
         </div>
       </div>
       <div className="container">
@@ -248,6 +251,9 @@ function User() {
             )}
 
             {formStep === 2 && <section>{renderTitle()}</section>}
+            <pre>
+              {/* {JSON.stringify(watch(), null, 2)} */}
+            </pre>
           </div>
         </form>
       </div>

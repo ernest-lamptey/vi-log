@@ -52,7 +52,7 @@ function AdminLogin() {
     <div className="main-wrap">
       <ToastContainer theme="dark" />
       <div className="center">
-        <h1>Welcome</h1>
+        <h1>Welcome!</h1>
 
         <form>
           <div className="txt_field">
@@ -64,8 +64,8 @@ function AdminLogin() {
               type="text"
               placeholder="email address"
               required
-              // pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-              // title="Invalid email address"
+              pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+              title="Invalid email address"
             />
 
             <label>
@@ -81,7 +81,7 @@ function AdminLogin() {
               type="password"
               placeholder="password"
               required
-              // pattern="*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+              pattern="*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
             />
             <label>
               <RiLockPasswordFill />

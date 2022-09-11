@@ -13,6 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  // background: rgb(129, 128, 128);
   background: silver;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,6 +32,7 @@
   border-radius: 0px;
   background: $orange-color;
   box-shadow: 5px 5px 21px #5a5a5a, -5px -5px 21px #ffffff;
+  
   align-items: center;
   border-radius: 10px;
 }
@@ -76,7 +78,7 @@ form .txt_field {
   margin: 1rem 0;
   display: flex;
   justify-content: space-around;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .buttons input {
@@ -97,10 +99,6 @@ form .txt_field {
   background-color: transparent;
 }
 
-// .buttons .sign-up {
-//   // background-color: #37a9e1;
-// }
-
 .txt_field span::before {
   content: "";
   position: absolute;
@@ -113,7 +111,7 @@ form .txt_field {
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label {
   top: -5px;
-  color: $main-color;
+  color: silver;
   font-weight: bold;
 }
 

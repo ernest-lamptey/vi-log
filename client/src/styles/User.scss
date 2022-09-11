@@ -113,35 +113,78 @@ form .button input:hover {
   border: 1px solid silver;
 }
 
-.arrows div {
-  color: $black-color;
-  transition: 0.4s ease;
-  position: absolute;
+// .arrows div {
+//   color: $black-color;
+//   transition: 0.4s ease;
+//   position: absolute;
 
+//   cursor: pointer;
+// }
+
+// .arr {
+//   height: 60px;
+//   width: 50px;
+// }
+// .left {
+//   left: 13%;
+// }
+// .right {
+//   right: 10%;
+// }
+
+// .back:hover {
+//   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+//     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+//   border-radius: 50% solid $black-color;
+// }
+
+// .forward:hover {
+//   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+//     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+//   border-radius: 10px solid black;
+// }
+
+.arrows div { 
+  position: absolute;
   cursor: pointer;
+}
+ .left {
+  left: 10%;
+}
+
+.right {
+  right: 10%;
 }
 
 .arr {
-  height: 60px;
+  background: $main-color;
+  height: 50px;
   width: 50px;
+  border-radius: 50%;
+  margin: 10px;
+  transition: 0.4s ease;
 }
-.left {
-  left: 17%;
+.arr:hover {
+  box-shadow: 0px 5px 10px $black-color;
 }
+
+.arr div {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-top: 4px solid #202020;
+  border-left: 4px solid #202020;
+  transform: rotate(45deg);
+  left: 15.5px;
+  top: 20px;
+}
+
 .right {
-  right: 15%;
+  transform: rotate(90deg);
 }
 
-.back:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  border-radius: 50% solid $black-color;
-}
-
-.forward:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-    rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  border-radius: 10px solid black;
+.left {
+  transform: rotate(-90deg);
 }
 
 .select {
@@ -230,6 +273,30 @@ form .user-details .card-box {
   @include breakpoint {
     color: $black-color;
     transition: 0.4s ease;
-    top: 29%;
+    top: 85%;
+  }
+}
+
+
+.arr div {
+ @include breakpoint {
+  transform: rotate(45deg);
+  left: 15.5px;
+  top: 19px;
+ }
+}
+
+$tab: 768px;
+
+
+@mixin tab {
+  @media (max-width: #{$tab}) {
+    @content;
+  }
+}
+
+.arr div {
+  @include tab {
+    // top: 29px;
   }
 }
