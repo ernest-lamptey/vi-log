@@ -7,6 +7,7 @@ import { RiAdminLine } from "react-icons/ri";
 import { BiExport } from "react-icons/bi";
 import Reports from "./Reports"
 import DailyStats from "./DailyStats";
+import Manage from "./Manage"
 
 function Dashboard() {
   const { path } = useRouteMatch()
@@ -33,6 +34,9 @@ function Dashboard() {
           <Reports />
         </Route>
 
+        <Route exact path={`${path}/manage`} component={Manage}>
+          <Manage />
+        </Route>
       </Switch>
     </Router>
   );
