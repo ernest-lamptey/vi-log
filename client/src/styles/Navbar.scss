@@ -1,0 +1,48 @@
+@import "./colors";
+@import "./fonts";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    background-color: $orange-color;
+    color: white;   
+}
+
+.vi-logo {
+    text-decoration: none;
+    display: flex;
+    font-family: $clicker;
+    font-size: 30px;
+    // font-weight: 400;
+    color: $main-color;
+    margin: 0;
+    padding: 0;
+    height: fit-content;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    width: 95%;
+}
+
+.adminlogin{
+  text-decoration: none;
+  color: $main-color;
+  font-size: 30px;
+  cursor: pointer;
+} 
+
+.mobile-menu-icon {
+    display: none;
+}

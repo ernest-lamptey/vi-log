@@ -1,0 +1,144 @@
+@import "../styles//fonts";
+@import "../styles/colors";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrap {
+  display: flex;
+  font-family: $montserrat;
+}
+
+.sidebar {
+  max-width: 100px;
+  height: 100vh;
+  background: #fff;
+}
+
+.sidebar ul {
+  margin-top: 50px;
+ 
+}
+.sidebar ul li {
+  list-style: none;
+  text-align: center;
+} 
+
+.sidebar ul li .fas {
+  margin: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  color: rgb(83, 82, 82);
+}
+
+.sidebar li:hover, li.active {
+    border-right: 3px solid rgb(83, 82, 82);
+}
+
+/* Main Body */
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.head {
+  display: flex;
+  width: 100%;
+  padding: 20px 30px;
+  color: $main-color;
+}
+
+.main-board {
+  width: 100%;
+}
+
+.head-title span{
+  font-size: 20px;
+  color: $main-color;
+}
+
+.head-search {
+  width: 400px;
+  margin-left: 70%;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding: 7px 13px;
+  border-radius: 15px;
+}
+
+// Card Board 
+.card-board {
+  display: flex;
+  justify-content: center;
+  padding: 15px 40px;
+}
+
+.card {
+  width: 230px;
+  height: 100px;
+  padding: 20px;
+  background: $main-color;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.card-icon {
+  display: flex;
+}
+.card-icon .fas {
+  margin: 15px 0;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 12.5rem;
+  color: rgb(83, 82, 82);
+}
+
+.card span {
+  font-size: 13px;
+  color: rgb(151, 151, 151);
+}
+
+// Visistor Info 
+
+.card h5 {
+  margin-top: 5px;
+}
+
+
+.info {
+  width: 87%;
+  margin: 0 40px;
+  background: $main-color;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+
+.info-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topic {
+  font-size: 20px;
+  font-weight: 500px;
+}
+
+.info-details li{
+  list-style: none;
+  margin: 8px 0;
+}
+
+.info-details li a {
+  font-size: 18px;
+  color: #333;
+  font-size: 400;
+  text-decoration: none;
+}

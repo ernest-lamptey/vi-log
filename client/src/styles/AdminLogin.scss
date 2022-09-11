@@ -1,0 +1,116 @@
+@import "../styles/colors";
+@import "../styles/fonts";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-wrap {
+  min-height: 90vh;
+  font-family: $montserrat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  max-width: 400px;
+  height: fit-content;
+  padding: 1.4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  background: $gray-background;
+  box-shadow: rgba(0, 0, 0, 0.904) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.911) 0px -3px 0px inset;
+  border-radius: 10px;
+}
+.center h1 {
+  text-align: center;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid silver;
+  margin-bottom: 0.6rem;
+}
+.center form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+form .txt_field {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  border-bottom: 2px solid #a6b4a6;
+  margin: 1.2rem 3rem;
+}
+
+.txt_field input {
+  font-family: $montserrat;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+  color: black;
+}
+
+.pass {
+  padding-bottom: 0.8rem;
+}
+
+.buttons {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.buttons input {
+  min-width: 60%;
+  font-family: $montserrat;
+  height: 40px;
+  border: 1px solid;
+  background: $orange-color;
+  border-radius: 15px;
+  font-size: 18px;
+  color: white;
+}
+
+.buttons .sign-up {
+  background-color: #37a9e1;
+}
+
+.txt_field span::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: $orange-color;
+  transition: 0.5s;
+}
+
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label {
+  top: -5px;
+  color: $orange-color;
+  font-weight: bold;
+}
+
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+  width: 100%;
+}
+
+.pass:hover {
+  color: $orange-color;
+}
+
+input[type="submit"]:hover {
+  border-color: $black-color;
+  transition: 0.5s;
+  background: $main-color;
+  color: $black-color;
+  cursor: pointer;
+}
