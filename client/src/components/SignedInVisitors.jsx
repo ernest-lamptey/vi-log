@@ -25,7 +25,7 @@ const SignedInVisitors = () => {
 
     return (
         <div className='table-container'>
-            <h1>SignedInVisitors</h1>
+            <h3>Signed In Visitors</h3>
             <table>
                 <thead>
                     <tr>

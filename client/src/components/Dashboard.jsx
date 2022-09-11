@@ -16,9 +16,9 @@ function Dashboard() {
           <DailyStats />
         </Route>
 
-        <Route path="/reports" component={Reports}>
+        {/* <Route path="/" component={Reports}>
           <Reports />
-        </Route>
+        </Route> */}
 
       </Switch>
     </Router>
