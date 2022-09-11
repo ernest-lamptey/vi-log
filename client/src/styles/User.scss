@@ -144,26 +144,26 @@ form .button input:hover {
   border-radius: 10px solid black;
 }
 
-.select{
+.select {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
   // width: 100%;
-    outline: none;
-   border: 0!important;
-   background-image: none;
-   background: $main-color;
-    flex: 1;
-  padding: 0 .5em;
+  outline: none;
+  border: 0 !important;
+  background-image: none;
+  background: $main-color;
+  flex: 1;
+  padding: 0 0.5em;
   color: $black-color;
   cursor: pointer;
   font-size: 1em;
- 
+
   // display: flex;
 }
 select::-ms-expand {
-   display: none;
+  display: none;
 }
 .selected {
   position: relative;
@@ -173,13 +173,11 @@ select::-ms-expand {
   line-height: 3;
   background: $main-color;
   overflow: hidden;
-  border-radius: .25em;
-  
-
+  border-radius: 0.25em;
 }
 
 .selected::after {
-  content: '\25BC';
+  content: "\25BC";
   position: absolute;
   top: 0;
   right: 0;
@@ -192,7 +190,7 @@ select::-ms-expand {
 
 .selected:hover::after {
   color: $orange-color;
-} 
+}
 /* View port for mobile */
 $breakpoint: 584px;
 

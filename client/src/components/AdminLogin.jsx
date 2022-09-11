@@ -52,7 +52,7 @@ function AdminLogin() {
     <div className="main-wrap">
       <ToastContainer theme="dark" />
       <div className="center">
-        <h1>Welcome Admin!</h1>
+        <h1>Welcome</h1>
 
         <form>
           <div className="txt_field">
