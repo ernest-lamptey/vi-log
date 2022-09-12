@@ -2,6 +2,7 @@
 @import "./fonts";
 
 .scanqrcode {
+  
   color: $main-color;
   font-size: 30px;
   margin: 0px;
@@ -26,6 +27,12 @@
 }
 
 .camera {
+
+    height: 100vh;
+     background: linear-gradient(rgba(12, 12, 12, 0.7), rgba(8, 8, 8, 0.7));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   padding-left: 3rem;
