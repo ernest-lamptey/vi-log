@@ -25,7 +25,7 @@ const Manage = () => {
       const deleteEmployee = (payload) => {
         axios.delete('/admin/employees', {data: payload})
             .then((res) => {
-                console.log(res)
+                notify("Employee account deleted!")
             })
             .catch((err) => notify(err))
       }

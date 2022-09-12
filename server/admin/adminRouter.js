@@ -69,6 +69,7 @@ router.delete('/employees', async (req, res) => {
         await deleteEmployee(req.body);
         res.status(204).send("Employee deleted")
     } catch (error) {
+        console.log('failing in admin route  ')
         res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
     }
 })
