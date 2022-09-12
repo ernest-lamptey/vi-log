@@ -13,8 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // background: rgb(129, 128, 128);
-  background: silver;
+  background: linear-gradient(rgba(12, 12, 12, 0.7), rgba(8, 8, 8, 0.7));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,13 +25,11 @@
   padding: 1.4rem 3rem;
   display: flex;
   flex-direction: column;
-  // background: $gray-background;
-  // box-shadow: rgba(0, 0, 0, 0.904) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.911) 0px -3px 0px inset;
-  
+  box-shadow: rgba(0, 0, 0, 0.904) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.911) 0px -3px 0px inset;
   border-radius: 0px;
   background: $orange-color;
-  box-shadow: 5px 5px 21px #5a5a5a, -5px -5px 21px #ffffff;
-  
   align-items: center;
   border-radius: 10px;
 }
@@ -95,7 +92,7 @@ form .txt_field {
   border: solid transparent;
   box-sizing: border-box;
   cursor: pointer;
-  border: 1px solid $main-color; 
+  border: 1px solid $main-color;
   background-color: transparent;
 }
 
