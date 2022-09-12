@@ -34,7 +34,7 @@ const editEmployee = (body) => {
     })
 }
 
-const deleteEmployee = (body) => {
+const deleteEmployee = (body) => { 
     return pool.query(
         `DELETE FROM employees
          WHERE id = $1
