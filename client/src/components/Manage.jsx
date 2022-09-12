@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import axios from 'axios'
 import '../styles/modal.scss'
+import ConfirmModal from './ConfirmModal';
 
 const Manage = () => {
     const [employees, setEmployees] = useState([])
@@ -44,6 +45,7 @@ const Manage = () => {
                     }}>Cancel</button>
                 </div>
             </div>
+            <ConfirmModal />
             <ToastContainer />
             <button className='add-employee'>Add Employee</button>
             <div className='grid-header'>

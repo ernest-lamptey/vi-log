@@ -34,15 +34,28 @@ const editEmployee = (body) => {
     })
 }
 
+const updateVisitsforDelete = (body) => {
+    return pool.query(
+        `UPDATE visits
+         SET host_id = null
+         WHERE host_id = $1;
+        `, [body.id]
+    )
+    .then((res) => console.log("Visits updated"))
+    .catch(err => {
+        throw {status: err?.status || 500, message: err.message}
+    })
+}
+
 const deleteEmployee = (body) => { 
     return pool.query(
         `DELETE FROM employees
          WHERE id = $1
         `, [body.id]
     )
-    .then((res) => console.log("Employee deleted"))
+    .then((res) => {
+        console.log("Employee deleted")})
     .catch(err => {
-        console.log('failing in admin service')
         throw {status: err?.status || 500, message: err.message}
     })
 }
@@ -127,5 +140,6 @@ module.exports = {
     getBusiestHosts,
     addEmployee,
     editEmployee,
-    deleteEmployee
+    deleteEmployee,
+    updateVisitsforDelete
 }
