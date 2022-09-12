@@ -10,6 +10,7 @@ const Manage = () => {
     const [employees, setEmployees] = useState([])
     const [employeeInfo, setEmployeeInfo] = useState()
     const [confirmToggle, setConfirmToggle] = useState(false)
+    const [dispEditModal, setDispEditModal] = useState(false)
 
     const notify = (notification) => {
         toast(notification, {position: "top-center",
@@ -27,6 +28,7 @@ const Manage = () => {
         axios.delete('/admin/employees', {data: payload})
             .then((res) => {
                 notify("Employee account deleted!")
+                setEmployeeInfo('')
             })
             .catch((err) => notify(err))
       }
@@ -45,7 +47,20 @@ const Manage = () => {
                     }}>Cancel</button>
                 </div>
             </div>
-            <ConfirmModal />
+
+            <form style={{display: dispEditModal ? '' : 'none'}}className='edit-modal'>
+                <label htmlFor="f_name">First Name</label>
+                <input type="text" />
+                <label htmlFor="l_name">Last Name</label>
+                <input type="text" />
+                <label htmlFor="department">Department</label>
+                <input type="text" />
+                <label htmlFor="email">Email</label>
+                <input type="text" />
+                <label htmlFor="f_name">Phone</label>
+                <input type="text" />
+            </form>
+
             <ToastContainer />
             <button className='add-employee'>Add Employee</button>
             <div className='grid-header'>
