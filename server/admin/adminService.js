@@ -42,6 +42,7 @@ const deleteEmployee = (body) => {
     )
     .then((res) => console.log("Employee deleted"))
     .catch(err => {
+        console.log('failing in admin service')
         throw {status: err?.status || 500, message: err.message}
     })
 }
