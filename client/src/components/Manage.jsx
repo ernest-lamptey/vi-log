@@ -31,8 +31,7 @@ const Manage = () => {
       }
     return (
         <div className='employees-list'>
-            <ToastContainer />
-            <div style={{display: confirmToggle ? '' : 'none'}}className='confirm'>
+             <div style={{display: confirmToggle ? '' : 'none'}}className='confirm'>
                 <div className='overlay'></div>
                 <div className='confirm-modal'>
                     <p>Are you sure you want to delete this employee?</p>
@@ -43,8 +42,9 @@ const Manage = () => {
                     <button className='confirm-cancel' onClick={(e) => {
                         setConfirmToggle(false)
                     }}>Cancel</button>
+                </div>
             </div>
-            </div>
+            <ToastContainer />
             <button className='add-employee'>Add Employee</button>
             <div className='grid-header'>
                 <p className='header-name'>Employee Name</p>
