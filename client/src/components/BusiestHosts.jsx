@@ -1,16 +1,16 @@
-import React, {useState, useEffect, useCallback, useRef} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto'
 import axios from 'axios'
 
 const BusiestHosts = () => {
-    let names = useRef([])
-    let count = useRef([])
+    const [names, setNames] = useState([])
+    const [count, setCount] = useState([])
     
     const getHostData = async () => {
         await axios.get('/admin/busiestHosts').then((res) => {
-            names.current = res.data.map((item) => `${item.f_name} ${item.l_name}`)
-            count.current = res.data.map((item) => item.count)
+            setNames(res.data.map((item) => `${item.f_name} ${item.l_name}`))
+            setCount(res.data.map((item) => item.count))
         })
     }
 
@@ -20,17 +20,24 @@ const BusiestHosts = () => {
     }, [])
 
     const data = {
-        labels: names.current,
+        labels: names,
         datasets: [
             {
                 label: 'Daily Visits',
-                data: count.current
+                data: count,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ]
             }
         ]
     }
 
     return (
-        <Doughnut data={data} />
+        <Doughnut className='doughnut' data={data} />
     )
 }
 

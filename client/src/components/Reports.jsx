@@ -23,8 +23,7 @@ const Reports = () => {
     }, [])
     return (
         <div className='reports'>
-            <h3>Reports</h3>
-            <h4>All Visitors</h4>
+            <div></div>
             <table className='report-container'>
                 <thead>
                     <tr>
