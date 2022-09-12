@@ -10,11 +10,18 @@ const Manage = () => {
     const [employees, setEmployees] = useState([])
     const [employeeInfo, setEmployeeInfo] = useState()
     const [confirmToggle, setConfirmToggle] = useState(false)
-    const [dispEditModal, setDispEditModal] = useState(false)
+    const [dispConfirmModal, setDispConfirmModal] = useState(false)
+    const [dispEditModal, setDispEditModal] = useState(true)
 
     const notify = (notification) => {
         toast(notification, {position: "top-center",
         autoClose: 3000})
+    }
+
+    function ForceUpdate(){
+        const [value, setValue] = useState(0); // integer state
+        return () => setValue(value => value + 1); // update state to force render
+
     }
 
     useEffect(() => {
@@ -24,42 +31,47 @@ const Manage = () => {
         });
       }, []);
 
-      const deleteEmployee = (payload) => {
+    const deleteEmployee = (payload) => {
         axios.delete('/admin/employees', {data: payload})
             .then((res) => {
                 notify("Employee account deleted!")
-                setEmployeeInfo('')
+            })
+            .then((data) => {
+                ForceUpdate()
             })
             .catch((err) => notify(err))
-      }
+    }
+
     return (
         <div className='employees-list'>
              <div style={{display: confirmToggle ? '' : 'none'}}className='confirm'>
                 <div className='overlay'></div>
-                <div className='confirm-modal'>
+                <div style={{display: dispConfirmModal ? '' : 'none' }}className='confirm-modal'>
                     <p>Are you sure you want to delete this employee?</p>
                     <button className='confirm-yes' onClick={(e) => {
                         deleteEmployee(employeeInfo)
+                        setDispConfirmModal(false)
                         setConfirmToggle(false)
                     }}>Yes</button>
                     <button className='confirm-cancel' onClick={(e) => {
+                        setDispConfirmModal(false)
                         setConfirmToggle(false)
                     }}>Cancel</button>
                 </div>
-            </div>
 
-            <form style={{display: dispEditModal ? '' : 'none'}}className='edit-modal'>
-                <label htmlFor="f_name">First Name</label>
-                <input type="text" />
-                <label htmlFor="l_name">Last Name</label>
-                <input type="text" />
-                <label htmlFor="department">Department</label>
-                <input type="text" />
-                <label htmlFor="email">Email</label>
-                <input type="text" />
-                <label htmlFor="f_name">Phone</label>
-                <input type="text" />
-            </form>
+                <form style={{display: dispEditModal ? '' : 'none'}}className='edit-modal'>
+                    <label htmlFor="f_name">First Name</label>
+                    <input type="text" />
+                    <label htmlFor="l_name">Last Name</label>
+                    <input type="text" />
+                    <label htmlFor="department">Department</label>
+                    <input type="text" />
+                    <label htmlFor="email">Email</label>
+                    <input type="text" />
+                    <label htmlFor="f_name">Phone</label>
+                    <input type="text" />
+                </form>
+            </div>
 
             <ToastContainer />
             <button className='add-employee'>Add Employee</button>
@@ -76,6 +88,7 @@ const Manage = () => {
                     <div className='grid-icon icon-2' onClick={(e) => {
                         setEmployeeInfo(item)
                         setConfirmToggle(true)
+                        setDispConfirmModal(true)
                     }}><MdOutlineDelete /></div>
                 </div>
             ))}
