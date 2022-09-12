@@ -17,6 +17,17 @@ const login = (data) => {
         })
 }
 
+// const remove = (data) => {
+//     return axios
+//         .delete(API_URL + '/employees', data)
+//         .then((response) => {
+//             console.log(response)
+//         })
+//         .catch((error) => {
+//             throw error
+//         })
+// }
+
 const signup = (data) => {
     return axios
     .post(API_URL + '/newAdmin', data)
@@ -41,6 +52,7 @@ const getCurrentUser = () => {
 }
 const authService = {
     login,
+    // remove,
     logout,
     signup,
     getCurrentUser,

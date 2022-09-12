@@ -50,7 +50,7 @@ function AdminLogin() {
 
   return (
     <div className="main-wrap">
-      <ToastContainer theme="dark" />
+      <ToastContainer />
       <div className="center">
         <h1>Welcome!</h1>
 
