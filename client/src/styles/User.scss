@@ -12,8 +12,7 @@
 .body {
   color: $main-color;
   height: 100vh;
-  // background: radial-gradient(circle, rgba(72,13,0,1) 24%, rgba(41,0,0,1) 90%);
-  background: silver;
+  background: linear-gradient(rgba(12, 12, 12, 0.7), rgba(8, 8, 8, 0.7));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,41 +20,37 @@
 }
 
 .container {
-  max-width: 700px;
-  width: 100%;
+  width: 100vh;
+  height: 92vh;
   padding: 25px 30px;
   display: flex;
   border-radius: 5px;
   flex-direction: column;
-  // background: hsla(10, 100%, 6%, 0.8);
-
   border-radius: 0px;
-  background: $orange-color;
-  box-shadow: 5px 5px 21px #5a5a5a, -5px -5px 21px #ffffff;
   align-items: center;
+  gap: 15px;
 }
 
 .container .title {
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 500;
   position: relative;
   text-align: center;
   padding: 0 0 20px 0;
   margin-bottom: 15px;
-
-  // margin: 0 auto;
 }
 
 .container form .user-details section {
-  margin-top: 25px;
+  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 40px;
 }
 
 form .user-details .card-box {
   width: calc(100% / 2 - 20px);
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .user-details .card-box .details {
@@ -65,13 +60,13 @@ form .user-details .card-box {
 }
 
 .user-details .card-box input {
-  height: 45px;
+  height: 50px;
   width: 100%;
   outline: none;
   border-radius: 5px;
   border: 1px solid $main-color;
   padding-left: 15px;
-  font-family: 16px;
+  font-family: 18px;
   border-bottom-width: 2px;
   transition: all 0.3s ease;
 }
@@ -103,7 +98,7 @@ form .button input {
   box-sizing: border-box;
   cursor: pointer;
   border: 1px solid $main-color;
-  background-color: transparent;
+  background-color: $orange-color;
 }
 
 form .button input:hover {
@@ -113,47 +108,16 @@ form .button input:hover {
   border: 1px solid silver;
 }
 
-// .arrows div {
-//   color: $black-color;
-//   transition: 0.4s ease;
-//   position: absolute;
-
-//   cursor: pointer;
-// }
-
-// .arr {
-//   height: 60px;
-//   width: 50px;
-// }
-// .left {
-//   left: 13%;
-// }
-// .right {
-//   right: 10%;
-// }
-
-// .back:hover {
-//   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-//     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-//   border-radius: 50% solid $black-color;
-// }
-
-// .forward:hover {
-//   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-//     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-//   border-radius: 10px solid black;
-// }
-
-.arrows div { 
+.arrows div {
   position: absolute;
   cursor: pointer;
 }
- .left {
-  left: 10%;
+.left {
+  left: 5%;
 }
 
 .right {
-  right: 10%;
+  right: 5%;
 }
 
 .arr {
@@ -165,18 +129,23 @@ form .button input:hover {
   transition: 0.4s ease;
 }
 .arr:hover {
-  box-shadow: 0px 5px 10px $black-color;
+  background: $orange-color;
 }
 
 .arr div {
   position: absolute;
   height: 20px;
   width: 20px;
-  border-top: 4px solid #202020;
-  border-left: 4px solid #202020;
+  border-top: 3px solid #202020;
+  border-left: 3px solid #202020;
   transform: rotate(45deg);
   left: 15.5px;
   top: 20px;
+}
+
+.arr div:hover {
+  border-top: solid $main-color;
+  border-left: solid $main-color;
 }
 
 .right {
@@ -192,7 +161,6 @@ form .button input:hover {
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  // width: 100%;
   outline: none;
   border: 0 !important;
   background-image: none;
@@ -202,8 +170,6 @@ form .button input:hover {
   color: $black-color;
   cursor: pointer;
   font-size: 1em;
-
-  // display: flex;
 }
 select::-ms-expand {
   display: none;
@@ -234,6 +200,7 @@ select::-ms-expand {
 .selected:hover::after {
   color: $orange-color;
 }
+
 /* View port for mobile */
 $breakpoint: 584px;
 
@@ -277,26 +244,18 @@ form .user-details .card-box {
   }
 }
 
-
 .arr div {
- @include breakpoint {
-  transform: rotate(45deg);
-  left: 15.5px;
-  top: 19px;
- }
+  @include breakpoint {
+    transform: rotate(45deg);
+    left: 15.5px;
+    top: 19px;
+  }
 }
 
 $tab: 768px;
 
-
 @mixin tab {
   @media (max-width: #{$tab}) {
     @content;
-  }
-}
-
-.arr div {
-  @include tab {
-    // top: 29px;
   }
 }

@@ -3,12 +3,7 @@ import { useLocation } from "react-router-dom";
 import "../styles/User.scss";
 import Axios from "axios";
 import SearchResult from "./SearchResult";
-import {
-  IoChevronBackCircleOutline,
-  IoChevronForwardCircleOutline,
-} from "react-icons/io5";
-import { FaAngleDoubleRight } from "react-icons/fa";
-import { useForm } from "react-hook-form";
+
 
 function User() {
   const location = useLocation().state;
@@ -34,9 +29,7 @@ function User() {
 
   /* multi page useState Hook */
   const [formStep, setFormStep] = useState(0);
-const { watch, register } = useForm();
-const [ fillForm, setFillForm ] = useState(false);
-  
+   
 
   
   useEffect(() => {
@@ -93,11 +86,9 @@ const [ fillForm, setFillForm ] = useState(false);
       <div className="arrows">
         <div className="arr left" onClick={backward}>
           <div></div>
-          {/* <IoChevronBackCircleOutline className="back" /> */}
         </div>
         <div className="arr right" onClick={forward}>
           <div></div>
-          {/* <IoChevronForwardCircleOutline className="forward" /> */}
         </div>
       </div>
       <div className="container">
@@ -251,9 +242,6 @@ const [ fillForm, setFillForm ] = useState(false);
             )}
 
             {formStep === 2 && <section>{renderTitle()}</section>}
-            <pre>
-              {/* {JSON.stringify(watch(), null, 2)} */}
-            </pre>
           </div>
         </form>
       </div>

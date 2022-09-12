@@ -1,10 +1,10 @@
 import React from "react";
 import "../styles/Dashboard.scss";
 import { BrowserRouter as Router, Route, Switch, useRouteMatch, NavLink } from "react-router-dom";
-import { MdLogout } from "react-icons/md";
-import { AiOutlineHome, AiOutlineMail, AiOutlinePieChart } from "react-icons/ai";
-import { RiAdminLine } from "react-icons/ri";
-import { BiExport } from "react-icons/bi";
+// import { MdLogout } from "react-icons/md";
+// import { AiOutlineHome, AiOutlineMail, AiOutlinePieChart } from "react-icons/ai";
+// import { RiAdminLine } from "react-icons/ri";
+// import { BiExport } from "react-icons/bi";
 import Reports from "./Reports"
 import DailyStats from "./DailyStats";
 import Manage from "./Manage"
