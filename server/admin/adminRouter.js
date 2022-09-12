@@ -66,7 +66,6 @@ router.put('/employees', async (req, res) => {
 })
 
 router.delete('/employees', async (req, res) => {
-    console.log(req.body)
     try {
         await updateVisitsforDelete(req.body)
         await deleteEmployee(req.body);
