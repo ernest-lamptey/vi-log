@@ -12,7 +12,7 @@ const Manage = () => {
     const [confirmToggle, setConfirmToggle] = useState(false)
     const [dispConfirmModal, setDispConfirmModal] = useState(false)
     const [dispEditModal, setDispEditModal] = useState(true)
-    const [rerender, setRerender] = useState(false)
+    const [rerender, setRerender] = useState(0)
 
 
     const notify = (notification) => {
@@ -32,9 +32,6 @@ const Manage = () => {
             .then((res) => {
                 notify("Employee account deleted!")
             })
-            .then((data) => {
-                setRerender(!rerender)
-            })
             .catch((err) => notify(err))
     }
 
@@ -48,6 +45,7 @@ const Manage = () => {
                         deleteEmployee(employeeInfo)
                         setDispConfirmModal(false)
                         setConfirmToggle(false)
+                        setRerender((prev) => prev + 1)
                     }}>Yes</button>
                     <button className='confirm-cancel' onClick={(e) => {
                         setDispConfirmModal(false)
