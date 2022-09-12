@@ -1,5 +1,3 @@
-# vi-log
-
 # VI-LOG
 Vi-log is web application for the receptionists who have to maintain a bulky and a very-hard-to-maintain record book for all the visitors that visit the company for their various reasons. It helps in managing visitors visiting the institution and additionally it allows visitors to check-in or Sign-in digitally which eliminates the tedious registeration and other paperwork whcih is normally done manually. 
 It is really unpleasent and hectic for visitors to fill out forms manually and give details about their visit, to ease the process of registeration and signing-in manually they will be able to Sign-in without stress with the help of the **VI-LOG Web App**.
