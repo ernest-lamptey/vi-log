@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import axios from 'axios'
 import '../styles/modal.scss'
-import ConfirmModal from './ConfirmModal';
+// import ConfirmModal from './ConfirmModal';
 
 const Manage = () => {
     const [employees, setEmployees] = useState([])
@@ -12,6 +12,7 @@ const Manage = () => {
     const [modalToggle, setModalToggle] = useState(false)
     const [dispConfirmModal, setDispConfirmModal] = useState(false)
     const [dispEditModal, setDispEditModal] = useState(false)
+    const [dispAddModal, setDispAddModal] = useState(false)
     const [f_name, setFname] = useState()
     const [l_name, setLname] = useState()
     const [department, setDepartment] = useState()
@@ -25,15 +26,24 @@ const Manage = () => {
     }
 
     useEffect(() => {
-        axios.get("/admin/employees").then((res) => {
+        axios.get('/admin/employees').then((res) => {
           setEmployees(res.data);
           console.log(res.data);
         });
       }, []);
 
+    const addEmployee = (payload) => {
+        axios.post("/admin/employees", payload)
+            .then((res) => {
+                notify("Employee added successfully")
+            })
+            .catch((err) => notify(err))
+    }
+
     const deleteEmployee = (payload) => {
         axios.delete('/admin/employees', {data: payload})
             .then((res) => {
+                console.log(res)
                 notify("Employee account deleted!")
             })
             .catch((err) => notify(err))
@@ -88,10 +98,43 @@ const Manage = () => {
                         }}>Cancel</button>
                     </div>
                 </form>
+
+                <form style={{display: dispAddModal ? '' : 'none'}}className='add-modal'>
+                    <label htmlFor="f_name">First Name</label>
+                    <input type="text" value={f_name} onChange={(e) => setFname(e.target.value)} />
+                    <label htmlFor="l_name">Last Name</label>
+                    <input type="text" value={l_name} onChange={(e) => setLname(e.target.value)} />
+                    <label htmlFor="department">Department</label>
+                    <input type="text" value={department} onChange={(e) => setDepartment(e.target.value)}/>
+                    <label htmlFor="email">Email</label>
+                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                    <label htmlFor="f_name">Phone</label>
+                    <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                    <div className='form-buttons'>
+                        <button onClick={(e) => {
+                            const data = {f_name, l_name, department, email, phone}
+                            addEmployee(data)
+                            setDispAddModal(false)
+                            setModalToggle(false)
+                        }}>Submit</button>
+                        <button onClick={(e) => {
+                            setDispAddModal(false)
+                            setModalToggle(false)
+                        }}>Cancel</button>
+                    </div>
+                </form>
             </div>
 
             <ToastContainer />
-            <button className='add-employee'>Add Employee</button>
+            <button className='add-employee' onClick={(e) => {
+                setFname("")
+                setLname("")
+                setDepartment("")
+                setEmail("")
+                setPhone("")
+                setModalToggle(true)
+                setDispAddModal(true)
+            }}>Add Employee</button>
             <div className='grid-header'>
                 <p className='header-name'>Employee Name</p>
                 <p className='header-dep'>Department</p>
