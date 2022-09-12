@@ -7,7 +7,8 @@
 .confirm {
     position: fixed;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -27,6 +28,12 @@
     display: grid;
     grid-template-columns: 8;
     grid-gap: 0.5rem;
+}
+
+.edit-modal {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 p {

@@ -12,16 +12,12 @@ const Manage = () => {
     const [confirmToggle, setConfirmToggle] = useState(false)
     const [dispConfirmModal, setDispConfirmModal] = useState(false)
     const [dispEditModal, setDispEditModal] = useState(true)
+    const [rerender, setRerender] = useState(false)
+
 
     const notify = (notification) => {
         toast(notification, {position: "top-center",
         autoClose: 3000})
-    }
-
-    function ForceUpdate(){
-        const [value, setValue] = useState(0); // integer state
-        return () => setValue(value => value + 1); // update state to force render
-
     }
 
     useEffect(() => {
@@ -37,7 +33,7 @@ const Manage = () => {
                 notify("Employee account deleted!")
             })
             .then((data) => {
-                ForceUpdate()
+                setRerender(!rerender)
             })
             .catch((err) => notify(err))
     }
