@@ -62,7 +62,7 @@ function AdminLogin() {
                 setEmail(e.target.value);
               }}
               type="text"
-              placeholder="email address"
+              placeholder="Email address"
               required
               pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
               title="Invalid email address"
@@ -79,7 +79,7 @@ function AdminLogin() {
                 setPassword(e.target.value);
               }}
               type="password"
-              placeholder="password"
+              placeholder="Password"
               required
               pattern="*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
             />

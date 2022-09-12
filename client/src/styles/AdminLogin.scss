@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
   // background: rgb(129, 128, 128);
-  background: silver;
+  background: rgb(244, 244, 244);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,13 +26,8 @@
   padding: 1.4rem 3rem;
   display: flex;
   flex-direction: column;
-  // background: $gray-background;
-  // box-shadow: rgba(0, 0, 0, 0.904) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.911) 0px -3px 0px inset;
-  
-  border-radius: 0px;
-  background: $orange-color;
-  box-shadow: 5px 5px 21px #5a5a5a, -5px -5px 21px #ffffff;
-  
+  background: white;
+  box-shadow: 5px 5px 21px #a3a3a3, -5px -5px 21px #ffffff;
   align-items: center;
   border-radius: 10px;
 }
@@ -41,7 +36,7 @@
   padding-bottom: 0.8rem;
   border-bottom: 1px solid $main-color;
   margin-bottom: 0.6rem;
-  color: $main-color;
+  color: black;
 }
 .center form {
   display: flex;
@@ -53,10 +48,12 @@
 form .txt_field {
   display: flex;
   flex-direction: row-reverse;
+  gap: 1rem;
   width: 100%;
-  border-bottom: 2px solid $main-color;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid gainsboro;
   margin: 1.2rem 3rem;
-  color: $main-color;
+  color: gray;
 }
 
 .txt_field input {
@@ -66,36 +63,35 @@ form .txt_field {
   border: none;
   background: none;
   outline: none;
-  color: $main-color;
+  color: black;
 }
 
 .pass {
-  padding-bottom: 0.8rem;
-  color: $main-color;
+  color: black;
 }
 
 .buttons {
   margin: 1rem 0;
   display: flex;
   justify-content: space-around;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .buttons input {
   padding: 10px;
   margin-top: 10px;
   height: 100%;
-  width: 50%;
+  min-width: 50%;
   outline: none;
-  color: $main-color;
+  color: black;
   font-size: 18px;
   font-weight: 400;
-  border-radius: 1px;
+  border-radius: 0.8rem;
   letter-spacing: 1px;
   border: solid transparent;
   box-sizing: border-box;
   cursor: pointer;
-  border: 1px solid $main-color; 
+  border: 1px solid gray; 
   background-color: transparent;
 }
 
@@ -121,13 +117,13 @@ form .txt_field {
 }
 
 .pass:hover {
-  color: $main-color;
+  color: $orange-color;
 }
 
 input[type="submit"]:hover {
-  border-color: $main-color;
+  border-color: $orange-color;
   transition: 0.5s;
-  background: $main-color;
-  color: $black-color;
+  background: $orange-color;
+  color: $main-color;
   cursor: pointer;
 }

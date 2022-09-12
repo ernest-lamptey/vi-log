@@ -119,6 +119,11 @@ tr {
   // border-left: 1px solid gainsboro;
 }
 
+.icon-1:hover, .icon-2:hover {
+  color: $orange-color;
+  cursor: pointer;
+}
+
 .grid-icon {
   // padding: 0.3rem;
   font-size: 2rem;
