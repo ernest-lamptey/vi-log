@@ -25,10 +25,23 @@ const editEmployee = (body) => {
     return pool.query(
         `UPDATE employees
          SET f_name = $1, l_name = $2, department = $3, email = $4, phone = $5
-         WHERE id = $6
+         WHERE id = $6;
         `, [body.f_name, body.l_name, body.department, body.email, body.phone, body.id]
     )
     .then((res) => console.log("Employee updated"))
+    .catch(err => {
+        throw {status: err?.status || 500, message: err.message}
+    })
+}
+
+const updateVisitsforDelete = (body) => {
+    return pool.query(
+        `UPDATE visits
+         SET host_id = null
+         WHERE host_id = $1;
+        `, [body.id]
+    )
+    .then((res) => console.log("Visits updated"))
     .catch(err => {
         throw {status: err?.status || 500, message: err.message}
     })
@@ -40,9 +53,9 @@ const deleteEmployee = (body) => {
          WHERE id = $1
         `, [body.id]
     )
-    .then((res) => console.log("Employee deleted"))
+    .then((res) => {
+        console.log("Employee deleted")})
     .catch(err => {
-        console.log('failing in admin service')
         throw {status: err?.status || 500, message: err.message}
     })
 }
@@ -67,7 +80,7 @@ const getAdminPassword = (email) => {
 }
 const getAllEmployees = () => {
     return pool.query(
-        `SELECT id, f_name, l_name, department, photo_url FROM employees`
+        `SELECT * FROM employees`
     )
     .then(res => {
         return res.rows
@@ -127,5 +140,6 @@ module.exports = {
     getBusiestHosts,
     addEmployee,
     editEmployee,
-    deleteEmployee
+    deleteEmployee,
+    updateVisitsforDelete
 }

@@ -11,7 +11,8 @@ const { getAllEmployees,
         getBusiestHosts,
         addEmployee,
         editEmployee,
-        deleteEmployee
+        deleteEmployee,
+        updateVisitsforDelete
         } = require('./adminService')
 
 
@@ -65,8 +66,8 @@ router.put('/employees', async (req, res) => {
 })
 
 router.delete('/employees', async (req, res) => {
-    console.log(req.body)
     try {
+        await updateVisitsforDelete(req.body)
         await deleteEmployee(req.body);
         res.status(204).send("Employee deleted")
     } catch (error) {
@@ -75,7 +76,7 @@ router.delete('/employees', async (req, res) => {
     }
 })
 
-router.post('/newEmployee', async (req, res) => {
+router.post('/employees', async (req, res) => {
     try {
         await addEmployee(req.body)
         res.status(201).send("Successful")

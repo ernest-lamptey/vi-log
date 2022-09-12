@@ -1,14 +1,11 @@
 import React from 'react'
 import '../styles/modal.scss'
 
-const Confirm_Modal = () => {
+const ConfirmModal = () => {
   return (
     <>
-      <form className='edit-modal'>
-        
-      </form>
     </>
   )
 }
 
-export default Confirm_Modal
+export default ConfirmModal

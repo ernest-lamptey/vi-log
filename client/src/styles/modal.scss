@@ -7,7 +7,8 @@
 .confirm {
     position: fixed;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -27,6 +28,26 @@
     display: grid;
     grid-template-columns: 8;
     grid-gap: 0.5rem;
+}
+
+.edit-modal, .add-modal {
+    min-width: 400px;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.edit-modal input, .add-modal input {
+    height: 35px;
+    border-radius: 0.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.edit-modal button, .add-modal button {
+    width: 100px;
+    margin-top: 0.4rem;
 }
 
 p {
