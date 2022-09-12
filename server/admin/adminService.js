@@ -119,9 +119,12 @@ const getDailyVisits = () => {
 
 const getBusiestHosts = () => {
     return pool.query(
-        `SELECT host_id, count(*) FROM visits
-        WHERE date > current_date - interval '90' day
-        GROUP BY host_id`
+        `SELECT employees.f_name, employees.l_name, count(visits.host_id)
+         FROM employees
+         JOIN visits
+         ON employees.id = visits.host_id
+         WHERE date > current_date - interval '90' day
+         GROUP BY 1, 2`
     )
     .then(res => {
         return res.rows

@@ -6,32 +6,25 @@ import axios from 'axios'
 const BusiestHosts = () => {
     let names = useRef([])
     let count = useRef([])
-    const [employees, setEmployees] = useState([])
-    const [busiest, setBusiest] = useState([])
     
-    const getEmployees = async () => {
-        await axios.get('/admin/employees').then((res) => {
-            setEmployees(res.data)
-        })
-
+    const getHostData = async () => {
         await axios.get('/admin/busiestHosts').then((res) => {
-            setBusiest(res.data)
+            names.current = res.data.map((item) => `${item.f_name} ${item.l_name}`)
+            count.current = res.data.map((item) => item.count)
         })
     }
 
 
     useEffect(() => {
-        getEmployees()
-        console.log(employees)
-        console.log(busiest)
+        getHostData()
     }, [])
 
     const data = {
-        labels: names,
+        labels: names.current,
         datasets: [
             {
                 label: 'Daily Visits',
-                data: count
+                data: count.current
             }
         ]
     }
