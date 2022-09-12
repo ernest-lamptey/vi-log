@@ -1,3 +1,6 @@
+@import "../styles/colors";
+@import "../styles/fonts";
+
 * {
     padding: 0;
     margin: 0;
@@ -43,11 +46,18 @@
     height: 35px;
     border-radius: 0.4rem;
     margin-bottom: 0.8rem;
+    padding-left: 0.4rem;
 }
 
 .edit-modal button, .add-modal button {
     width: 100px;
     margin-top: 0.4rem;
+}
+
+.edit-modal button:hover, .add-modal button:hover {
+    cursor: pointer;
+    background-color: $orange-color;
+    color: white;
 }
 
 p {

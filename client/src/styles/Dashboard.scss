@@ -77,6 +77,12 @@ tr {
   cursor: pointer;
 }
 
+.dashboard-links li:hover {
+  // color: white; 
+  transition: 0.5s;
+  font-weight: 800;
+}
+
 .grid-container {
   margin: 0 auto;
   width: 90%;
