@@ -30,7 +30,7 @@
     grid-gap: 0.5rem;
 }
 
-.edit-modal {
+.edit-modal, .add-modal {
     min-width: 400px;
     padding: 2rem;
     border-radius: 0.8rem;
@@ -39,13 +39,13 @@
     background-color: white;
 }
 
-.edit-modal input {
+.edit-modal input, .add-modal input {
     height: 35px;
     border-radius: 0.4rem;
     margin-bottom: 0.8rem;
 }
 
-.edit-modal button {
+.edit-modal button, .add-modal button {
     width: 100px;
     margin-top: 0.4rem;
 }

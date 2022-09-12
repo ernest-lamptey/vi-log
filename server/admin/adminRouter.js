@@ -76,7 +76,7 @@ router.delete('/employees', async (req, res) => {
     }
 })
 
-router.post('/newEmployee', async (req, res) => {
+router.post('/employees', async (req, res) => {
     try {
         await addEmployee(req.body)
         res.status(201).send("Successful")
