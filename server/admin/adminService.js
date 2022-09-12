@@ -21,6 +21,32 @@ const addEmployee = (body) => {
     })
 }
 
+const editEmployee = (body) => {
+    return pool.query(
+        `UPDATE employees
+         SET f_name = $1, l_name = $2, department = $3, email = $4, phone = $5
+         WHERE id = $6
+        `, [body.f_name, body.l_name, body.department, body.email, body.phone, body.id]
+    )
+    .then((res) => console.log("Employee updated"))
+    .catch(err => {
+        throw {status: err?.status || 500, message: err.message}
+    })
+}
+
+const deleteEmployee = (body) => { 
+    return pool.query(
+        `DELETE FROM employees
+         WHERE id = $1
+        `, [body.id]
+    )
+    .then((res) => console.log("Employee deleted"))
+    .catch(err => {
+        console.log('failing in admin service')
+        throw {status: err?.status || 500, message: err.message}
+    })
+}
+
 const getAdminPassword = (email) => {
     return pool.query(
         "SELECT password FROM admins WHERE email = $1", [email]
@@ -99,5 +125,7 @@ module.exports = {
     getVisits,
     getDailyVisits,
     getBusiestHosts,
-    addEmployee
+    addEmployee,
+    editEmployee,
+    deleteEmployee
 }

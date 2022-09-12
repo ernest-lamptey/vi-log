@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.confirm {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(128, 128, 128, 0.515);
+    backdrop-filter: blur(4px);
+    padding-top: 3rem;
+}
+
+.confirm-modal {
+    z-index: 2;
+    background-color: white;
+    max-width: 400px;
+    max-height: 140px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1.2rem;
+    display: grid;
+    grid-template-columns: 8;
+    grid-gap: 0.5rem;
+}
+
+p {
+    grid-column: 1 / 9 ;
+}
+
+button {
+    min-width: 70px;
+    min-height: 35px;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
+}

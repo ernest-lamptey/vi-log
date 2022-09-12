@@ -9,7 +9,9 @@ const { getAllEmployees,
         getVisits, 
         getDailyVisits,
         getBusiestHosts,
-        addEmployee
+        addEmployee,
+        editEmployee,
+        deleteEmployee
         } = require('./adminService')
 
 
@@ -49,6 +51,26 @@ router.get('/employees', async (req, res) => {
         const allEmployees = await getAllEmployees();
         res.status(200).send(allEmployees)
     } catch (error) {
+        res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
+    }
+})
+
+router.put('/employees', async (req, res) => {
+    try {
+        await editEmployee(req.body);
+        res.status(204).send("Employee updated")
+    } catch (error) {
+        res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
+    }
+})
+
+router.delete('/employees', async (req, res) => {
+    console.log(req.body)
+    try {
+        await deleteEmployee(req.body);
+        res.status(204).send("Employee deleted")
+    } catch (error) {
+        console.log('failing in admin route  ')
         res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})
     }
 })
