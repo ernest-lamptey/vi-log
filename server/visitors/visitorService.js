@@ -40,8 +40,19 @@ const addVisitorToDB = (body) => {
     })
 }
 
-// const addSignOutTime
+const signOutVisitor = (id) => {
+    return pool.query(`
+        UPDATE visits
+        SET sign_out = CLOCK_TIMESTAMP()::TIME(0)
+        WHERE id = $1
+    `, [id])
+        .then((res) => console.log("Sign out successful"))
+        .catch(err => {
+            throw {status: err?.status || 500, message: err.message}
+        })
+}
 
 module.exports = {
     addVisitorToDB,
+    signOutVisitor
 }
