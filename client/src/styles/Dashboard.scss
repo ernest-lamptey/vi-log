@@ -247,33 +247,3 @@ table {
       align-items: center;
     }
 }
-
-@media only screen and (min-device-width: 1200px) {
-  .dailyStats {
-    min-width: 1150px;
-    // background-color: red;
-  }
-
-  .table-container {
-    grid-column: 1 / 2;
-    align-self: flex-start;
-    justify-self: center;
-    // background-color: yellow;
-  }
-
-  .line-graph {
-    justify-self: center;
-    grid-column: 2 / 3;
-    max-height: 300px;
-    // max-width: 350px;
-    // background-color: orange;
-  }
-
-  .doughnut {
-    grid-column: 2 / 3;
-    justify-self: center;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-}

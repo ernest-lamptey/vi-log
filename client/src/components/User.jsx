@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import "../styles/User.scss";
 import Axios from "axios";
-import SearchResult from "./SearchResult";
 
 
 function User() {
@@ -10,26 +9,26 @@ function User() {
   const item = location ? JSON.parse(location) : "";
 
   const [employees, setEmployee] = useState([]);
-  const [employeeMatch, setEmployeeMatch] = useState([]);
-  const [name, setName] = useState(() => (item.name ? item.name : ""));
+  const [visitor_name, setVisitorName] = useState(() => (item.name ? item.name : ""));
   const [email, setEmail] = useState(() => (item.email ? item.email : ""));
   const [phone, setPhone] = useState(() => (item.phone ? item.phone : ""));
   const [company, setCompany] = useState(() =>
     item.company ? item.company : ""
   );
-  const [purpose, setPurpose] = useState(() => {
-    return "";
-  });
-  const [hostName, setHostName] = useState(() => {
-    return "";
-  });
-  const [host_id, setHost_id] = useState(() => {
-    return "";
-  });
+  const [purpose, setPurpose] = useState(() => item.purpose ? item.purpose : "");
+  const [host_id, setHost_id] = useState(() => item.host_id ? item.host_id : "");
 
   /* multi page useState Hook */
   const [formStep, setFormStep] = useState(0);
    
+  const getId = (input) => {
+    const info = input.split(' ');
+    employees.forEach((item) => {
+      if ((item.f_name === info[0] || item.l_name === info[1]) && item.department === info[info.length - 1]) {
+        setHost_id(item.id)
+      }
+    })
+  }
 
   
   useEffect(() => {
@@ -39,28 +38,13 @@ function User() {
     });
   }, []);
 
-  const searchEmployees = (text) => {
-    let matches;
-    if (text.length < 3) {
-      matches = null;
-      setEmployeeMatch(matches);
-    } else {
-      matches = employees.filter((employee) => {
-        const regex = new RegExp(`${text}`, "gi");
-        return (
-          `${employee.f_name} ${employee.l_name}`.match(regex) ||
-          employee.l_name.match(regex)
-        );
-      });
-      setEmployeeMatch(matches);
-    }
-  };
-
   function handleSubmit(event) {
     event.preventDefault();
-    const data = { name, email, phone, company, purpose, host_id };
+    const data = { visitor_name, email, phone, company, purpose, host_id };
+    console.log(data)
     Axios.post("/visitors", data)
       .then((res) => console.log("request sent"))
+      .then(() => forward())
       .catch((err) => console.error(err));
   }
 
@@ -73,10 +57,10 @@ function User() {
   }
 
   function renderTitle() {
-    if (formStep > 2) {
-      return undefined;
+    if (formStep > 3) {
+      // return undefined;
     } else {
-      return <h1>Contacting your host...</h1>;
+      return <h1 className="">Your host has been notified... Kindly take a seat.</h1>;
     }
   }
 
@@ -92,16 +76,16 @@ function User() {
         </div>
       </div>
       <div className="container">
-        <div className="title">Tell us about yourself</div>
         <form onSubmit={handleSubmit}>
           <div className="user-details">
             {formStep === 0 && (
               <section>
+                <div className="title">Tell us about yourself</div>
                 <div className="card-box">
                   <span className="details">Name</span>
                   <input
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    value={visitor_name}
+                    onChange={(e) => setVisitorName(e.target.value)}
                     type="text"
                     placeholder="eg. John Smith"
                     pattern="^[a-zA-Z\s]*$"
@@ -150,93 +134,36 @@ function User() {
             )}
             {formStep === 1 && (
               <section className="cards">
+                <div className="title">Tell us about yourself</div>
                 <div className="card-box">
                   <span className="details">Purpose</span>
-                  <select className="selected" required>
-                    <option
-                      value={purpose}
-                      onChange={(e) => setPurpose(e.target.value)}
-                    >
-                      Visit
-                    </option>
-                    <option
-                      value={purpose}
-                      onChange={(e) => setPurpose(e.target.value)}
-                    >
-                      Visit
-                    </option>
-                    <option
-                      value={purpose}
-                      onChange={(e) => setPurpose(e.target.value)}
-                    >
-                      Visit
-                    </option>
-                    <option
-                      value={purpose}
-                      onChange={(e) => setPurpose(e.target.value)}
-                    >
-                      Visit
-                    </option>
+                  <select name="selected" onChange={(e) => { 
+                    setPurpose(e.target.value)
+                  }} className="selected" required>
+                    <option value="Official Visit">Official Visit</option>
+                    <option value="Delivery">Delivery</option>
+                    <option value="Business Meeting">Business Meeting</option>
+                    <option value="Client Enquiry">Client Enquiry</option>
                   </select>
                 </div>
 
                 <div id="host-area" className="card-box">
                   <span className="details">Host</span>
-                  <select className="selected" required>
-                    <option value="choose host name" selected disabled>
-                      Choose host name
-                    </option>
-                    <option
-                      value={hostName}
-                      onChange={(e) => {
-                        setHostName(e.target.value);
-                        searchEmployees(e.target.value);
-                      }}
-                    >
-                      Ernest Lamptey
-                    </option>
-                    <option
-                      value={hostName}
-                      onChange={(e) => {
-                        setHostName(e.target.value);
-                        searchEmployees(e.target.value);
-                      }}
-                    >
-                      Prince Quarshie
-                    </option>
-                    <option
-                      value={hostName}
-                      onChange={(e) => {
-                        setHostName(e.target.value);
-                        searchEmployees(e.target.value);
-                      }}
-                    >
-                      Mike
-                    </option>
-                  </select>
-
-                  {employeeMatch &&
-                    employeeMatch.map((item, index) => (
-                      <div
-                        key={index}
-                        onClick={(e) => {
-                          console.log("list clicked");
-                          setHostName(`${item.f_name} ${item.l_name}`);
-                          setHost_id(`${item.id}`);
-                          searchEmployees("");
-                        }}
-                      >
-                        <SearchResult
-                          f_name={item.f_name}
-                          l_name={item.l_name}
-                          department={item.department}
-                        />
-                      </div>
+                  <input list="host-list" placeholder="eg. John Smith" className="selected" required onInput={(e) => {
+                      getId(e.target.value)
+                    }}/>
+                      <datalist id="host-list">
+                      {employees && employees.map((item, index) => (
+                        <option value={`${item.f_name} ${item.l_name} - ${item.department}`}>
+                          {`${item.f_name} ${item.l_name} - ${item.department}`}
+                       </option>
                     ))}
+
+                  </datalist>
                 </div>
 
                 <div className="button">
-                  <input id="submit-button" type="submit" />
+                  <input onClick={handleSubmit} id="submit-button" type="submit" />
                 </div>
               </section>
             )}

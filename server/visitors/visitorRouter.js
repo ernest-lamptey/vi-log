@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     try {
         const visitorId = await addVisitorToDB(req.body);
         await sendNotifications(visitorId)
-        res.status(200).sendFile(path.join(__dirname, '../client/build/index.html'))
+        res.status(200).send("Success")
     } catch (error) {
         console.error(error)
         res.status(error?.status || 500).send({ status: "FAILED", data: {error: error?.message || error}})

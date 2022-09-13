@@ -20,9 +20,9 @@ const generateQR = (body) => {
 
 const addVisitorToDB = (body) => {
     return pool.query(
-        `INSERT INTO visits (visitor_name, phone, email, company, purpose, host_id, photo_url)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)`, 
-        [body.visitor_name, body.phone, body.email, body.company, body.purpose, body.host_id, body.photo_url]
+        `INSERT INTO visits (visitor_name, phone, email, company, purpose, host_id)
+        VALUES ($1, $2, $3, $4, $5, $6)`, 
+        [body.visitor_name, body.phone, body.email, body.company, body.purpose, Number(body.host_id)]
     )
     .then(res => {
         generateQR(body)
