@@ -32,7 +32,7 @@ function App() {
           <AdminLogin />
         </Route>
 
-        <ProtectedRoute path="/dashboard" component={Dashboard} auth={/*authService.getCurrentUser()*/true}/>
+        <ProtectedRoute path="/dashboard" component={Dashboard} auth={authService.getCurrentUser()}/>
 
 
         <Route path="/scanqrcode" component={ScanQrCode}>

@@ -76,7 +76,8 @@ table {
 
 .dashboard-links {
   font-size: 0.8rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   gap: 1rem;
   font-weight: 600;
   padding: 0 0.8rem;
@@ -90,6 +91,18 @@ table {
   text-decoration: none;
   color: black;
   cursor: pointer;
+}
+
+.dashboard-logout-btn {
+  grid-column: 10/12;
+  align-self: center;
+  border: 1px solid gainsboro;
+  background-color: white;
+}
+
+.dashboard-logout-btn:hover {
+  color: white;
+  background-color: $orange-color;
 }
 
 .dashboard-links li:hover {
