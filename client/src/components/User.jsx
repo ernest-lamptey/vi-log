@@ -20,6 +20,7 @@ function User() {
 
   /* multi page useState Hook */
   const [formStep, setFormStep] = useState(0);
+  const [isValid, setValid] = useState(false);
    
   const getId = (input) => {
     const info = input.split(' ');
@@ -30,7 +31,18 @@ function User() {
     })
   }
 
-  
+
+  function Validate() {
+    return name.length & company.length & phone.length & email.length & purpose.length & hostName.length;
+     
+  }
+
+  useEffect(()=> {
+    const isValid = Validate();
+    setValid(isValid);
+  }, [name, company, phone, email, purpose, hostName])
+
+
   useEffect(() => {
     Axios.get("/admin/employees").then((res) => {
       setEmployee(res.data);
@@ -53,7 +65,11 @@ function User() {
     setFormStep((cur) => cur + 1);
   }
   function backward() {
-    setFormStep((cur) => cur - 1);
+    if (formStep < 1) {
+      return undefined
+    }else {
+      return setFormStep((cur) => cur - 1);
+    }
   }
 
   function renderTitle() {
@@ -71,7 +87,7 @@ function User() {
         <div className="arr left" onClick={backward}>
           <div></div>
         </div>
-        <div className="arr right" onClick={forward}>
+        <div className="arr right" onClick={forward} disabled={!isValid}>
           <div></div>
         </div>
       </div>

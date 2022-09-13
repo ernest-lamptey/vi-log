@@ -26,7 +26,8 @@
   text-align: center;
 }
 
-.table-container thead, .report-container thead {
+.table-container thead,
+.report-container thead {
   border-bottom: 1px solid gray;
 }
 
@@ -38,7 +39,8 @@ table {
   border-collapse: collapse;
 }
 
-.report-container tr, .table-container tr {
+.report-container tr,
+.table-container tr {
   height: 35px;
   border-bottom: 1px solid gainsboro;
 }
@@ -61,7 +63,7 @@ table {
   padding: 0.8rem;
   margin-top: 1.4rem;
   max-height: 600px;
-} 
+}
 
 .doughnut {
   margin-top: 1.4rem;
@@ -91,7 +93,7 @@ table {
 }
 
 .dashboard-links li:hover {
-  // color: white; 
+  // color: white;
   transition: 0.5s;
   font-weight: 800;
 }
@@ -133,7 +135,8 @@ table {
   grid-column: 12 / 13;
 }
 
-.icon-1:hover, .icon-2:hover {
+.icon-1:hover,
+.icon-2:hover {
   color: $orange-color;
   cursor: pointer;
 }
@@ -193,57 +196,105 @@ table {
 }
 
 @media only screen and (min-device-width: 768px) {
-    .table-container, .report-container {
-      max-width: 800px;
-    }
+  .table-container,
+  .report-container {
+    max-width: 800px;
+  }
 
-    .line-graph {
-      max-width: 800px;
-    }
+  .line-graph {
+    max-width: 800px;
+  }
 
-    .doughnut {
-      max-width: 800px;
-    }
+  .doughnut {
+    max-width: 800px;
+  }
 
-    .grid-container, .grid-header {
-      width: 80%;
-      font-size: 1.1rem;
-    }
+  .grid-container,
+  .grid-header {
+    width: 80%;
+    font-size: 1.1rem;
+  }
 
-    .dashboard-links {
-      font-size: 1rem;
-    }
+  .dashboard-links {
+    font-size: 1rem;
+  }
 
-    .dailyStats {
-      max-width: 900px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0rem;
-    }
+  .dailyStats {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0rem;
+  }
 
-    .dailyVisits-container {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
+  .dailyVisits-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 
-    .table-container {
-      grid-column: 1 /3;
-    }
+  .table-container {
+    grid-column: 1 /3;
+  }
 
-    .line-graph {
-      margin: 0;
-      grid-column: 1 / 2;
-      max-width: 450px;
-    }
+  .line-graph {
+    margin: 0;
+    grid-column: 1 / 2;
+    max-width: 450px;
+  }
 
-    .doughnut {
-      margin: 0;
-      grid-column: 2 / 3;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+  .doughnut {
+    margin: 0;
+    grid-column: 2 / 3;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-device-width: 1200px) {
+  .dailyStats {
+    min-width: 1150px;
+    // background-color: red;
+  }
+
+  .table-container {
+    grid-column: 1 / 2;
+    align-self: flex-start;
+    justify-self: center;
+    // background-color: yellow;
+  }
+
+  .line-graph {
+    justify-self: center;
+    grid-column: 2 / 3;
+    max-height: 300px;
+    // max-width: 350px;
+    // background-color: orange;
+  }
+
+  .doughnut {
+    grid-column: 2 / 3;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+$tab: 480px;
+
+@mixin tab {
+  @media (max-width: #{$tab}) {
+    @content;
+  }
+}
+
+.table-container {
+  @include tab {
+    display: flex;
+    text-align: center;
+    max-width: 100%;
+  }
 }
