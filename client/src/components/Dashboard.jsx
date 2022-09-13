@@ -10,8 +10,8 @@ import {useHistory} from 'react-router-dom';
 
 function Dashboard() {
   const { path } = useRouteMatch()
-  const [dispConfirmModal, setDispConfirmModal] = useState(true);
-  const [modalToggle, setModalToggle] = useState(true)
+  const [dispConfirmModal, setDispConfirmModal] = useState(false);
+  const [modalToggle, setModalToggle] = useState(false)
   const history = useHistory()
   const handleLogout = () => {
     AuthService.logout()
