@@ -12,26 +12,51 @@ After visitors or users Sign-In or check-in his/her details they are sent an Ema
 * Ability to remove employee from the system.
 * Employee full details with Booking and Attendance Details.
 * Visitor’s Dynamic Information.
-* Email & Sms template.
-* Notifications that Match Receivers’ Preferences.
-* Secured Data.
 * Fast Process in signing-in visitors in less time span.
 * Alerts Email/SMS and phone integration is available.
+* Ability to export PDF file format.
+* Ability to export CSV file format.
+* Descriptive dashboard that shows all Employess with their details.
+* Keeps track of all meetings and respective visitor's details.
+* Emails and SMS notification to both visitor and Host.
+* Secure and Easy to ADD, DELETE or EDIT Employee profile.
 
-### About Project
-#### Built With
-* Back-End :
+## Objective
+
+**Store all visitor & host records electronically.**
+1. Paperless Records for Visitors and Host
+2. Save Visits with details of the visitor.
+3. Online App
+4. Store and Access records instantly.
+5. Paperless App.
+6. Instant access to ALL guest/host historical records at guest check-in or sign-in.
+7. Auto QR code Sign-in.
+
+
+## About Project
+#### Tools used
+**Back-End :**
 - Database: PostgreSQL.
 - Node.js.
 - Express.
 
-* Front-End :
+**Front-End :**
 - React App using create-react-app template.
 - Design UI: SASS.
 
+**Built with**
 * Language: JavaScript.
 * Server: Express.
 * Platform: Windows, MacOS
 * Browser: Chrome, Firefox, Safari.
 * Hosting: Heroku.
+
+**SnapShot of VI-LOG web App**
+
+
+![snapshot](https://user-images.githubusercontent.com/99655018/189922922-0b68edb6-cc79-4541-b056-6f968c89a4a0.jpg)
+
+### Visit deployed website
+Deployed on Heroku: https://vilog-app.herokuapp.com/
+
 
