@@ -38,23 +38,28 @@ const SignOut = () => {
     }, [])
     
     return (
-        <div className='signout-body'>
-            <ToastContainer />
-            <h3>Enter your name and confirm your details to sign out</h3>
-            <div className="input-box">
-              <input list='signout-data' placeholder="eg. John Smith" onInput={(e) => {
-                    setId(e.target.value.split(' ')[0])
-              }}/>
-              <datalist id='signout-data'>
-                { visitors && visitors.map((item, index) => (
-                    <option className='signout-option' key={item.id} value={`${item.id} ${item.visitor_name}`}>
-                        {`${item.company} ${item.phone}`}
-                    </option>
-                ))}
-              </datalist>
-              <button onClick={(e) => signOut(id)}>Sign Out</button>
+        <div className='signout-page-container'>
+            <div className='signout-body'>
+                <ToastContainer />
+                <h3>Enter your name and confirm your details to sign out</h3>
+                <div className="input-box">
+                <input required list='signout-data' placeholder="eg. John Smith" onInput={(e) => {
+                        setId(e.target.value.split(' ')[0])
+                }}/>
+                <datalist id='signout-data'>
+                    { visitors && visitors.map((item, index) => (
+                        <option className='signout-option' key={item.id} value={`${item.id} ${item.visitor_name}`}>
+                            {`${item.company} ${item.phone}`}
+                        </option>
+                    ))}
+                </datalist>
+                <button onClick={(e) => {
+                        id ? signOut(id) : notify("Select your details before signing out")
+                    }}>Sign Out</button>
+                </div>
             </div>
         </div>
+
     );
 };
 

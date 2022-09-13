@@ -1,7 +1,10 @@
 @import "../styles//fonts";
 @import "../styles/colors";
 
-body {
+.signout-page-container {
+    position: fixed;
+    width: 100vw;
+    min-height: 100vh;
     background: linear-gradient(rgba(12, 12, 12, 0.7), rgba(8, 8, 8, 0.7));
 }
 
