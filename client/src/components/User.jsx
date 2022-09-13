@@ -33,14 +33,14 @@ function User() {
 
 
   function Validate() {
-    return name.length & company.length & phone.length & email.length & purpose.length & hostName.length;
+    return visitor_name.length & company.length & phone.length & email.length & purpose.length;
      
   }
 
   useEffect(()=> {
     const isValid = Validate();
     setValid(isValid);
-  }, [name, company, phone, email, purpose, hostName])
+  }, [visitor_name, company, phone, email, purpose])
 
 
   useEffect(() => {
