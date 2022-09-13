@@ -29,9 +29,21 @@ function User() {
 
   /* multi page useState Hook */
   const [formStep, setFormStep] = useState(0);
+  const [isValid, setValid] = useState(false);
    
 
-  
+
+  function Validate() {
+    const valid = name.length & company.length & phone.length & email.length & purpose.length & hostName.length;
+     return valid;
+  }
+
+  useEffect(()=> {
+    const isValid = Validate();
+    setValid(isValid);
+  }, [name, company, phone, email, purpose, hostName])
+
+
   useEffect(() => {
     Axios.get("/admin/employees").then((res) => {
       setEmployee(res.data);
@@ -236,7 +248,7 @@ function User() {
                 </div>
 
                 <div className="button">
-                  <input id="submit-button" type="submit" />
+                  <input id="submit-button" type="submit" disabled={!isValid} />
                 </div>
               </section>
             )}
