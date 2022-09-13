@@ -83,6 +83,10 @@ form .button {
   margin: 4px auto;
 }
 
+form .button:disabled {
+  background: $black-color;
+}
+
 form .button input {
   padding: 5px;
   margin-top: 10px;
@@ -147,6 +151,7 @@ form .button input:hover {
   border-top: solid $main-color;
   border-left: solid $main-color;
 }
+
 
 .right {
   transform: rotate(90deg);

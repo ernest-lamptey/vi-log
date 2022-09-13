@@ -34,8 +34,8 @@ function User() {
 
 
   function Validate() {
-    const valid = name.length & company.length & phone.length & email.length & purpose.length & hostName.length;
-     return valid;
+    return name.length & company.length & phone.length & email.length & purpose.length & hostName.length;
+     
   }
 
   useEffect(()=> {
@@ -81,7 +81,11 @@ function User() {
     setFormStep((cur) => cur + 1);
   }
   function backward() {
-    setFormStep((cur) => cur - 1);
+    if (formStep < 1) {
+      return undefined
+    }else {
+      return setFormStep((cur) => cur - 1);
+    }
   }
 
   function renderTitle() {
@@ -99,7 +103,7 @@ function User() {
         <div className="arr left" onClick={backward}>
           <div></div>
         </div>
-        <div className="arr right" onClick={forward}>
+        <div className="arr right" onClick={forward} disabled={!isValid}>
           <div></div>
         </div>
       </div>
@@ -195,9 +199,7 @@ function User() {
                 <div id="host-area" className="card-box">
                   <span className="details">Host</span>
                   <select className="selected" required>
-                    <option value="choose host name" selected disabled>
-                      Choose host name
-                    </option>
+                    <option value="choose host name">Choose host name</option>
                     <option
                       value={hostName}
                       onChange={(e) => {
@@ -248,7 +250,7 @@ function User() {
                 </div>
 
                 <div className="button">
-                  <input id="submit-button" type="submit" disabled={!isValid} />
+                  <input id="submit-button" type="submit" />
                 </div>
               </section>
             )}
