@@ -33,6 +33,15 @@ const SignOut = () => {
             .catch((err) => console.log(err))
     }
 
+    const getId = (input) => {
+        const info = input.split(' ');
+        visitors.forEach((item) => {
+          if (item.phone === info[info.length - 1]) {
+            setId(item.id)
+          }
+        })
+    }
+
     useEffect(() => {
         getVisitors()
     }, [])
@@ -44,11 +53,11 @@ const SignOut = () => {
                 <h3>Enter your name and confirm your details to sign out</h3>
                 <div className="input-box">
                 <input required list='signout-data' placeholder="eg. John Smith" onInput={(e) => {
-                        setId(e.target.value.split(' ')[0])
+                        getId(e.target.value)
                 }}/>
                 <datalist id='signout-data'>
                     { visitors && visitors.map((item, index) => (
-                        <option className='signout-option' key={item.id} value={`${item.id} ${item.visitor_name}`}>
+                        <option className='signout-option' key={item.id} value={`${item.visitor_name} - ${item.phone}`}>
                             {`${item.company} ${item.phone}`}
                         </option>
                     ))}
