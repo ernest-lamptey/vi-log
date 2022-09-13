@@ -161,36 +161,36 @@ form .button input:hover {
   transform: rotate(-90deg);
 }
 
-.select {
-  -webkit-appearance: none;
+.card-box select {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 14px;
+  width: 15rem;
+  height: 3.3rem;
+    -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
   appearance: none;
-  outline: none;
-  border: 0 !important;
+    border: 0 !important;
   background-image: none;
   background: $main-color;
   flex: 1;
-  padding: 0 0.5em;
+  border-radius: 6px;
   color: $black-color;
   cursor: pointer;
-  font-size: 1em;
+  
 }
-select::-ms-expand {
-  display: none;
-}
-.selected {
+.card-box select {
   position: relative;
   display: flex;
-  width: 20em;
-  height: 3em;
-  line-height: 3;
+  line-height: 1;
   background: $main-color;
   overflow: hidden;
   border-radius: 0.25em;
 }
 
-.selected::after {
+ .card-box select::after {
   content: "\25BC";
   position: absolute;
   top: 0;
@@ -202,9 +202,11 @@ select::-ms-expand {
   transition: 25s all ease;
 }
 
-.selected:hover::after {
+.card-box select:hover::after {
   color: $orange-color;
 }
+
+
 
 /* View port for mobile */
 $breakpoint: 584px;
