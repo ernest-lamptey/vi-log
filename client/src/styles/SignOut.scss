@@ -1,0 +1,73 @@
+@import "../styles//fonts";
+@import "../styles/colors";
+
+body {
+    background: linear-gradient(rgba(12, 12, 12, 0.7), rgba(8, 8, 8, 0.7));
+}
+
+.signout-body {
+    background-color: white;
+    border-radius: 1.6rem;
+    padding: 2rem;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 5rem;
+    flex-direction: column;
+    width: 90vw;
+    max-width: 600px;
+    align-items: center;
+}
+
+.signout-options {
+    background-color: aquamarine;
+}
+
+.signout-body h3 {
+    font-weight: 600;
+    text-align: center;
+}
+
+.signout-body .input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.signout-body button {
+    width: 120px;
+    background-color: white;
+    font-weight: 600;
+    border: 1px solid gainsboro;
+}
+
+.signout-body button:hover {
+    transition: 0.4s;
+    background-color: $orange-color;
+    color: white;
+
+}
+
+.signout-body input {
+    border-radius: 0.6rem;
+    margin-top: 2rem;
+    padding-left: 0.6rem;
+    height: 40px;
+    width: 300px;
+}
+
+@media only screen and (min-device-width: 768px) {
+    .signout-body h3 {
+        width: 75%;
+    }
+
+    .signout-body button {
+        margin-top: 1rem;
+    }
+}
+
+@media only screen and (min-device-width: 1200px) {
+    .signout-body {
+        margin-top: 9rem;
+    }
+}
