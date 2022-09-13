@@ -23,7 +23,7 @@ const BusiestHosts = () => {
         labels: names,
         datasets: [
             {
-                label: 'Daily Visits',
+                label: 'Busiest Hosts',
                 data: count,
                 backgroundColor: [
                     'rgba(255, 99, 132, 1)',
@@ -36,8 +36,19 @@ const BusiestHosts = () => {
         ]
     }
 
+    const options = {
+        legend: true,
+        title: {
+            display: true,
+            text: 'Busiest Hosts'
+        }
+    }
+
     return (
-        <Doughnut className='doughnut' data={data} />
+        <div className='doughnut'>
+            <p>Busiest Hosts</p>
+            <Doughnut  data={data} options={options} />
+        </div>
     )
 }
 
