@@ -11,7 +11,7 @@ const DailyStats = () => {
     })
 
     return (
-        <div>
+        <div className='dailyVisits-container'>
             <button onClick={handlePrint}>Export PDF</button>
             <div ref={componentRef} className='dailyStats'>
                 <SignedInVisitors />
