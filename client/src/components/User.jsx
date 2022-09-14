@@ -74,7 +74,7 @@ function User() {
 
   function renderTitle() {
     if (formStep > 3) {
-      // return undefined;
+      // return undefined
     } else {
       return <h1 className="">Your host has been notified... Kindly take a seat.</h1>;
     }
