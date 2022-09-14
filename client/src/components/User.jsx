@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import "../styles/User.scss";
 import Axios from "axios";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 function User() {
   const location = useLocation().state;
   const item = location ? JSON.parse(location) : "";
+  const history = useHistory()
+  const notify = (notification) => {
+    toast(notification, {position: "top-center",
+    autoClose: 3000})
+}
 
   const [employees, setEmployee] = useState([]);
   const [visitor_name, setVisitorName] = useState(() => (item.name ? item.name : ""));
@@ -24,8 +30,10 @@ function User() {
    
   const getId = (input) => {
     const info = input.split(' ');
+    // console.log(info)
     employees.forEach((item) => {
       if ((item.f_name === info[0] || item.l_name === info[1]) && item.department === info[info.length - 1]) {
+        // console.log(item.id)
         setHost_id(item.id)
       }
     })
@@ -46,7 +54,7 @@ function User() {
   useEffect(() => {
     Axios.get("/admin/employees").then((res) => {
       setEmployee(res.data);
-      console.log(res.data);
+      // console.log(res.data);
     });
   }, []);
 
@@ -57,7 +65,15 @@ function User() {
     Axios.post("/visitors", data)
       .then((res) => console.log("request sent"))
       .then(() => forward())
-      .catch((err) => console.error(err));
+      .then(() => {
+        setTimeout(() => {
+          history.push('/')
+        }, 3000)
+      })
+      .catch((err) => {
+        notify("Unsuccessful!")
+        console.error(err)
+      });
   }
 
   /* function for multipage form */
@@ -83,6 +99,7 @@ function User() {
 
   return (
     <div className="body">
+      <ToastContainer />
       <div className="arrows">
         <div className="arr left" onClick={backward}>
           <div></div>
