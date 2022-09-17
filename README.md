@@ -21,6 +21,9 @@ After visitors or users Sign-In or check-in his/her details they are sent an Ema
 * Keeps track of all meetings and respective visitor's details.
 * Emails and SMS notification to both visitor and Host.
 * Secure and Easy to ADD, DELETE or EDIT Employee profile.
+* There's a 15minutes logout if there is an inactivity
+* In addition once the admin logs in, the same login button that led to the admin login he/she will be able to by pass the login 
+  and go staright to the dashboard, this happens only if the admin is logged in already.
 
 ## Objective
 
