@@ -5,7 +5,6 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 import AuthService from './auth-service'
 
 function AdminLogin() {
@@ -81,7 +80,7 @@ function AdminLogin() {
               type="password"
               placeholder="Password"
               required
-              pattern="*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$"
+              pattern="*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,24}$"
             />
             <label>
               <RiLockPasswordFill />
