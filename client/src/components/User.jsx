@@ -55,7 +55,10 @@ function User() {
     Axios.get("/admin/employees").then((res) => {
       setEmployee(res.data);
       // console.log(res.data);
-    });
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }, []);
 
   function handleSubmit(event) {

@@ -7,7 +7,7 @@ const ProtectedRoute = ({ auth, component: Component, ...rest}) => {
         render={(props) => {
             if(auth) return <Component {...props} />
             if(!auth) 
-                return <Redirect to={{path: '/', state: {from: props.location}}} />
+                return <Redirect to={{path: '/adminlogin', state: {from: props.location}}} />
         }}/>
     )
 }

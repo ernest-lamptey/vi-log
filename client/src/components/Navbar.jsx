@@ -3,6 +3,7 @@ import "../styles/Navbar.scss";
 import { NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import { MdDashboard, MdOutlineQrCodeScanner } from "react-icons/md";
+import AuthService from "./auth-service"
 
 
 function Navbar() {
@@ -25,7 +26,7 @@ function Navbar() {
         </NavLink>
 
         <NavLink
-          to="/adminlogin"
+          to= {AuthService.getCurrentUser() ? "/dashboard" : "/adminlogin"}
           className="adminlogin"
           activeStyle={{ color: "orange" }}
         >
