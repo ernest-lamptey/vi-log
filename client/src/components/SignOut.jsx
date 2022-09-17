@@ -19,18 +19,24 @@ const SignOut = () => {
         const response = await axios.get('/admin/visits')
             .then((res) => res.data)
             .then((data) => data.filter((item) => item.sign_out === null))
-            .catch((err) => console.log(err))
+            .catch((err) => {
+                notify(err)
+                console.log(err)
+            })
         setVisitors(response)
     }
 
     const signOut = (id) => {
         console.log('called')
         axios.put('/visitors', {id})
-            .then((res) => notify("Signed Out Succesfully"))
+            .then((res) => notify("Signed Out Succesfully. Redirecting to home page"))
             .then((data) => setTimeout(() => 
                 {history.push('/')
             }, 3000))
-            .catch((err) => console.log(err))
+            .catch((err) => {
+                notify(err)
+                console.log(err)
+            })
     }
 
     const getId = (input) => {

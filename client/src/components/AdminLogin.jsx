@@ -17,8 +17,23 @@ function AdminLogin() {
     autoClose: 3000})
   }
 
+  const validateEmail = (email) => {
+      let re = /\S+@\S+\.\S+/;
+      return re.test(email);
+  }
+
   async function handleLogin(event) {
     event.preventDefault()
+    if (!validateEmail(email)) {
+      notify("Invalid email address")
+      return
+    }
+
+    if (password.length < 6){
+      notify("Password should be greater than 5 characters")
+      return
+    }
+
     try {
       const data = {email, password};
       await AuthService.login(data).then((res) => {
@@ -33,12 +48,23 @@ function AdminLogin() {
 
   async function handleSignUp(event) {
     event.preventDefault()
+    if (!validateEmail) {
+      notify("Invalid email address")
+      return
+    }
+
+    if (password.length < 6){
+      notify("Password should be greater than 5 characters")
+      return
+    }
+
     try {
       const data = {email, password};
       await AuthService.signup(data).then(() => {
         AuthService.getCurrentUser()
         history.push('/dashboard')
       }, (error) => {
+        notify(error.response.data)
         console.log(error)
       })
     } catch (error) {
@@ -63,8 +89,6 @@ function AdminLogin() {
               type="text"
               placeholder="Email address"
               required
-              pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-              title="Invalid email address"
             />
 
             <label>
@@ -80,7 +104,6 @@ function AdminLogin() {
               type="password"
               placeholder="Password"
               required
-              pattern="*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{6,24}$"
             />
             <label>
               <RiLockPasswordFill />

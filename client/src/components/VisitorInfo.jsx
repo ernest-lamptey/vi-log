@@ -10,7 +10,7 @@ function VisitorInfo() {
   const [employeeData, setEmployeeData] = useState([]);
 
   useEffect(() => {
-    Axios.get("/admin/employees").then((res) => { setEmployeeData(res.data)});
+    Axios.get("/admin/employees").then((res) => { setEmployeeData(res.data)}).catch((err) => console.log(err));
     Axios.get('/admin/visits').then((res) => {
     res.data.forEach((item) => {
       employeeData.forEach((employee) => {

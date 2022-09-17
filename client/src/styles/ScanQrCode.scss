@@ -2,7 +2,6 @@
 @import "./fonts";
 
 .scanqrcode {
-  
   color: $main-color;
   font-size: 30px;
   margin: 0px;
@@ -10,7 +9,7 @@
 }
 
 .qrmodule {
-  width: 400px;
+  max-width: 400px;
   border: 2px solid white;
   border-radius: 2.6rem;
 }
@@ -18,7 +17,7 @@
 .qr_result {
   font-family: $montserrat;
   border: 2px solid white;
-  width: 400px;
+  max-width: 400px;
   color: white;
   padding: 1rem;
   margin-top: 1rem;
@@ -27,14 +26,13 @@
 }
 
 .camera {
-
-    height: 100vh;
-     background: linear-gradient(rgba(12, 12, 12, 0.7), rgba(8, 8, 8, 0.7));
+  height: 100vh;
+  background: linear-gradient(rgba(12, 12, 12, 0.7), rgba(8, 8, 8, 0.7));
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  padding-left: 3rem;
+  padding-left: 2vw;
   padding-top: 3rem;
 }
