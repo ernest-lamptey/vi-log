@@ -13,7 +13,7 @@ const Reports = () => {
     }
     
     const getEmployees = async () => {
-        const response = await axios.get('/admin/employees').then((res) => res.data)
+        const response = await axios.get('/admin/employees').then((res) => res.data).catch((err) => console.log(err))
             setEmployees(response)
     }
 
@@ -21,6 +21,7 @@ const Reports = () => {
         getVisits()
         getEmployees()
     }, [])
+    
     return (
         <div className='reports'>
             <div></div>

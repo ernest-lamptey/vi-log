@@ -51,8 +51,7 @@ const visitorNotificationMessage = (receiver_name) => {
 
     Kindly use the QR code on your next visit to sign in faster.
 
-    Best regards,
-    Vilog Team
+    Regards,
 `
 }
 
