@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/Dashboard.scss";
 import { BrowserRouter as Router, Route, Switch, useRouteMatch, NavLink } from "react-router-dom";
 import Reports from "./Reports"
@@ -17,6 +17,12 @@ function Dashboard() {
     AuthService.logout()
     history.push('/adminlogin')
   }
+
+  useEffect(() => {
+    setTimeout(() => {
+      AuthService.logout()
+    }, 900000) //logout after 15mins
+  }, [])
 
   return (
     <Router>
