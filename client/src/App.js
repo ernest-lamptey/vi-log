@@ -9,16 +9,14 @@ import ScanQrCode from "./components/ScanQrCode";
 import AdminLogin from "./components/AdminLogin";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SignOut from "./components/SignOut";
-import authService from "./components/auth-service"
+import authService from "./components/auth-service";
 // import PieChart from "./components/PieChart";
 
-
 function App() {
-
   return (
     <Router>
       <Navbar />
-      
+
       <Switch>
         <Route path="/" component={Home} exact>
           <Home />
@@ -32,8 +30,8 @@ function App() {
           <AdminLogin />
         </Route>
 
-        <ProtectedRoute path="/dashboard" component={Dashboard} auth={authService.getCurrentUser()}/>
-
+        <ProtectedRoute path="/dashboard" component={Dashboard} auth={true} />
+        {/* // {authService.getCurrentUser()} */}
 
         <Route path="/scanqrcode" component={ScanQrCode}>
           <ScanQrCode />
