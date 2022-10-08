@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.36be34df.css",
+    "main.js": "/static/js/main.2f967742.js",
+    "static/media/office-entrance.jpg": "/static/media/office-entrance.74b3e63f48b41a23e266.jpg",
+    "index.html": "/index.html",
+    "main.36be34df.css.map": "/static/css/main.36be34df.css.map",
+    "main.2f967742.js.map": "/static/js/main.2f967742.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36be34df.css",
+    "static/js/main.2f967742.js"
+  ]
+}

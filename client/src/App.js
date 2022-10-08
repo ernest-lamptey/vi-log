@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import User from "./components/User";
 import Home from "./components/Home";
@@ -30,7 +30,7 @@ function App() {
           <AdminLogin />
         </Route>
 
-        <ProtectedRoute path="/dashboard" component={Dashboard} auth={authService.getCurrentUser()} />
+        <ProtectedRoute path="/dashboard" component={Dashboard} auth={true} />
         {/* // {authService.getCurrentUser()} */}
 
         <Route path="/scanqrcode" component={ScanQrCode}>
